@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "workspaces": {
-    "packages":  [
+    "packages": [
       "packages/*"
     ],
     "nohoist": [
@@ -41,8 +41,11 @@
     "lint-staged": "^11.2.3",
     "microbundle": "^0.13.3",
     "mongoose": "^5.10.15",
+    "openapi-typescript": "^5.2.0",
+    "orval": "^6.6.4",
     "pg-god": "^1.0.11",
     "prettier": "^2.1.1",
+    "qs": "^6.10.3",
     "resolve-cwd": "^3.0.0",
     "ts-jest": "^26.5.6",
     "typeorm": "^0.2.31"
@@ -62,7 +65,9 @@
     "test": "jest",
     "prettier": "prettier",
     "test:integration": "jest --config=integration-tests/jest.config.js",
-    "test:fixtures": "jest --config=docs-util/jest.config.js --runInBand"
+    "test:fixtures": "jest --config=docs-util/jest.config.js --runInBand",
+    "generate-types:store": "openapi-typescript ./docs/api/store-spec3.yaml --output ./generated/store.ts",
+    "generate-types:admin": "openapi-typescript ./docs/api/admin-spec3.yaml --output ./generated/admin.ts"
   },
   "dependencies": {
     "global": "^4.4.0",

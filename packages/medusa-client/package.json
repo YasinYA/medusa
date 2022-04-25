@@ -1,0 +1,24 @@
+{
+  "name": "orval",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./dist/src/playground.js",
+    "build": "tsc --build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^6.1.2",
+    "axios": "^0.26.1",
+    "orval": "^6.7.1",
+    "pluralize": "^8.0.0",
+    "snake-case": "^3.0.4",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "retry-axios": "^2.6.0"
+  }
+}
