@@ -5,7 +5,6 @@
  * OpenAPI spec version: 1.0.0
  */
 
-// @ts-nocheck
 export type PostUploadsBody = {
   files?: Blob[]
 }
