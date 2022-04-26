@@ -7,11 +7,11 @@
 
 export type PostUsersUserBody = {
   /** The name of the User. */
-  first_name: string;
+  first_name: string
   /** The name of the User. */
-  last_name: string;
+  last_name: string
   /** The role of the User(admin, member, developer). */
-  role: string;
+  role: string
   /** The api_token of the User. */
-  api_token: string;
-};
+  api_token: string
+}

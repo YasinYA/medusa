@@ -4,36 +4,41 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import {
-  rest
-} from 'msw'
-import {
-  faker
-} from '@faker-js/faker'
+import { rest } from "msw"
+import { faker } from "@faker-js/faker"
 
-export const getGetOrdersOrderCartIdMock = () => ({order: faker.helpers.randomize([{}, undefined])})
+export const getGetOrdersOrderCartIdMock = () => ({
+  order: faker.helpers.randomize([{}, undefined]),
+})
 
-export const getGetOrdersOrderMock = () => ({customer: faker.helpers.randomize([{}, undefined])})
+export const getGetOrdersOrderMock = () => ({
+  customer: faker.helpers.randomize([{}, undefined]),
+})
 
-export const getGetOrdersMock = () => ({order: faker.helpers.randomize([{}, undefined])})
+export const getGetOrdersMock = () => ({
+  order: faker.helpers.randomize([{}, undefined]),
+})
 
 export const getOrderMSW = () => [
-rest.get('*/orders/cart/:cartid', (_req, res, ctx) => {
-        return res(
-          ctx.delay(1000),
-          ctx.status(200, 'Mocked status'),
-ctx.json(getGetOrdersOrderCartIdMock()),
-        )
-      }),rest.get('*/orders/:id', (_req, res, ctx) => {
-        return res(
-          ctx.delay(1000),
-          ctx.status(200, 'Mocked status'),
-ctx.json(getGetOrdersOrderMock()),
-        )
-      }),rest.get('*/orders', (_req, res, ctx) => {
-        return res(
-          ctx.delay(1000),
-          ctx.status(200, 'Mocked status'),
-ctx.json(getGetOrdersMock()),
-        )
-      }),]
+  rest.get("*/orders/cart/:cartid", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetOrdersOrderCartIdMock())
+    )
+  }),
+  rest.get("*/orders/:id", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetOrdersOrderMock())
+    )
+  }),
+  rest.get("*/orders", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetOrdersMock())
+    )
+  }),
+]

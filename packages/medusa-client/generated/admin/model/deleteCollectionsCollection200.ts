@@ -7,8 +7,8 @@
 
 export type DeleteCollectionsCollection200 = {
   /** The id of the deleted Collection */
-  id?: string;
+  id?: string
   /** The type of the object that was deleted. */
-  object?: string;
-  deleted?: boolean;
-};
+  object?: string
+  deleted?: boolean
+}

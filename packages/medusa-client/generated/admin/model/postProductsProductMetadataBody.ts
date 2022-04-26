@@ -7,7 +7,7 @@
 
 export type PostProductsProductMetadataBody = {
   /** The metadata key */
-  key: string;
+  key: string
   /** The metadata value */
-  value: string;
-};
+  value: string
+}

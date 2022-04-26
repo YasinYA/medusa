@@ -7,5 +7,5 @@
 
 export type PostProductsProductBodyVariantsItemOptionsItem = {
   /** The value to give for the Product Option at the same index in the Product's `options` field. */
-  value?: string;
-};
+  value?: string
+}

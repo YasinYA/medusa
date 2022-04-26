@@ -8,4 +8,4 @@
 /**
  * The data required for the Payment Provider to identify, modify and process the Payment Session. Typically this will be an object that holds an id to the external payment session, but can be an empty object if the Payment Provider doesn't hold any state.
  */
-export type PaymentSessionData = { [key: string]: any };
+export type PaymentSessionData = { [key: string]: any }

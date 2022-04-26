@@ -8,7 +8,7 @@ import type {
   GetCollectionsCollection200,
   GetCollections200,
   GetCollectionsParams,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

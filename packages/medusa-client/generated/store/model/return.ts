@@ -4,41 +4,41 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { ReturnStatus } from './returnStatus';
-import type { ShippingMethod } from './shippingMethod';
-import type { ReturnShippingData } from './returnShippingData';
-import type { ReturnMetadata } from './returnMetadata';
+import type { ReturnStatus } from "./returnStatus"
+import type { ShippingMethod } from "./shippingMethod"
+import type { ReturnShippingData } from "./returnShippingData"
+import type { ReturnMetadata } from "./returnMetadata"
 
 /**
  * Return orders hold information about Line Items that a Customer wishes to send back, along with how the items will be returned. Returns can be used as part of a Swap.
  */
 export interface Return {
   /** The id of the Return. This value will be prefixed with `ret_`. */
-  id?: string;
+  id?: string
   /** Status of the Return. */
-  status?: ReturnStatus;
-  /** The Return Items that will be shipped back to the warehouse. type: array items: $ref: */
-  items?: unknown;
+  status?: ReturnStatus
+  /** The Return Items that will be shipped back to the warehouse. type: array items: $ref:  */
+  items?: unknown
   /** The id of the Swap that the Return is a part of. */
-  swap_id?: string;
+  swap_id?: string
   /** The id of the Order that the Return is made from. */
-  order_id?: string;
+  order_id?: string
   /** The id of the Claim that the Return is a part of. */
-  claim_order_id?: string;
+  claim_order_id?: string
   /** The Shipping Method that will be used to send the Return back. Can be null if the Customer facilitates the return shipment themselves. */
-  shipping_method?: ShippingMethod;
+  shipping_method?: ShippingMethod
   /** Data about the return shipment as provided by the Fulfilment Provider that handles the return shipment. */
-  shipping_data?: ReturnShippingData;
+  shipping_data?: ReturnShippingData
   /** The amount that should be refunded as a result of the return. */
-  refund_amount?: number;
+  refund_amount?: number
   /** The date with timezone at which the return was received. */
-  received_at?: string;
+  received_at?: string
   /** The date with timezone at which the resource was created. */
-  created_at?: string;
+  created_at?: string
   /** The date with timezone at which the resource was last updated. */
-  updated_at?: string;
+  updated_at?: string
   /** When set to true, no notification will be sent related to this return. */
-  no_notification?: boolean;
+  no_notification?: boolean
   /** An optional key-value map with additional information. */
-  metadata?: ReturnMetadata;
+  metadata?: ReturnMetadata
 }

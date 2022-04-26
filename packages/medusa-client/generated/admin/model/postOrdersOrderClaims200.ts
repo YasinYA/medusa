@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Order } from './order';
+import type { Order } from "./order"
 
 export type PostOrdersOrderClaims200 = {
-  order?: Order;
-};
+  order?: Order
+}

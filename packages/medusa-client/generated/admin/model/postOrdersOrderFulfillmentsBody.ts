@@ -4,14 +4,14 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostOrdersOrderFulfillmentsBodyItemsItem } from './postOrdersOrderFulfillmentsBodyItemsItem';
-import type { PostOrdersOrderFulfillmentsBodyMetadata } from './postOrdersOrderFulfillmentsBodyMetadata';
+import type { PostOrdersOrderFulfillmentsBodyItemsItem } from "./postOrdersOrderFulfillmentsBodyItemsItem"
+import type { PostOrdersOrderFulfillmentsBodyMetadata } from "./postOrdersOrderFulfillmentsBodyMetadata"
 
 export type PostOrdersOrderFulfillmentsBody = {
   /** The Line Items to include in the Fulfillment. */
-  items: PostOrdersOrderFulfillmentsBodyItemsItem[];
+  items: PostOrdersOrderFulfillmentsBodyItemsItem[]
   /** If set to true no notification will be send related to this Swap. */
-  no_notification?: boolean;
+  no_notification?: boolean
   /** An optional set of key-value pairs to hold additional information. */
-  metadata?: PostOrdersOrderFulfillmentsBodyMetadata;
-};
+  metadata?: PostOrdersOrderFulfillmentsBodyMetadata
+}

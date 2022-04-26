@@ -4,20 +4,20 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { Country } from './country';
+import type { Country } from "./country"
 
 /**
  * An address.
  */
 export interface Address {
-  id?: string;
-  customer_id?: string;
-  company?: string;
-  first_name?: string;
-  last_name?: string;
-  address_1?: string;
-  address_2?: string;
-  city?: string;
-  country_code?: string;
-  country?: Country;
+  id?: string
+  customer_id?: string
+  company?: string
+  first_name?: string
+  last_name?: string
+  address_1?: string
+  address_2?: string
+  city?: string
+  country_code?: string
+  country?: Country
 }

@@ -4,8 +4,8 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { Return } from './return';
+import type { Return } from "./return"
 
 export type PostReturns200 = {
-  return?: Return;
-};
+  return?: Return
+}

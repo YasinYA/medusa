@@ -8,4 +8,4 @@
 /**
  * An optional key-value map with additional information.
  */
-export type ShippingOptionMetadata = { [key: string]: any };
+export type ShippingOptionMetadata = { [key: string]: any }

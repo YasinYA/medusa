@@ -4,32 +4,32 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Address } from './address';
-import type { LineItem } from './lineItem';
-import type { PostOrdersBodyPaymentMethod } from './postOrdersBodyPaymentMethod';
-import type { PostOrdersBodyShippingMethod } from './postOrdersBodyShippingMethod';
+import type { Address } from "./address"
+import type { LineItem } from "./lineItem"
+import type { PostOrdersBodyPaymentMethod } from "./postOrdersBodyPaymentMethod"
+import type { PostOrdersBodyShippingMethod } from "./postOrdersBodyShippingMethod"
 
 export type PostOrdersBody = {
   /** status of the order */
-  status?: string;
+  status?: string
   /** the email for the order */
-  email: string;
+  email: string
   /** Billing address */
-  billing_address: Address;
+  billing_address: Address
   /** Shipping address */
-  shipping_address: Address;
+  shipping_address: Address
   /** The Line Items for the order */
-  items: LineItem[];
+  items: LineItem[]
   /** Region where the order belongs */
-  region: string;
+  region: string
   /** Discounts applied to the order */
-  discounts?: LineItem[];
+  discounts?: LineItem[]
   /** id of the customer */
-  customer_id: string;
+  customer_id: string
   /** payment method chosen for the order */
-  payment_method: PostOrdersBodyPaymentMethod;
+  payment_method: PostOrdersBodyPaymentMethod
   /** The Shipping Method used for shipping the order. */
-  shipping_method: PostOrdersBodyShippingMethod;
+  shipping_method: PostOrdersBodyShippingMethod
   /** A flag to indicate if no notifications should be emitted related to the updated order. */
-  no_notification?: boolean;
-};
+  no_notification?: boolean
+}

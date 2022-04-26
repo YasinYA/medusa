@@ -12,7 +12,7 @@ import type {
   PostStoreBody,
   GetStorePaymentProviders200,
   GetStoreTaxProviders200,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

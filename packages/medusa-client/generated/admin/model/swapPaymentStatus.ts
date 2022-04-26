@@ -8,15 +8,20 @@
 /**
  * The status of the Payment of the Swap. The payment may either refer to the refund of an amount or the authorization of a new amount.
  */
-export type SwapPaymentStatus = 'not_paid' | 'awaiting' | 'captured' | 'canceled' | 'difference_refunded' | 'requires_action';
-
+export type SwapPaymentStatus =
+  | "not_paid"
+  | "awaiting"
+  | "captured"
+  | "canceled"
+  | "difference_refunded"
+  | "requires_action"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SwapPaymentStatus = {
-  not_paid: 'not_paid' as SwapPaymentStatus,
-  awaiting: 'awaiting' as SwapPaymentStatus,
-  captured: 'captured' as SwapPaymentStatus,
-  canceled: 'canceled' as SwapPaymentStatus,
-  difference_refunded: 'difference_refunded' as SwapPaymentStatus,
-  requires_action: 'requires_action' as SwapPaymentStatus,
-};
+  not_paid: "not_paid" as SwapPaymentStatus,
+  awaiting: "awaiting" as SwapPaymentStatus,
+  captured: "captured" as SwapPaymentStatus,
+  canceled: "canceled" as SwapPaymentStatus,
+  difference_refunded: "difference_refunded" as SwapPaymentStatus,
+  requires_action: "requires_action" as SwapPaymentStatus,
+}

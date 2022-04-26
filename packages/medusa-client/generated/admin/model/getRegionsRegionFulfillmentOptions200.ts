@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { GetRegionsRegionFulfillmentOptions200FulfillmentOptionsItem } from './getRegionsRegionFulfillmentOptions200FulfillmentOptionsItem';
+import type { GetRegionsRegionFulfillmentOptions200FulfillmentOptionsItem } from "./getRegionsRegionFulfillmentOptions200FulfillmentOptionsItem"
 
 export type GetRegionsRegionFulfillmentOptions200 = {
-  fulfillment_options?: GetRegionsRegionFulfillmentOptions200FulfillmentOptionsItem[];
-};
+  fulfillment_options?: GetRegionsRegionFulfillmentOptions200FulfillmentOptionsItem[]
+}

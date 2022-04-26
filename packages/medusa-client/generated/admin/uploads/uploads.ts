@@ -4,7 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostUploads200, PostUploadsBody } from "../model"
+//@ts-nocheck
+import type { PostUploads200, PostUploadsBody } from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

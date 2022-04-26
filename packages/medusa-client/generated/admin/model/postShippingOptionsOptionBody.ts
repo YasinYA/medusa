@@ -4,18 +4,18 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostShippingOptionsOptionBodyMetadata } from './postShippingOptionsOptionBodyMetadata';
-import type { PostShippingOptionsOptionBodyRequirementsItem } from './postShippingOptionsOptionBodyRequirementsItem';
+import type { PostShippingOptionsOptionBodyMetadata } from "./postShippingOptionsOptionBodyMetadata"
+import type { PostShippingOptionsOptionBodyRequirementsItem } from "./postShippingOptionsOptionBodyRequirementsItem"
 
 export type PostShippingOptionsOptionBody = {
   /** The name of the Shipping Option */
-  name?: string;
+  name?: string
   /** The amount to charge for the Shipping Option. */
-  amount?: number;
+  amount?: number
   /** If true, the option can be used for draft orders */
-  admin_only?: boolean;
+  admin_only?: boolean
   /** An optional set of key-value pairs with additional information. */
-  metadata?: PostShippingOptionsOptionBodyMetadata;
+  metadata?: PostShippingOptionsOptionBodyMetadata
   /** The requirements that must be satisfied for the Shipping Option to be available. */
-  requirements?: PostShippingOptionsOptionBodyRequirementsItem[];
-};
+  requirements?: PostShippingOptionsOptionBodyRequirementsItem[]
+}

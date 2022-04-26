@@ -4,7 +4,7 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostReturns200, PostReturnsBody } from "../model"
+import type { PostReturns200, PostReturnsBody } from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

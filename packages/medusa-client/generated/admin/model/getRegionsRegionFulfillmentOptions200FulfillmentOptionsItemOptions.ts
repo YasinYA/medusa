@@ -8,4 +8,5 @@
 /**
  * fulfillment provider options
  */
-export type GetRegionsRegionFulfillmentOptions200FulfillmentOptionsItemOptions = { [key: string]: any };
+export type GetRegionsRegionFulfillmentOptions200FulfillmentOptionsItemOptions =
+  { [key: string]: any }

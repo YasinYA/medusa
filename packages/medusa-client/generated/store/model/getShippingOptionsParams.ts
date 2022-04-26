@@ -5,4 +5,8 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetShippingOptionsParams = { is_return?: boolean; product_ids?: string; region_id?: string };
+export type GetShippingOptionsParams = {
+  is_return?: boolean
+  product_ids?: string
+  region_id?: string
+}

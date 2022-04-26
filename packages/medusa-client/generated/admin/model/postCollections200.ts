@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { ProductCollection } from './productCollection';
+import type { ProductCollection } from "./productCollection"
 
 export type PostCollections200 = {
-  collection?: ProductCollection;
-};
+  collection?: ProductCollection
+}

@@ -7,11 +7,11 @@
 
 export type PostOrdersOrderRefundsBody = {
   /** The amount to refund. */
-  amount: number;
+  amount: number
   /** The reason for the Refund. */
-  reason: string;
+  reason: string
   /** A not with additional details about the Refund. */
-  note?: string;
+  note?: string
   /** If set to true no notification will be send related to this Refund. */
-  no_notification?: boolean;
-};
+  no_notification?: boolean
+}

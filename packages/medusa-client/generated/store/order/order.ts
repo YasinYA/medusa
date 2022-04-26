@@ -9,7 +9,7 @@ import type {
   GetOrdersOrder200,
   GetOrders200,
   GetOrdersParams,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

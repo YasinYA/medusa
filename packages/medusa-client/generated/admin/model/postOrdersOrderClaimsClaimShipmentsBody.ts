@@ -7,7 +7,7 @@
 
 export type PostOrdersOrderClaimsClaimShipmentsBody = {
   /** The id of the Fulfillment. */
-  fulfillment_id: string;
+  fulfillment_id: string
   /** The tracking numbers for the shipment. */
-  tracking_numbers?: string[];
-};
+  tracking_numbers?: string[]
+}

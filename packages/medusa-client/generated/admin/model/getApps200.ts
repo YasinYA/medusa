@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { OAuth } from './oAuth';
+import type { OAuth } from "./oAuth"
 
 export type GetApps200 = {
-  collection?: OAuth;
-};
+  collection?: OAuth
+}

@@ -5,12 +5,11 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type ClaimOrderPaymentStatus = 'na' | 'not_refunded' | 'refunded';
-
+export type ClaimOrderPaymentStatus = "na" | "not_refunded" | "refunded"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClaimOrderPaymentStatus = {
-  na: 'na' as ClaimOrderPaymentStatus,
-  not_refunded: 'not_refunded' as ClaimOrderPaymentStatus,
-  refunded: 'refunded' as ClaimOrderPaymentStatus,
-};
+  na: "na" as ClaimOrderPaymentStatus,
+  not_refunded: "not_refunded" as ClaimOrderPaymentStatus,
+  refunded: "refunded" as ClaimOrderPaymentStatus,
+}

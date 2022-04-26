@@ -8,14 +8,18 @@
 /**
  * Indicates the status of the Payment Session. Will default to `pending`, and will eventually become `authorized`. Payment Sessions may have the status of `requires_more` to indicate that further actions are to be completed by the Customer.
  */
-export type PaymentSessionStatus = 'authorized' | 'pending' | 'requires_more' | 'error' | 'canceled';
-
+export type PaymentSessionStatus =
+  | "authorized"
+  | "pending"
+  | "requires_more"
+  | "error"
+  | "canceled"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PaymentSessionStatus = {
-  authorized: 'authorized' as PaymentSessionStatus,
-  pending: 'pending' as PaymentSessionStatus,
-  requires_more: 'requires_more' as PaymentSessionStatus,
-  error: 'error' as PaymentSessionStatus,
-  canceled: 'canceled' as PaymentSessionStatus,
-};
+  authorized: "authorized" as PaymentSessionStatus,
+  pending: "pending" as PaymentSessionStatus,
+  requires_more: "requires_more" as PaymentSessionStatus,
+  error: "error" as PaymentSessionStatus,
+  canceled: "canceled" as PaymentSessionStatus,
+}

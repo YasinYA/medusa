@@ -4,33 +4,33 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Address } from './address';
-import type { PostDraftOrdersBodyItemsItem } from './postDraftOrdersBodyItemsItem';
-import type { PostDraftOrdersBodyDiscountsItem } from './postDraftOrdersBodyDiscountsItem';
-import type { PostDraftOrdersBodyShippingMethodsItem } from './postDraftOrdersBodyShippingMethodsItem';
-import type { PostDraftOrdersBodyMetadata } from './postDraftOrdersBodyMetadata';
+import type { Address } from "./address"
+import type { PostDraftOrdersBodyItemsItem } from "./postDraftOrdersBodyItemsItem"
+import type { PostDraftOrdersBodyDiscountsItem } from "./postDraftOrdersBodyDiscountsItem"
+import type { PostDraftOrdersBodyShippingMethodsItem } from "./postDraftOrdersBodyShippingMethodsItem"
+import type { PostDraftOrdersBodyMetadata } from "./postDraftOrdersBodyMetadata"
 
 export type PostDraftOrdersBody = {
   /** The status of the draft order */
-  status?: string;
+  status?: string
   /** The email of the customer of the draft order */
-  email: string;
+  email: string
   /** The Address to be used for billing purposes. */
-  billing_address?: Address;
+  billing_address?: Address
   /** The Address to be used for shipping. */
-  shipping_address?: Address;
+  shipping_address?: Address
   /** The Line Items that have been received. */
-  items: PostDraftOrdersBodyItemsItem[];
+  items: PostDraftOrdersBodyItemsItem[]
   /** The id of the region for the draft order */
-  region_id: string;
+  region_id: string
   /** The discounts to add on the draft order */
-  discounts?: PostDraftOrdersBodyDiscountsItem[];
+  discounts?: PostDraftOrdersBodyDiscountsItem[]
   /** The id of the customer to add on the draft order */
-  customer_id?: string;
+  customer_id?: string
   /** An optional flag passed to the resulting order to determine use of notifications. */
-  no_notification_order?: boolean;
+  no_notification_order?: boolean
   /** The shipping methods for the draft order */
-  shipping_methods: PostDraftOrdersBodyShippingMethodsItem[];
+  shipping_methods: PostDraftOrdersBodyShippingMethodsItem[]
   /** The optional key-value map with additional details about the Draft Order. */
-  metadata?: PostDraftOrdersBodyMetadata;
-};
+  metadata?: PostDraftOrdersBodyMetadata
+}

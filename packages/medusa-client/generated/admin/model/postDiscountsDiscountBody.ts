@@ -4,24 +4,24 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { DiscountRule } from './discountRule';
-import type { PostDiscountsDiscountBodyMetadata } from './postDiscountsDiscountBodyMetadata';
+import type { DiscountRule } from "./discountRule"
+import type { PostDiscountsDiscountBodyMetadata } from "./postDiscountsDiscountBodyMetadata"
 
 export type PostDiscountsDiscountBody = {
   /** A unique code that will be used to redeem the Discount */
-  code?: string;
+  code?: string
   /** Whether the Discount should have multiple instances of itself, each with a different code. This can be useful for automatically generated codes that all have to follow a common set of rules. */
-  is_dynamic?: string;
+  is_dynamic?: string
   /** The Discount Rule that defines how Discounts are calculated */
-  rule?: DiscountRule;
+  rule?: DiscountRule
   /** Whether the Discount code is disabled on creation. You will have to enable it later to make it available to Customers. */
-  is_disabled?: boolean;
+  is_disabled?: boolean
   /** The time at which the Discount should be available. */
-  starts_at?: string;
+  starts_at?: string
   /** The time at which the Discount should no longer be available. */
-  ends_at?: string;
+  ends_at?: string
   /** A list of Region ids representing the Regions in which the Discount can be used. */
-  regions?: string[];
+  regions?: string[]
   /** An object containing metadata of the discount */
-  metadata?: PostDiscountsDiscountBodyMetadata;
-};
+  metadata?: PostDiscountsDiscountBodyMetadata
+}

@@ -8,4 +8,4 @@
 /**
  * Metadata for the customer.
  */
-export type PostCustomersBodyMetadata = { [key: string]: any };
+export type PostCustomersBodyMetadata = { [key: string]: any }

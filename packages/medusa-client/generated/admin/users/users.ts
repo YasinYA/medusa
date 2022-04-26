@@ -14,7 +14,7 @@ import type {
   GetUsersUser200,
   PostUsersUserPassword200,
   PostUsersUserPasswordBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

@@ -21,7 +21,7 @@ import type {
   PostDiscountsDiscountBody,
   DeleteDiscountsDiscountDynamicCodesCode200,
   GetDiscountsDiscountCode200,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

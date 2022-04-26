@@ -21,7 +21,7 @@ import type {
   PostCustomersCustomerPasswordTokenBody,
   PostCustomersResetPassword200,
   PostCustomersResetPasswordBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

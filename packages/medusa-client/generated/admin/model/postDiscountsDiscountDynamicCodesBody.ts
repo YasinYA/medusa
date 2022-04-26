@@ -4,11 +4,11 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostDiscountsDiscountDynamicCodesBodyMetadata } from './postDiscountsDiscountDynamicCodesBodyMetadata';
+import type { PostDiscountsDiscountDynamicCodesBodyMetadata } from "./postDiscountsDiscountDynamicCodesBodyMetadata"
 
 export type PostDiscountsDiscountDynamicCodesBody = {
   /** The unique code that will be used to redeem the Discount. */
-  code: string;
+  code: string
   /** An optional set of key-value paris to hold additional information. */
-  metadata?: PostDiscountsDiscountDynamicCodesBodyMetadata;
-};
+  metadata?: PostDiscountsDiscountDynamicCodesBodyMetadata
+}

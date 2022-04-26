@@ -4,28 +4,30 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import {
-  rest
-} from 'msw'
-import {
-  faker
-} from '@faker-js/faker'
+import { rest } from "msw"
+import { faker } from "@faker-js/faker"
 
-export const getPostSwapsMock = () => ({swap: faker.helpers.randomize([{}, undefined])})
+export const getPostSwapsMock = () => ({
+  swap: faker.helpers.randomize([{}, undefined]),
+})
 
-export const getGetSwapsSwapCartIdMock = () => ({swap: faker.helpers.randomize([{}, undefined])})
+export const getGetSwapsSwapCartIdMock = () => ({
+  swap: faker.helpers.randomize([{}, undefined]),
+})
 
 export const getSwapMSW = () => [
-rest.post('*/swaps', (_req, res, ctx) => {
-        return res(
-          ctx.delay(1000),
-          ctx.status(200, 'Mocked status'),
-ctx.json(getPostSwapsMock()),
-        )
-      }),rest.get('*/swaps/:cartid', (_req, res, ctx) => {
-        return res(
-          ctx.delay(1000),
-          ctx.status(200, 'Mocked status'),
-ctx.json(getGetSwapsSwapCartIdMock()),
-        )
-      }),]
+  rest.post("*/swaps", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getPostSwapsMock())
+    )
+  }),
+  rest.get("*/swaps/:cartid", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetSwapsSwapCartIdMock())
+    )
+  }),
+]

@@ -23,7 +23,9 @@ export interface Config {
 export type RequestMethod = "DELETE" | "POST" | "GET"
 
 export interface Client {
-  request: (config: any) => Promise<any>
+  request: <RequestType, ResponseType>(
+    config: RequestType
+  ) => Promise<ResponseType>
 }
 class AxiosClient implements Client {
   private instance: AxiosInstance

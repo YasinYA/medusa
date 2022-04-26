@@ -4,14 +4,14 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostReturnsBodyItemsItem } from './postReturnsBodyItemsItem';
-import type { PostReturnsBodyReturnShipping } from './postReturnsBodyReturnShipping';
+import type { PostReturnsBodyItemsItem } from "./postReturnsBodyItemsItem"
+import type { PostReturnsBodyReturnShipping } from "./postReturnsBodyReturnShipping"
 
 export type PostReturnsBody = {
   /** The id of the Order to create the Return from. */
-  order_id: string;
+  order_id: string
   /** The items to include in the Return. */
-  items: PostReturnsBodyItemsItem[];
+  items: PostReturnsBodyItemsItem[]
   /** If the Return is to be handled by the store operator the Customer can choose a Return Shipping Method. Alternatvely the Customer can handle the Return themselves. */
-  return_shipping?: PostReturnsBodyReturnShipping;
-};
+  return_shipping?: PostReturnsBodyReturnShipping
+}

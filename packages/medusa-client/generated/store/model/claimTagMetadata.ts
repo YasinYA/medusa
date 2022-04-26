@@ -8,4 +8,4 @@
 /**
  * An optional key-value map with additional information.
  */
-export type ClaimTagMetadata = { [key: string]: any };
+export type ClaimTagMetadata = { [key: string]: any }

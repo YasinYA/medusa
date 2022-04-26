@@ -7,9 +7,9 @@
 
 export type PostUsersUserPasswordBody = {
   /** The Users email. */
-  email: string;
+  email: string
   /** The token generated from the 'password-token' endpoint. */
-  token: string;
+  token: string
   /** The Users new password. */
-  password: string;
-};
+  password: string
+}

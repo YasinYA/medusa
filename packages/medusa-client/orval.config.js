@@ -10,6 +10,7 @@ module.exports = {
           name: "getClient",
         },
       },
+      prettier: true,
       mock: true,
     },
     input: {
@@ -30,6 +31,7 @@ module.exports = {
           name: "getClient",
         },
       },
+      prettier: true,
       mock: true,
     },
     input: {

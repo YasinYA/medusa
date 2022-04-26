@@ -9,7 +9,7 @@ import type {
   GetNotificationsParams,
   PostNotificationsNotificationResend200,
   PostNotificationsNotificationResendBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

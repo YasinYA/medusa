@@ -7,5 +7,5 @@
 
 export type PostRegionsRegionFulfillmentProvidersBody = {
   /** The id of the Fulfillment Provider to add. */
-  provider_id: string;
-};
+  provider_id: string
+}

@@ -8,7 +8,7 @@ import type {
   GetShippingOptions200,
   GetShippingOptionsParams,
   GetShippingOptionsCartId200,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

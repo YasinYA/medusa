@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { DraftOrder } from './draftOrder';
+import type { DraftOrder } from "./draftOrder"
 
 export type PostDraftOrdersDraftOrderLineItemsItem200 = {
-  draft_order?: DraftOrder;
-};
+  draft_order?: DraftOrder
+}

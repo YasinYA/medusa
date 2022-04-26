@@ -7,7 +7,7 @@
 
 export type PostCartBodyItemsItem = {
   /** The id of the Product Variant to generate a Line Item from. */
-  variant_id?: string;
+  variant_id?: string
   /** The quantity of the Product Variant to add */
-  quantity?: number;
-};
+  quantity?: number
+}

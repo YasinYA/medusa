@@ -4,17 +4,17 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { ClaimImageMetadata } from './claimImageMetadata';
+import type { ClaimImageMetadata } from "./claimImageMetadata"
 
 /**
  * Represents photo documentation of a claim.
  */
 export interface ClaimImage {
-  id?: string;
-  claim_item_id?: string;
-  url?: string;
-  created_at?: string;
-  updated_at?: string;
-  deleted_at?: string;
-  metadata?: ClaimImageMetadata;
+  id?: string
+  claim_item_id?: string
+  url?: string
+  created_at?: string
+  updated_at?: string
+  deleted_at?: string
+  metadata?: ClaimImageMetadata
 }

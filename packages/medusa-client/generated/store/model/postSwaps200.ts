@@ -4,8 +4,8 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { Swap } from './swap';
+import type { Swap } from "./swap"
 
 export type PostSwaps200 = {
-  swap?: Swap;
-};
+  swap?: Swap
+}

@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { ShippingOption } from './shippingOption';
+import type { ShippingOption } from "./shippingOption"
 
 export type GetShippingOptionsOption200 = {
-  shipping_option?: ShippingOption;
-};
+  shipping_option?: ShippingOption
+}

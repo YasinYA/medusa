@@ -10,15 +10,15 @@
  */
 export interface Country {
   /** The database id of the country */
-  id?: number;
+  id?: number
   /** The 2 character ISO code for the country. */
-  iso_2?: string;
+  iso_2?: string
   /** The 3 character ISO code for the country. */
-  iso_3?: string;
+  iso_3?: string
   /** The numerical ISO code for the country. */
-  num_code?: string;
+  num_code?: string
   /** The normalized country name; in upper case. */
-  name?: string;
+  name?: string
   /** The country name appropriate for display. */
-  display_name?: string;
+  display_name?: string
 }

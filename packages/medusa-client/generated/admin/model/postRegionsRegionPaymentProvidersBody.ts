@@ -7,5 +7,5 @@
 
 export type PostRegionsRegionPaymentProvidersBody = {
   /** The id of the Payment Provider to add. */
-  provider_id: string;
-};
+  provider_id: string
+}

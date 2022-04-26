@@ -7,7 +7,7 @@
 
 export type PostReturnsBodyItemsItem = {
   /** The id of the Line Item from the Order. */
-  item_id: string;
+  item_id: string
   /** The quantity to return. */
-  quantity: number;
-};
+  quantity: number
+}

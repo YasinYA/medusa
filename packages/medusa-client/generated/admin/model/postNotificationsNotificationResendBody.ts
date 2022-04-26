@@ -7,5 +7,5 @@
 
 export type PostNotificationsNotificationResendBody = {
   /** The address or user identifier that the Notification was sent to */
-  to?: string;
-};
+  to?: string
+}

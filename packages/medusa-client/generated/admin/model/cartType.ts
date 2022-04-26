@@ -5,12 +5,11 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type CartType = 'default' | 'swap' | 'payment_link';
-
+export type CartType = "default" | "swap" | "payment_link"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CartType = {
-  default: 'default' as CartType,
-  swap: 'swap' as CartType,
-  payment_link: 'payment_link' as CartType,
-};
+  default: "default" as CartType,
+  swap: "swap" as CartType,
+  payment_link: "payment_link" as CartType,
+}

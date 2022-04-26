@@ -12,7 +12,7 @@ import type {
   GetGiftCardsGiftCard200,
   PostGiftCardsGiftCard200,
   PostGiftCardsGiftCardBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

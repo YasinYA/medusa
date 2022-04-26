@@ -4,11 +4,11 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostShippingOptionsBodyRequirementsItemType } from './postShippingOptionsBodyRequirementsItemType';
+import type { PostShippingOptionsBodyRequirementsItemType } from "./postShippingOptionsBodyRequirementsItemType"
 
 export type PostShippingOptionsBodyRequirementsItem = {
   /** The type of the requirement */
-  type?: PostShippingOptionsBodyRequirementsItemType;
+  type?: PostShippingOptionsBodyRequirementsItemType
   /** The amount to compare with. */
-  amount?: number;
-};
+  amount?: number
+}

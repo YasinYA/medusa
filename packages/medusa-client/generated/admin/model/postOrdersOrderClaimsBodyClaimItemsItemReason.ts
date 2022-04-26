@@ -8,13 +8,17 @@
 /**
  * The reason for the Claim
  */
-export type PostOrdersOrderClaimsBodyClaimItemsItemReason = 'missing_item' | 'wrong_item' | 'production_failure' | 'other';
-
+export type PostOrdersOrderClaimsBodyClaimItemsItemReason =
+  | "missing_item"
+  | "wrong_item"
+  | "production_failure"
+  | "other"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PostOrdersOrderClaimsBodyClaimItemsItemReason = {
-  missing_item: 'missing_item' as PostOrdersOrderClaimsBodyClaimItemsItemReason,
-  wrong_item: 'wrong_item' as PostOrdersOrderClaimsBodyClaimItemsItemReason,
-  production_failure: 'production_failure' as PostOrdersOrderClaimsBodyClaimItemsItemReason,
-  other: 'other' as PostOrdersOrderClaimsBodyClaimItemsItemReason,
-};
+  missing_item: "missing_item" as PostOrdersOrderClaimsBodyClaimItemsItemReason,
+  wrong_item: "wrong_item" as PostOrdersOrderClaimsBodyClaimItemsItemReason,
+  production_failure:
+    "production_failure" as PostOrdersOrderClaimsBodyClaimItemsItemReason,
+  other: "other" as PostOrdersOrderClaimsBodyClaimItemsItemReason,
+}

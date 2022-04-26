@@ -1,1 +1,0 @@
-{"version":3,"file":"custom-instance.js","sourceRoot":"","sources":["../../src/custom-instance.ts"],"names":[],"mappings":";;;;;;AACA,wCAAuB;AAEhB,IAAM,SAAS,GAAG,UAAI,MAA0B;IACrD,OAAO,CAAC,GAAG,CAAC,EAAE,QAAQ,EAAE,UAAM,CAAC,WAAW,EAAE,EAAE,CAAC,CAAA;IAC/C,OAAO,UAAM,CAAC,WAAW,EAAE,CAAC,aAAa,CAAC,MAAM,CAAC,CAAA;AACnD,CAAC,CAAA;AAHY,QAAA,SAAS,aAGrB"}

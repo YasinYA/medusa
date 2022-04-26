@@ -5,4 +5,11 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetProductTypesParams = { limit?: string; offset?: string; value?: string; id?: string; created_at?: { [key: string]: any }; updated_at?: { [key: string]: any } };
+export type GetProductTypesParams = {
+  limit?: string
+  offset?: string
+  value?: string
+  id?: string
+  created_at?: { [key: string]: any }
+  updated_at?: { [key: string]: any }
+}

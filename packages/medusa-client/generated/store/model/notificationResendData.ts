@@ -8,4 +8,4 @@
 /**
  * The data that the Notification was sent with. This contains all the data necessary for the Notification Provider to initiate a resend.
  */
-export type NotificationResendData = { [key: string]: any };
+export type NotificationResendData = { [key: string]: any }

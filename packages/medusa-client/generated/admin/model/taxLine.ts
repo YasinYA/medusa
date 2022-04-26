@@ -4,24 +4,24 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { TaxLineMetadata } from './taxLineMetadata';
+import type { TaxLineMetadata } from "./taxLineMetadata"
 
 /**
  * Line item that specifies an amount of tax to add to a line item.
  */
 export interface TaxLine {
   /** The id of the Tax Line. This value will be prefixed by `tl_`. */
-  id?: string;
+  id?: string
   /** A code to identify the tax type by */
-  code?: string;
+  code?: string
   /** A human friendly name for the tax */
-  name?: string;
+  name?: string
   /** The numeric rate to charge tax by */
-  rate?: number;
+  rate?: number
   /** The date with timezone at which the resource was created. */
-  created_at?: string;
+  created_at?: string
   /** The date with timezone at which the resource was last updated. */
-  updated_at?: string;
+  updated_at?: string
   /** An optional key-value map with additional information. */
-  metadata?: TaxLineMetadata;
+  metadata?: TaxLineMetadata
 }

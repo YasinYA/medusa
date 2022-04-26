@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { User } from './user';
+import type { User } from "./user"
 
 export type GetAuth200 = {
-  user?: User;
-};
+  user?: User
+}

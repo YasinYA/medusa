@@ -8,4 +8,4 @@
 /**
  * The data needed for the Fulfillment Provider to handle shipping with this Shipping Option.
  */
-export type PostShippingOptionsBodyData = { [key: string]: any };
+export type PostShippingOptionsBodyData = { [key: string]: any }

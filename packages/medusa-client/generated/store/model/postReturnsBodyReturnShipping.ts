@@ -10,5 +10,5 @@
  */
 export type PostReturnsBodyReturnShipping = {
   /** The id of the Shipping Option to create the Shipping Method from. */
-  option_id: string;
-};
+  option_id: string
+}

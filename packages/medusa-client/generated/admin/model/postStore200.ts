@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Store } from './store';
+import type { Store } from "./store"
 
 export type PostStore200 = {
-  store?: Store;
-};
+  store?: Store
+}

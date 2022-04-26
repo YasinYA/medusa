@@ -8,7 +8,7 @@ import type {
   GetProductsProduct200,
   GetProducts200,
   GetProductsParams,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

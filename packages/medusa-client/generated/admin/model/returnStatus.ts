@@ -8,12 +8,11 @@
 /**
  * Status of the Return.
  */
-export type ReturnStatus = 'requested' | 'received' | 'requires_action';
-
+export type ReturnStatus = "requested" | "received" | "requires_action"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReturnStatus = {
-  requested: 'requested' as ReturnStatus,
-  received: 'received' as ReturnStatus,
-  requires_action: 'requires_action' as ReturnStatus,
-};
+  requested: "requested" as ReturnStatus,
+  received: "received" as ReturnStatus,
+  requires_action: "requires_action" as ReturnStatus,
+}

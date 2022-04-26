@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { ClaimOrder } from './claimOrder';
+import type { ClaimOrder } from "./claimOrder"
 
 export type PostOrdersClaimCancel200 = {
-  order?: ClaimOrder;
-};
+  order?: ClaimOrder
+}

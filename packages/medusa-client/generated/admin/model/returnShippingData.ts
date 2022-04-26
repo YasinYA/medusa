@@ -8,4 +8,4 @@
 /**
  * Data about the return shipment as provided by the Fulfilment Provider that handles the return shipment.
  */
-export type ReturnShippingData = { [key: string]: any };
+export type ReturnShippingData = { [key: string]: any }

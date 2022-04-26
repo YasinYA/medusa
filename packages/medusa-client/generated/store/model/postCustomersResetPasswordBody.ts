@@ -7,9 +7,9 @@
 
 export type PostCustomersResetPasswordBody = {
   /** The Customer's email. */
-  email: string;
+  email: string
   /** The password token created by a /password-token request. */
-  token: string;
+  token: string
   /** The new password to set for the Customer. */
-  password: string;
-};
+  password: string
+}

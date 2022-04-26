@@ -8,11 +8,10 @@
 /**
  * The type of the Shipping Option price.
  */
-export type PostShippingOptionsBodyPriceType = 'flat_rate' | 'calculated';
-
+export type PostShippingOptionsBodyPriceType = "flat_rate" | "calculated"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PostShippingOptionsBodyPriceType = {
-  flat_rate: 'flat_rate' as PostShippingOptionsBodyPriceType,
-  calculated: 'calculated' as PostShippingOptionsBodyPriceType,
-};
+  flat_rate: "flat_rate" as PostShippingOptionsBodyPriceType,
+  calculated: "calculated" as PostShippingOptionsBodyPriceType,
+}

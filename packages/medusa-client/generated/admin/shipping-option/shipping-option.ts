@@ -13,7 +13,7 @@ import type {
   GetShippingOptionsOption200,
   PostShippingOptionsOption200,
   PostShippingOptionsOptionBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

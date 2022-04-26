@@ -8,4 +8,4 @@
 /**
  * The optional key-value map with additional details about the Draft Order.
  */
-export type PostDraftOrdersBodyMetadata = { [key: string]: any };
+export type PostDraftOrdersBodyMetadata = { [key: string]: any }

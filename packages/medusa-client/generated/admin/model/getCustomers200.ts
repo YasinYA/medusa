@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Customer } from './customer';
+import type { Customer } from "./customer"
 
 export type GetCustomers200 = {
-  customer?: Customer;
-};
+  customer?: Customer
+}

@@ -6,5 +6,5 @@
  */
 
 export type PostUploads200 = {
-  uploads?: string[];
-};
+  uploads?: string[]
+}

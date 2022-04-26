@@ -5,11 +5,10 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type ClaimOrderType = 'refund' | 'replace';
-
+export type ClaimOrderType = "refund" | "replace"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClaimOrderType = {
-  refund: 'refund' as ClaimOrderType,
-  replace: 'replace' as ClaimOrderType,
-};
+  refund: "refund" as ClaimOrderType,
+  replace: "replace" as ClaimOrderType,
+}

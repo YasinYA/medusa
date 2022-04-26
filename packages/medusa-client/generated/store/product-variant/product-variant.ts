@@ -8,7 +8,7 @@ import type {
   GetVariantsVariant200,
   GetVariants200,
   GetVariantsParams,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

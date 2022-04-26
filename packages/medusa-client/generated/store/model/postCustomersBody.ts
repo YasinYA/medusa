@@ -7,13 +7,13 @@
 
 export type PostCustomersBody = {
   /** The Customer's email address. */
-  email: string;
+  email: string
   /** The Customer's first name. */
-  first_name: string;
+  first_name: string
   /** The Customer's last name. */
-  last_name: string;
+  last_name: string
   /** The Customer's password for login. */
-  password: string;
+  password: string
   /** The Customer's phone number. */
-  phone?: string;
-};
+  phone?: string
+}

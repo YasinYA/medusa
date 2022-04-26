@@ -5,4 +5,11 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetDiscountsParams = { q?: string; is_dynamic?: boolean; is_disabled?: boolean; limit?: number; offset?: number; expand?: string };
+export type GetDiscountsParams = {
+  q?: string
+  is_dynamic?: boolean
+  is_disabled?: boolean
+  limit?: number
+  offset?: number
+  expand?: string
+}

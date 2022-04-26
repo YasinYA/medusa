@@ -7,7 +7,7 @@
 
 export type PostRegionsRegionMetadataBody = {
   /** Key for the metadata value. */
-  key: string;
+  key: string
   /** The value that the key relates to. */
-  value: string;
-};
+  value: string
+}

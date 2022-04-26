@@ -27,7 +27,7 @@ import type {
   PostCartsCartPaymentSessionBody,
   PostCartsCartPaymentMethodUpdate200,
   PostCartsCartPaymentMethodUpdateBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

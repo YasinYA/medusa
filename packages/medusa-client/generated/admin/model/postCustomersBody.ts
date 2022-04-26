@@ -4,17 +4,17 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostCustomersBodyMetadata } from './postCustomersBodyMetadata';
+import type { PostCustomersBodyMetadata } from "./postCustomersBodyMetadata"
 
 export type PostCustomersBody = {
   /** The Customer's email address. */
-  email: string;
+  email: string
   /** The Customer's first name. */
-  first_name: string;
+  first_name: string
   /** The Customer's last name. */
-  last_name: string;
+  last_name: string
   /** The Customer's phone number. */
-  phone?: string;
+  phone?: string
   /** Metadata for the customer. */
-  metadata?: PostCustomersBodyMetadata;
-};
+  metadata?: PostCustomersBodyMetadata
+}

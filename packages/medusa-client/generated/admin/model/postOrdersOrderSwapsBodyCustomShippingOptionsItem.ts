@@ -7,7 +7,7 @@
 
 export type PostOrdersOrderSwapsBodyCustomShippingOptionsItem = {
   /** The id of the Shipping Option to override with a custom price. */
-  option_id: string;
+  option_id: string
   /** The custom price of the Shipping Option. */
-  price: number;
-};
+  price: number
+}

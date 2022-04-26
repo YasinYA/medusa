@@ -7,13 +7,13 @@
 
 export type PostUsersBody = {
   /** The Users email. */
-  email: string;
+  email: string
   /** The name of the User. */
-  first_name?: string;
+  first_name?: string
   /** The name of the User. */
-  last_name?: string;
+  last_name?: string
   /** Userrole assigned to the user. */
-  role?: string;
+  role?: string
   /** The Users password. */
-  password: string;
-};
+  password: string
+}

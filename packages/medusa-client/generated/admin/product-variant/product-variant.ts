@@ -4,7 +4,7 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { GetVariants200, GetVariantsParams } from "../model"
+import type { GetVariants200, GetVariantsParams } from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

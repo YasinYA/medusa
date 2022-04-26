@@ -8,12 +8,11 @@
 /**
  * The type of the Discount, can be `fixed` for discounts that reduce the price by a fixed amount, `percentage` for percentage reductions or `free_shipping` for shipping vouchers.
  */
-export type DiscountRuleType = 'fixed' | 'percentage' | 'free_shipping';
-
+export type DiscountRuleType = "fixed" | "percentage" | "free_shipping"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const DiscountRuleType = {
-  fixed: 'fixed' as DiscountRuleType,
-  percentage: 'percentage' as DiscountRuleType,
-  free_shipping: 'free_shipping' as DiscountRuleType,
-};
+  fixed: "fixed" as DiscountRuleType,
+  percentage: "percentage" as DiscountRuleType,
+  free_shipping: "free_shipping" as DiscountRuleType,
+}

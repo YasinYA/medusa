@@ -8,11 +8,10 @@
 /**
  * The scope that the discount should apply to.
  */
-export type DiscountRuleAllocation = 'total' | 'item';
-
+export type DiscountRuleAllocation = "total" | "item"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const DiscountRuleAllocation = {
-  total: 'total' as DiscountRuleAllocation,
-  item: 'item' as DiscountRuleAllocation,
-};
+  total: "total" as DiscountRuleAllocation,
+  item: "item" as DiscountRuleAllocation,
+}

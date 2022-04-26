@@ -8,7 +8,7 @@ import type {
   PostSwaps200,
   PostSwapsBody,
   GetSwapsSwapCartId200,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

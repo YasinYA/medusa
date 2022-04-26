@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Store } from './store';
+import type { Store } from "./store"
 
 export type GetStorePaymentProviders200 = {
-  payment_providers?: Store[];
-};
+  payment_providers?: Store[]
+}

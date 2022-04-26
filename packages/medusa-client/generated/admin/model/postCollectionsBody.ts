@@ -4,13 +4,13 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostCollectionsBodyMetadata } from './postCollectionsBodyMetadata';
+import type { PostCollectionsBodyMetadata } from "./postCollectionsBodyMetadata"
 
 export type PostCollectionsBody = {
   /** The title to identify the Collection by. */
-  title: string;
+  title: string
   /** An optional handle to be used in slugs, if none is provided we will kebab-case the title. */
-  handle?: string;
+  handle?: string
   /** An optional set of key-value pairs to hold additional information. */
-  metadata?: PostCollectionsBodyMetadata;
-};
+  metadata?: PostCollectionsBodyMetadata
+}

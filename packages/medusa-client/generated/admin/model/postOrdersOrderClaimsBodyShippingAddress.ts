@@ -8,4 +8,4 @@
 /**
  * An optional shipping address to send the claim to. Defaults to the parent order's shipping address
  */
-export type PostOrdersOrderClaimsBodyShippingAddress = { [key: string]: any };
+export type PostOrdersOrderClaimsBodyShippingAddress = { [key: string]: any }

@@ -4,16 +4,16 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { Region } from './region';
+import type { Region } from "./region"
 
 export type GetGiftCardsCode200 = {
   /** The id of the Gift Card */
-  id?: unknown;
+  id?: unknown
   /** The code of the Gift Card */
-  code?: unknown;
+  code?: unknown
   /** The original value of the Gift Card. */
-  value?: unknown;
+  value?: unknown
   /** The current balanace of the Gift Card */
-  balance?: unknown;
-  region?: Region;
-};
+  balance?: unknown
+  region?: Region
+}

@@ -7,5 +7,5 @@
 
 export type PostProductsToCollectionBodyProductIdsItem = {
   /** The ID of a Product to add to the Product Collection. */
-  id?: string;
-};
+  id?: string
+}

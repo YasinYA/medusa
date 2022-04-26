@@ -8,11 +8,10 @@
 /**
  * The type of the Claim. This will determine how the Claim is treated: `replace` Claims will result in a Fulfillment with new items being created, while a `refund` Claim will refund the amount paid for the claimed items.
  */
-export type PostOrdersOrderClaimsBodyType = 'replace' | 'refund';
-
+export type PostOrdersOrderClaimsBodyType = "replace" | "refund"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PostOrdersOrderClaimsBodyType = {
-  replace: 'replace' as PostOrdersOrderClaimsBodyType,
-  refund: 'refund' as PostOrdersOrderClaimsBodyType,
-};
+  replace: "replace" as PostOrdersOrderClaimsBodyType,
+  refund: "refund" as PostOrdersOrderClaimsBodyType,
+}

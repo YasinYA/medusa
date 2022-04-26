@@ -7,7 +7,7 @@
 
 export type PostInvitesBody = {
   /** The email for the user to be created. */
-  user: string;
+  user: string
   /** The role of the user to be created. */
-  role: string;
-};
+  role: string
+}

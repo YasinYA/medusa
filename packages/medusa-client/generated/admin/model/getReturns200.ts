@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Return } from './return';
+import type { Return } from "./return"
 
 export type GetReturns200 = {
-  returns?: Return[];
-};
+  returns?: Return[]
+}

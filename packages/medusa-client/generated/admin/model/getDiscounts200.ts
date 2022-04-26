@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Discount } from './discount';
+import type { Discount } from "./discount"
 
 export type GetDiscounts200 = {
-  discount?: Discount;
-};
+  discount?: Discount
+}

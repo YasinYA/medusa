@@ -4,8 +4,8 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { GetCustomersCustomerPaymentMethods200PaymentMethodsItem } from './getCustomersCustomerPaymentMethods200PaymentMethodsItem';
+import type { GetCustomersCustomerPaymentMethods200PaymentMethodsItem } from "./getCustomersCustomerPaymentMethods200PaymentMethodsItem"
 
 export type GetCustomersCustomerPaymentMethods200 = {
-  payment_methods?: GetCustomersCustomerPaymentMethods200PaymentMethodsItem[];
-};
+  payment_methods?: GetCustomersCustomerPaymentMethods200PaymentMethodsItem[]
+}

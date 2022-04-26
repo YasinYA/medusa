@@ -4,55 +4,55 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { ProductVariant } from './productVariant';
-import type { LineItemMetadata } from './lineItemMetadata';
+import type { ProductVariant } from "./productVariant"
+import type { LineItemMetadata } from "./lineItemMetadata"
 
 /**
  * Line Items represent purchasable units that can be added to a Cart for checkout. When Line Items are purchased they will get copied to the resulting order and can eventually be referenced in Fulfillments and Returns. Line Items may also be created when processing Swaps and Claims.
  */
 export interface LineItem {
   /** The id of the Line Item. This value will be prefixed by `item_`. */
-  id?: string;
+  id?: string
   /** The id of the Cart that the Line Item belongs to. */
-  cart_id?: string;
+  cart_id?: string
   /** The id of the Order that the Line Item belongs to. */
-  order_id?: string;
+  order_id?: string
   /** The id of the Swap that the Line Item belongs to. */
-  swap_id?: string;
+  swap_id?: string
   /** The id of the Claim that the Line Item belongs to. */
-  claim_order_id?: string;
+  claim_order_id?: string
   /** The title of the Line Item, this should be easily identifiable by the Customer. */
-  title?: string;
+  title?: string
   /** A more detailed description of the contents of the Line Item. */
-  description?: string;
+  description?: string
   /** A URL string to a small image of the contents of the Line Item. */
-  thumbnail?: string;
+  thumbnail?: string
   /** Flag to indicate if the Line Item is a Gift Card. */
-  is_giftcard?: boolean;
+  is_giftcard?: boolean
   /** Flag to indicate if new Line Items with the same variant should be merged or added as an additional Line Item. */
-  should_merge?: boolean;
+  should_merge?: boolean
   /** Flag to indicate if the Line Item should be included when doing discount calculations. */
-  allow_discounts?: boolean;
+  allow_discounts?: boolean
   /** The price of one unit of the content in the Line Item. This should be in the currency defined by the Cart/Order/Swap/Claim that the Line Item belongs to. */
-  unit_price?: boolean;
+  unit_price?: boolean
   /** The id of the Product Variant contained in the Line Item. */
-  variant_id?: string;
+  variant_id?: string
   /** The Product Variant contained in the Line Item. */
-  variant?: ProductVariant;
+  variant?: ProductVariant
   /** The quantity of the content in the Line Item. */
-  quantity?: number;
+  quantity?: number
   /** The quantity of the Line Item that has been fulfilled. */
-  fulfilled_quantity?: number;
+  fulfilled_quantity?: number
   /** The quantity of the Line Item that has been returned. */
-  returned_quantity?: number;
+  returned_quantity?: number
   /** The quantity of the Line Item that has been shipped. */
-  shipped_quantity?: number;
+  shipped_quantity?: number
   /** The date with timezone at which the resource was created. */
-  created_at?: string;
+  created_at?: string
   /** The date with timezone at which the resource was last updated. */
-  updated_at?: string;
+  updated_at?: string
   /** An optional key-value map with additional information. */
-  metadata?: LineItemMetadata;
+  metadata?: LineItemMetadata
   /** The amount that can be refunded from the given Line Item. Takes taxes and discounts into consideration. */
-  refundable?: number;
+  refundable?: number
 }

@@ -5,4 +5,15 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetTaxRatesParams = { q?: string; id?: string; region_id?: string; code?: string; rate?: string; created_at?: { [key: string]: any }; updated_at?: { [key: string]: any }; offset?: string; limit?: string; fields?: string };
+export type GetTaxRatesParams = {
+  q?: string
+  id?: string
+  region_id?: string
+  code?: string
+  rate?: string
+  created_at?: { [key: string]: any }
+  updated_at?: { [key: string]: any }
+  offset?: string
+  limit?: string
+  fields?: string
+}

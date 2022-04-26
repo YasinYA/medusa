@@ -8,4 +8,4 @@
 /**
  * An optional set of key-value pairs to hold additional information.
  */
-export type PostCollectionsBodyMetadata = { [key: string]: any };
+export type PostCollectionsBodyMetadata = { [key: string]: any }

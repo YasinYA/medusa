@@ -4,17 +4,17 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostDraftOrdersBodyItemsItemMetadata } from './postDraftOrdersBodyItemsItemMetadata';
+import type { PostDraftOrdersBodyItemsItemMetadata } from "./postDraftOrdersBodyItemsItemMetadata"
 
 export type PostDraftOrdersBodyItemsItem = {
   /** The id of the Product Variant to generate the Line Item from. */
-  variant_id?: string;
+  variant_id?: string
   /** The potential custom price of the item. */
-  unit_price?: number;
+  unit_price?: number
   /** The potential custom title of the item. */
-  title?: string;
+  title?: string
   /** The quantity of the Line Item. */
-  quantity?: number;
+  quantity?: number
   /** The optional key-value map with additional details about the Line Item. */
-  metadata?: PostDraftOrdersBodyItemsItemMetadata;
-};
+  metadata?: PostDraftOrdersBodyItemsItemMetadata
+}

@@ -5,4 +5,9 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetCustomersCustomerOrdersParams = { limit?: number; offset?: number; fields?: string; expand?: string };
+export type GetCustomersCustomerOrdersParams = {
+  limit?: number
+  offset?: number
+  fields?: string
+  expand?: string
+}

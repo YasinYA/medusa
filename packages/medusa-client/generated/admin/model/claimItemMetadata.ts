@@ -5,4 +5,4 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type ClaimItemMetadata = { [key: string]: any };
+export type ClaimItemMetadata = { [key: string]: any }

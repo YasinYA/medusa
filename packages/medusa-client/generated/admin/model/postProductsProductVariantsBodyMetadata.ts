@@ -8,4 +8,4 @@
 /**
  * An optional set of key-value pairs with additional information.
  */
-export type PostProductsProductVariantsBodyMetadata = { [key: string]: any };
+export type PostProductsProductVariantsBodyMetadata = { [key: string]: any }

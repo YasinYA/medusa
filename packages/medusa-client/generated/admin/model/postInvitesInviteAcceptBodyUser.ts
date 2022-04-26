@@ -10,9 +10,9 @@
  */
 export type PostInvitesInviteAcceptBodyUser = {
   /** the first name of the User */
-  first_name: string;
+  first_name: string
   /** the last name of the User */
-  last_name: string;
+  last_name: string
   /** The desired password for the User */
-  password: string;
-};
+  password: string
+}

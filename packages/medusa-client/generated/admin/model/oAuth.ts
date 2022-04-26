@@ -4,16 +4,16 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { OAuthData } from './oAuthData';
+import type { OAuthData } from "./oAuthData"
 
 /**
  * Represent an OAuth app
  */
 export interface OAuth {
-  id?: string;
-  display_name?: string;
-  application_name?: string;
-  install_url?: string;
-  uninstall_url?: number;
-  data?: OAuthData;
+  id?: string
+  display_name?: string
+  application_name?: string
+  install_url?: string
+  uninstall_url?: number
+  data?: OAuthData
 }

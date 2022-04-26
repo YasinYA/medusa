@@ -4,7 +4,7 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { GetReturnReasonsReason200, GetReturnReasons200 } from "../model"
+import type { GetReturnReasonsReason200, GetReturnReasons200 } from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

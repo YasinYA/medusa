@@ -4,11 +4,11 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostOrdersOrderSwapsSwapFulfillmentsBodyMetadata } from './postOrdersOrderSwapsSwapFulfillmentsBodyMetadata';
+import type { PostOrdersOrderSwapsSwapFulfillmentsBodyMetadata } from "./postOrdersOrderSwapsSwapFulfillmentsBodyMetadata"
 
 export type PostOrdersOrderSwapsSwapFulfillmentsBody = {
   /** An optional set of key-value pairs to hold additional information. */
-  metadata?: PostOrdersOrderSwapsSwapFulfillmentsBodyMetadata;
+  metadata?: PostOrdersOrderSwapsSwapFulfillmentsBodyMetadata
   /** If set to true no notification will be send related to this Claim. */
-  no_notification?: boolean;
-};
+  no_notification?: boolean
+}

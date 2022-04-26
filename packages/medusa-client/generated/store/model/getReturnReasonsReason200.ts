@@ -4,8 +4,8 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { ReturnReason } from './returnReason';
+import type { ReturnReason } from "./returnReason"
 
 export type GetReturnReasonsReason200 = {
-  return_reason?: ReturnReason;
-};
+  return_reason?: ReturnReason
+}

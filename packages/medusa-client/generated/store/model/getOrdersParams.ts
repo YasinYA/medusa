@@ -5,4 +5,4 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetOrdersParams = { display_id: number; email: string };
+export type GetOrdersParams = { display_id: number; email: string }

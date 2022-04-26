@@ -26,7 +26,7 @@ import type {
   PostRegionsRegionPaymentProvidersProvider200,
   PostRegionsRegionMetadata200,
   PostRegionsRegionMetadataBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

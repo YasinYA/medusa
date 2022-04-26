@@ -7,7 +7,7 @@
 
 export type PostProductsProductVariantsVariantBodyOptionsItem = {
   /** The id of the Product Option to set the value for. */
-  option_id?: string;
+  option_id?: string
   /** The value to give for the Product Option. */
-  value?: string;
-};
+  value?: string
+}

@@ -12,7 +12,7 @@ import type {
   GetReturnReasonsReason200,
   PostReturnReasonsReason200,
   PostReturnReasonsReasonBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

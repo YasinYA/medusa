@@ -5,4 +5,14 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetNotificationsParams = { offset?: number; limit?: number; fields?: string; expand?: string; event_name?: string; resource_type?: string; resource_id?: string; to?: string; include_resends?: boolean };
+export type GetNotificationsParams = {
+  offset?: number
+  limit?: number
+  fields?: string
+  expand?: string
+  event_name?: string
+  resource_type?: string
+  resource_id?: string
+  to?: string
+  include_resends?: boolean
+}

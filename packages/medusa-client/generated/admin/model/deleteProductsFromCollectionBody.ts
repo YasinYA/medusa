@@ -4,9 +4,9 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { DeleteProductsFromCollectionBodyProductIdsItem } from './deleteProductsFromCollectionBodyProductIdsItem';
+import type { DeleteProductsFromCollectionBodyProductIdsItem } from "./deleteProductsFromCollectionBodyProductIdsItem"
 
 export type DeleteProductsFromCollectionBody = {
   /** An array of Product IDs to remove from the Product Collection. */
-  product_ids?: DeleteProductsFromCollectionBodyProductIdsItem[];
-};
+  product_ids?: DeleteProductsFromCollectionBodyProductIdsItem[]
+}

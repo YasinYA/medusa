@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { ShippingProfile } from './shippingProfile';
+import type { ShippingProfile } from "./shippingProfile"
 
 export type PostShippingProfilesProfile200 = {
-  shipping_profiles?: ShippingProfile;
-};
+  shipping_profiles?: ShippingProfile
+}

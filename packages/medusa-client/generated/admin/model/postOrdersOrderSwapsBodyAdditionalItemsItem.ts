@@ -7,7 +7,7 @@
 
 export type PostOrdersOrderSwapsBodyAdditionalItemsItem = {
   /** The id of the Product Variant to ship. */
-  variant_id: string;
+  variant_id: string
   /** The quantity of the Product Variant to ship. */
-  quantity: number;
-};
+  quantity: number
+}

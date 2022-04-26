@@ -4,7 +4,7 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostAuth200, PostAuthBody, GetAuth200 } from "../model"
+import type { PostAuth200, PostAuthBody, GetAuth200 } from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

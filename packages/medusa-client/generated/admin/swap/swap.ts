@@ -8,7 +8,7 @@ import type {
   PostOrdersSwapCancel200,
   GetSwapsSwap200,
   GetSwaps200,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

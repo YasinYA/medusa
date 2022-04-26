@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Note } from './note';
+import type { Note } from "./note"
 
 export type PostNotesNote200 = {
-  note?: Note;
-};
+  note?: Note
+}

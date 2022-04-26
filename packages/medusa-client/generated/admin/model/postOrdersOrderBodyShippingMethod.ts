@@ -4,21 +4,21 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostOrdersOrderBodyShippingMethodData } from './postOrdersOrderBodyShippingMethodData';
-import type { LineItem } from './lineItem';
+import type { PostOrdersOrderBodyShippingMethodData } from "./postOrdersOrderBodyShippingMethodData"
+import type { LineItem } from "./lineItem"
 
 /**
  * The Shipping Method used for shipping the order.
  */
 export type PostOrdersOrderBodyShippingMethod = {
   /** The id of the shipping provider. */
-  provider_id?: string;
+  provider_id?: string
   /** The id of the shipping profile. */
-  profile_id?: string;
+  profile_id?: string
   /** The price of the shipping. */
-  price?: number;
+  price?: number
   /** Data relevant to the specific shipping method. */
-  data?: PostOrdersOrderBodyShippingMethodData;
+  data?: PostOrdersOrderBodyShippingMethodData
   /** Items to ship */
-  items?: LineItem[];
-};
+  items?: LineItem[]
+}

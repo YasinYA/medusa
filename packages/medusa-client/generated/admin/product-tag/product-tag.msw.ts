@@ -4,28 +4,30 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import {
-  rest
-} from 'msw'
-import {
-  faker
-} from '@faker-js/faker'
+import { rest } from "msw"
+import { faker } from "@faker-js/faker"
 
-export const getGetProductTagsMock = () => ({tags: faker.helpers.randomize([{}, undefined])})
+export const getGetProductTagsMock = () => ({
+  tags: faker.helpers.randomize([{}, undefined]),
+})
 
-export const getGetProductTypesMock = () => ({types: faker.helpers.randomize([{}, undefined])})
+export const getGetProductTypesMock = () => ({
+  types: faker.helpers.randomize([{}, undefined]),
+})
 
 export const getProductTagMSW = () => [
-rest.get('*/admin/product-tags', (_req, res, ctx) => {
-        return res(
-          ctx.delay(1000),
-          ctx.status(200, 'Mocked status'),
-ctx.json(getGetProductTagsMock()),
-        )
-      }),rest.get('*/admin/product-types', (_req, res, ctx) => {
-        return res(
-          ctx.delay(1000),
-          ctx.status(200, 'Mocked status'),
-ctx.json(getGetProductTypesMock()),
-        )
-      }),]
+  rest.get("*/admin/product-tags", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetProductTagsMock())
+    )
+  }),
+  rest.get("*/admin/product-types", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetProductTypesMock())
+    )
+  }),
+]

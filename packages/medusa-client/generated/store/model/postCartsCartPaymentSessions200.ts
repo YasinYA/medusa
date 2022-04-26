@@ -4,8 +4,8 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { Cart } from './cart';
+import type { Cart } from "./cart"
 
 export type PostCartsCartPaymentSessions200 = {
-  cart?: Cart;
-};
+  cart?: Cart
+}

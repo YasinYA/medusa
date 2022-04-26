@@ -8,11 +8,12 @@
 /**
  * The type of the requirement
  */
-export type PostShippingOptionsBodyRequirementsItemType = 'max_subtotal' | 'min_subtotal';
-
+export type PostShippingOptionsBodyRequirementsItemType =
+  | "max_subtotal"
+  | "min_subtotal"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PostShippingOptionsBodyRequirementsItemType = {
-  max_subtotal: 'max_subtotal' as PostShippingOptionsBodyRequirementsItemType,
-  min_subtotal: 'min_subtotal' as PostShippingOptionsBodyRequirementsItemType,
-};
+  max_subtotal: "max_subtotal" as PostShippingOptionsBodyRequirementsItemType,
+  min_subtotal: "min_subtotal" as PostShippingOptionsBodyRequirementsItemType,
+}

@@ -18,7 +18,9 @@ class Medusa extends MedusaStore {
     return this.instance
   }
 
-  handleRequest<T>(config): Promise<T> {
+  handleRequest<RequestType, ResponseType>(
+    config: RequestType
+  ): Promise<ResponseType> {
     return this.client_.request(config)
   }
 }

@@ -8,4 +8,4 @@
 /**
  * An optional key-value map with additional details about the Line Item.
  */
-export type PostCartsCartLineItemsBodyMetadata = { [key: string]: any };
+export type PostCartsCartLineItemsBodyMetadata = { [key: string]: any }

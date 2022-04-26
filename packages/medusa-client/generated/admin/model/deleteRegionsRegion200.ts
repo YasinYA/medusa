@@ -7,8 +7,8 @@
 
 export type DeleteRegionsRegion200 = {
   /** The id of the deleted Region. */
-  id?: string;
+  id?: string
   /** The type of the object that was deleted. */
-  object?: string;
-  deleted?: boolean;
-};
+  object?: string
+  deleted?: boolean
+}

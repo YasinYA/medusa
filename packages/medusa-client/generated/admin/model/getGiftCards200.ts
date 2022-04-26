@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { GiftCard } from './giftCard';
+import type { GiftCard } from "./giftCard"
 
 export type GetGiftCards200 = {
-  gift_cards?: GiftCard[];
-};
+  gift_cards?: GiftCard[]
+}

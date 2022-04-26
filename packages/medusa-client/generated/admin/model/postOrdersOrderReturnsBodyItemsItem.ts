@@ -7,11 +7,11 @@
 
 export type PostOrdersOrderReturnsBodyItemsItem = {
   /** The id of the Line Item. */
-  item_id?: string;
+  item_id?: string
   /** The id of the Return Reason to use. */
-  reason_id?: string;
+  reason_id?: string
   /** An optional note with information about the Return. */
-  note?: string;
+  note?: string
   /** The quantity of the Line Item. */
-  quantity?: number;
-};
+  quantity?: number
+}

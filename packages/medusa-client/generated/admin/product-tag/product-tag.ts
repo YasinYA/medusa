@@ -9,7 +9,7 @@ import type {
   GetProductTagsParams,
   GetProductTypes200,
   GetProductTypesParams,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

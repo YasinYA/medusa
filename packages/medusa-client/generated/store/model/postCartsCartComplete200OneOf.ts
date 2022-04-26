@@ -4,8 +4,8 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { Order } from './order';
+import type { Order } from "./order"
 
 export type PostCartsCartComplete200OneOf = {
-  order?: Order;
-};
+  order?: Order
+}

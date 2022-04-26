@@ -7,9 +7,9 @@
 
 export type PostOrdersOrderShipmentBody = {
   /** The id of the Fulfillment. */
-  fulfillment_id: string;
+  fulfillment_id: string
   /** The tracking numbers for the shipment. */
-  tracking_numbers?: string[];
+  tracking_numbers?: string[]
   /** If set to true no notification will be send related to this Shipment. */
-  no_notification?: boolean;
-};
+  no_notification?: boolean
+}

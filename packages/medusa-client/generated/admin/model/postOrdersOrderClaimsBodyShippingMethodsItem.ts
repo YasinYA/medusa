@@ -7,9 +7,9 @@
 
 export type PostOrdersOrderClaimsBodyShippingMethodsItem = {
   /** The id of an existing Shipping Method */
-  id?: string;
+  id?: string
   /** The id of the Shipping Option to create a Shipping Method from */
-  option_id?: string;
+  option_id?: string
   /** The price to charge for the Shipping Method */
-  price?: number;
-};
+  price?: number
+}

@@ -8,4 +8,6 @@
 /**
  * The optional key-value map with additional details about the Line Item.
  */
-export type PostDraftOrdersDraftOrderLineItemsBodyMetadata = { [key: string]: any };
+export type PostDraftOrdersDraftOrderLineItemsBodyMetadata = {
+  [key: string]: any
+}

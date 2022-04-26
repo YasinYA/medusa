@@ -7,7 +7,7 @@
 
 export type PostOrdersOrderFulfillmentsBodyItemsItem = {
   /** The id of Line Item to fulfill. */
-  item_id?: string;
+  item_id?: string
   /** The quantity of the Line Item to fulfill. */
-  quantity?: number;
-};
+  quantity?: number
+}

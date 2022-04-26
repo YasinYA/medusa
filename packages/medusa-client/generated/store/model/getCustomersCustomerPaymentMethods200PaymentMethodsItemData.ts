@@ -8,4 +8,6 @@
 /**
  * The data needed for the Payment Provider to use the saved payment method.
  */
-export type GetCustomersCustomerPaymentMethods200PaymentMethodsItemData = { [key: string]: any };
+export type GetCustomersCustomerPaymentMethods200PaymentMethodsItemData = {
+  [key: string]: any
+}

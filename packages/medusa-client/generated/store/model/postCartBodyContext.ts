@@ -8,4 +8,4 @@
 /**
  * An optional object to provide context to the Cart. The `context` field is automatically populated with `ip` and `user_agent`
  */
-export type PostCartBodyContext = { [key: string]: any };
+export type PostCartBodyContext = { [key: string]: any }

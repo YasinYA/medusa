@@ -15,7 +15,7 @@ import type {
   GetCollectionsCollection200,
   PostCollectionsCollection200,
   PostCollectionsCollectionBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

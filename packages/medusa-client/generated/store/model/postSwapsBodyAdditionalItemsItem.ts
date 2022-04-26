@@ -7,7 +7,7 @@
 
 export type PostSwapsBodyAdditionalItemsItem = {
   /** The id of the Product Variant to send. */
-  variant_id: string;
+  variant_id: string
   /** The quantity to send of the variant. */
-  quantity: number;
-};
+  quantity: number
+}

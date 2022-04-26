@@ -4,13 +4,13 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Product } from './product';
+import type { Product } from "./product"
 
 export type DeleteProductsProductOptionsOption200 = {
   /** The id of the deleted Product Option */
-  id?: string;
+  id?: string
   /** The type of the object that was deleted. */
-  object?: string;
-  deleted?: boolean;
-  product?: Product;
-};
+  object?: string
+  deleted?: boolean
+  product?: Product
+}

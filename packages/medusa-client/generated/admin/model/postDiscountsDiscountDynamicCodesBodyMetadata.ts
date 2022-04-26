@@ -8,4 +8,6 @@
 /**
  * An optional set of key-value paris to hold additional information.
  */
-export type PostDiscountsDiscountDynamicCodesBodyMetadata = { [key: string]: any };
+export type PostDiscountsDiscountDynamicCodesBodyMetadata = {
+  [key: string]: any
+}

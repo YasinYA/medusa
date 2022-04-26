@@ -12,7 +12,7 @@ import type {
   GetNotesNote200,
   PostNotesNote200,
   PostNotesNoteBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

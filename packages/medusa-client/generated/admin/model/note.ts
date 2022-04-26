@@ -4,29 +4,29 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { User } from './user';
-import type { NoteMetadata } from './noteMetadata';
+import type { User } from "./user"
+import type { NoteMetadata } from "./noteMetadata"
 
 /**
  * Notes are elements which we can use in association with different resources to allow users to describe additional information in relation to these.
  */
 export interface Note {
   /** The id of the Note. This value will be prefixed by `note_`. */
-  id?: string;
+  id?: string
   /** The type of resource that the Note refers to. */
-  resource_type?: string;
+  resource_type?: string
   /** The id of the resource that the Note refers to. */
-  resource_id?: string;
+  resource_id?: string
   /** The contents of the note. */
-  value?: string;
+  value?: string
   /** The author of the note. */
-  author?: User;
+  author?: User
   /** The date with timezone at which the resource was created. */
-  created_at?: string;
+  created_at?: string
   /** The date with timezone at which the resource was last updated. */
-  updated_at?: string;
+  updated_at?: string
   /** The date with timezone at which the resource was deleted. */
-  deleted_at?: string;
+  deleted_at?: string
   /** An optional key-value map with additional information. */
-  metadata?: NoteMetadata;
+  metadata?: NoteMetadata
 }

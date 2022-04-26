@@ -7,5 +7,5 @@
 
 export type PostCartsCartLineItemsItemBody = {
   /** The quantity to set the Line Item to. */
-  quantity: number;
-};
+  quantity: number
+}

@@ -4,19 +4,19 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostOrdersOrderClaimsBodyClaimItemsItemReason } from './postOrdersOrderClaimsBodyClaimItemsItemReason';
+import type { PostOrdersOrderClaimsBodyClaimItemsItemReason } from "./postOrdersOrderClaimsBodyClaimItemsItemReason"
 
 export type PostOrdersOrderClaimsBodyClaimItemsItem = {
   /** The id of the Line Item that will be claimed. */
-  item_id?: string;
+  item_id?: string
   /** The number of items that will be returned */
-  quantity?: number;
+  quantity?: number
   /** Short text describing the Claim Item in further detail. */
-  note?: string;
+  note?: string
   /** The reason for the Claim */
-  reason?: PostOrdersOrderClaimsBodyClaimItemsItemReason;
+  reason?: PostOrdersOrderClaimsBodyClaimItemsItemReason
   /** A list o tags to add to the Claim Item */
-  tags?: string[];
+  tags?: string[]
   /** A list of image URL's that will be associated with the Claim */
-  images?: string[];
-};
+  images?: string[]
+}

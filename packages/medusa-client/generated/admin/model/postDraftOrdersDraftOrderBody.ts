@@ -4,22 +4,22 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Address } from './address';
-import type { PostDraftOrdersDraftOrderBodyDiscountsItem } from './postDraftOrdersDraftOrderBodyDiscountsItem';
+import type { Address } from "./address"
+import type { PostDraftOrdersDraftOrderBodyDiscountsItem } from "./postDraftOrdersDraftOrderBodyDiscountsItem"
 
 export type PostDraftOrdersDraftOrderBody = {
   /** The id of the Region to create the Draft Order in. */
-  region_id?: string;
+  region_id?: string
   /** An email to be used on the Draft Order. */
-  email?: string;
+  email?: string
   /** The Address to be used for billing purposes. */
-  billing_address?: Address;
+  billing_address?: Address
   /** The Address to be used for shipping. */
-  shipping_address?: Address;
+  shipping_address?: Address
   /** An array of Discount codes to add to the Draft Order. */
-  discounts?: PostDraftOrdersDraftOrderBodyDiscountsItem[];
+  discounts?: PostDraftOrdersDraftOrderBodyDiscountsItem[]
   /** An optional flag passed to the resulting order to determine use of notifications. */
-  no_notification_order?: boolean;
+  no_notification_order?: boolean
   /** The id of the Customer to associate the Draft Order with. */
-  customer_id?: string;
-};
+  customer_id?: string
+}

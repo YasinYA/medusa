@@ -4,11 +4,11 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostCustomerGroupsGroupBodyMetadata } from './postCustomerGroupsGroupBodyMetadata';
+import type { PostCustomerGroupsGroupBodyMetadata } from "./postCustomerGroupsGroupBodyMetadata"
 
 export type PostCustomerGroupsGroupBody = {
   /** Name of the customer group */
-  name: string;
+  name: string
   /** Metadata for the customer. */
-  metadata?: PostCustomerGroupsGroupBodyMetadata;
-};
+  metadata?: PostCustomerGroupsGroupBodyMetadata
+}

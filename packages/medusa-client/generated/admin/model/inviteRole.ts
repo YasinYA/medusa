@@ -5,12 +5,11 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type InviteRole = 'admin' | 'member' | 'developer';
-
+export type InviteRole = "admin" | "member" | "developer"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const InviteRole = {
-  admin: 'admin' as InviteRole,
-  member: 'member' as InviteRole,
-  developer: 'developer' as InviteRole,
-};
+  admin: "admin" as InviteRole,
+  member: "member" as InviteRole,
+  developer: "developer" as InviteRole,
+}

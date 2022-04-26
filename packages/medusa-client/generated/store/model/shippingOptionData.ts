@@ -8,4 +8,4 @@
 /**
  * The data needed for the Fulfillment Provider to identify the Shipping Option.
  */
-export type ShippingOptionData = { [key: string]: any };
+export type ShippingOptionData = { [key: string]: any }

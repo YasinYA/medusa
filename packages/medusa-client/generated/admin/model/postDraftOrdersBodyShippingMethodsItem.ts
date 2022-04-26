@@ -4,13 +4,13 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostDraftOrdersBodyShippingMethodsItemData } from './postDraftOrdersBodyShippingMethodsItemData';
+import type { PostDraftOrdersBodyShippingMethodsItemData } from "./postDraftOrdersBodyShippingMethodsItemData"
 
 export type PostDraftOrdersBodyShippingMethodsItem = {
   /** The id of the shipping option in use */
-  option_id?: string;
+  option_id?: string
   /** The optional additional data needed for the shipping method */
-  data?: PostDraftOrdersBodyShippingMethodsItemData;
+  data?: PostDraftOrdersBodyShippingMethodsItemData
   /** The potential custom price of the shipping */
-  price?: number;
-};
+  price?: number
+}

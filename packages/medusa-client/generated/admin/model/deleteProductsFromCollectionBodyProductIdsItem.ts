@@ -7,5 +7,5 @@
 
 export type DeleteProductsFromCollectionBodyProductIdsItem = {
   /** The ID of a Product to remove from the Product Collection. */
-  id?: string;
-};
+  id?: string
+}

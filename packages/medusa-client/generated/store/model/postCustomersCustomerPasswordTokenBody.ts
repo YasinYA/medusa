@@ -7,5 +7,5 @@
 
 export type PostCustomersCustomerPasswordTokenBody = {
   /** Email of the user whose password should be reset. */
-  email: string;
-};
+  email: string
+}

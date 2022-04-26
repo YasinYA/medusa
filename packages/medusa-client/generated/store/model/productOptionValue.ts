@@ -4,26 +4,26 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { ProductOptionValueMetadata } from './productOptionValueMetadata';
+import type { ProductOptionValueMetadata } from "./productOptionValueMetadata"
 
 /**
  * A value given to a Product Variant's option set. Product Variant have a Product Option Value for each of the Product Options defined on the Product.
  */
 export interface ProductOptionValue {
   /** The id of the Product Option Value. This value will be prefixed with `optval_`. */
-  id?: string;
+  id?: string
   /** The value that the Product Variant has defined for the specific Product Option (e.g. if the Product Option is "Size" this value could be "Small", "Medium" or "Large"). */
-  value?: string;
+  value?: string
   /** The id of the Product Option that the Product Option Value is defined for. */
-  option_id?: string;
+  option_id?: string
   /** The id of the Product Variant that the Product Option Value is defined for. */
-  variant_id?: string;
+  variant_id?: string
   /** The date with timezone at which the resource was created. */
-  created_at?: string;
+  created_at?: string
   /** The date with timezone at which the resource was last updated. */
-  updated_at?: string;
+  updated_at?: string
   /** The date with timezone at which the resource was last updated. */
-  deleted_at?: string;
+  deleted_at?: string
   /** An optional key-value map with additional information. */
-  metadata?: ProductOptionValueMetadata;
+  metadata?: ProductOptionValueMetadata
 }

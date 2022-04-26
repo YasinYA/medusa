@@ -27,7 +27,7 @@ import type {
   GetProductsTypes200,
   PostProductsProductMetadata200,
   PostProductsProductMetadataBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

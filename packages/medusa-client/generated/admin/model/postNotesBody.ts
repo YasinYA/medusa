@@ -7,9 +7,9 @@
 
 export type PostNotesBody = {
   /** The id of the resource which the Note relates to. */
-  resource_id?: string;
+  resource_id?: string
   /** The type of resource which the Note relates to. */
-  resource_type?: string;
+  resource_type?: string
   /** The content of the Note to create. */
-  value?: string;
-};
+  value?: string
+}

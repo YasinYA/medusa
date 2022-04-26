@@ -1,6 +1,8 @@
 import { AxiosRequestConfig } from "axios"
 import Medusa from "."
 
-export const getClient = <T>(config: AxiosRequestConfig): Promise<T> => {
+export const getClient = <ResponseType, RequestType = AxiosRequestConfig>(
+  config: RequestType
+): Promise<ResponseType> => {
   return Medusa.getInstance().handleRequest(config)
 }

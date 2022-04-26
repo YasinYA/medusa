@@ -4,31 +4,31 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { ShippingProfileType } from './shippingProfileType';
-import type { Product } from './product';
-import type { ShippingOption } from './shippingOption';
-import type { ShippingProfileMetadata } from './shippingProfileMetadata';
+import type { ShippingProfileType } from "./shippingProfileType"
+import type { Product } from "./product"
+import type { ShippingOption } from "./shippingOption"
+import type { ShippingProfileMetadata } from "./shippingProfileMetadata"
 
 /**
  * Shipping Profiles have a set of defined Shipping Options that can be used to fulfill a given set of Products.
  */
 export interface ShippingProfile {
   /** The id of the Shipping Profile. This value will be prefixed with `sp_`. */
-  id?: string;
+  id?: string
   /** The name given to the Shipping profile - this may be displayed to the Customer. */
-  name?: string;
+  name?: string
   /** The type of the Shipping Profile, may be `default`, `gift_card` or `custom`. */
-  type?: ShippingProfileType;
+  type?: ShippingProfileType
   /** The Products that the Shipping Profile defines Shipping Options for. */
-  products?: Product[];
+  products?: Product[]
   /** The Shipping Options that can be used to fulfill the Products in the Shipping Profile. */
-  shipping_options?: ShippingOption[];
+  shipping_options?: ShippingOption[]
   /** The date with timezone at which the resource was created. */
-  created_at?: string;
+  created_at?: string
   /** The date with timezone at which the resource was last updated. */
-  updated_at?: string;
+  updated_at?: string
   /** The date with timezone at which the resource was deleted. */
-  deleted_at?: string;
+  deleted_at?: string
   /** An optional key-value map with additional information. */
-  metadata?: ShippingProfileMetadata;
+  metadata?: ShippingProfileMetadata
 }

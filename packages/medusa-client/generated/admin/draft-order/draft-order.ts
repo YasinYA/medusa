@@ -18,7 +18,7 @@ import type {
   PostDraftOrdersDraftOrderRegisterPayment200,
   PostDraftOrdersDraftOrder200,
   PostDraftOrdersDraftOrderBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

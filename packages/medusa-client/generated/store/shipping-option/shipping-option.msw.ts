@@ -4,28 +4,36 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import {
-  rest
-} from 'msw'
-import {
-  faker
-} from '@faker-js/faker'
+import { rest } from "msw"
+import { faker } from "@faker-js/faker"
 
-export const getGetShippingOptionsMock = () => ({shipping_options: faker.helpers.randomize([[...Array(faker.datatype.number({min: 1, max: 10}))].map(() => ({})), undefined])})
+export const getGetShippingOptionsMock = () => ({
+  shipping_options: faker.helpers.randomize([
+    [...Array(faker.datatype.number({ min: 1, max: 10 }))].map(() => ({})),
+    undefined,
+  ]),
+})
 
-export const getGetShippingOptionsCartIdMock = () => ({shipping_options: faker.helpers.randomize([[...Array(faker.datatype.number({min: 1, max: 10}))].map(() => ({})), undefined])})
+export const getGetShippingOptionsCartIdMock = () => ({
+  shipping_options: faker.helpers.randomize([
+    [...Array(faker.datatype.number({ min: 1, max: 10 }))].map(() => ({})),
+    undefined,
+  ]),
+})
 
 export const getShippingOptionMSW = () => [
-rest.get('*/shipping-options', (_req, res, ctx) => {
-        return res(
-          ctx.delay(1000),
-          ctx.status(200, 'Mocked status'),
-ctx.json(getGetShippingOptionsMock()),
-        )
-      }),rest.get('*/shipping-options/:cartid', (_req, res, ctx) => {
-        return res(
-          ctx.delay(1000),
-          ctx.status(200, 'Mocked status'),
-ctx.json(getGetShippingOptionsCartIdMock()),
-        )
-      }),]
+  rest.get("*/shipping-options", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetShippingOptionsMock())
+    )
+  }),
+  rest.get("*/shipping-options/:cartid", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetShippingOptionsCartIdMock())
+    )
+  }),
+]

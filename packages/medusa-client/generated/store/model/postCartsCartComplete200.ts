@@ -4,8 +4,11 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostCartsCartComplete200OneOf } from './postCartsCartComplete200OneOf';
-import type { PostCartsCartComplete200OneOfTwo } from './postCartsCartComplete200OneOfTwo';
-import type { PostCartsCartComplete200OneOfThree } from './postCartsCartComplete200OneOfThree';
+import type { PostCartsCartComplete200OneOf } from "./postCartsCartComplete200OneOf"
+import type { PostCartsCartComplete200OneOfTwo } from "./postCartsCartComplete200OneOfTwo"
+import type { PostCartsCartComplete200OneOfThree } from "./postCartsCartComplete200OneOfThree"
 
-export type PostCartsCartComplete200 = PostCartsCartComplete200OneOf | PostCartsCartComplete200OneOfTwo | PostCartsCartComplete200OneOfThree;
+export type PostCartsCartComplete200 =
+  | PostCartsCartComplete200OneOf
+  | PostCartsCartComplete200OneOfTwo
+  | PostCartsCartComplete200OneOfThree

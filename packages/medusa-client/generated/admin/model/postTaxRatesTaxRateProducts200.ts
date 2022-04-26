@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { TaxRate } from './taxRate';
+import type { TaxRate } from "./taxRate"
 
 export type PostTaxRatesTaxRateProducts200 = {
-  tax_rate?: TaxRate[];
-};
+  tax_rate?: TaxRate[]
+}

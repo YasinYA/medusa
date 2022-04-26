@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Notification } from './notification';
+import type { Notification } from "./notification"
 
 export type PostNotificationsNotificationResend200 = {
-  notification?: Notification;
-};
+  notification?: Notification
+}

@@ -4,9 +4,9 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { Address } from './address';
+import type { Address } from "./address"
 
 export type PostCustomersCustomerAddressesBody = {
   /** The Address to add to the Customer. */
-  address: Address;
-};
+  address: Address
+}

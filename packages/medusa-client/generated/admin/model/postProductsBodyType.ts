@@ -10,5 +10,5 @@
  */
 export type PostProductsBodyType = {
   /** The value of the Product Type. */
-  value?: string;
-};
+  value?: string
+}

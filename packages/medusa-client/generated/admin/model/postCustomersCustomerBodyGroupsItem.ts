@@ -7,5 +7,5 @@
 
 export type PostCustomersCustomerBodyGroupsItem = {
   /** The id of a customer group */
-  id: string;
-};
+  id: string
+}

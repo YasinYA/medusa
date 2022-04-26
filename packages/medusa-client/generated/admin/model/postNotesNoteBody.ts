@@ -7,5 +7,5 @@
 
 export type PostNotesNoteBody = {
   /** The updated description of the Note. */
-  value: string;
-};
+  value: string
+}

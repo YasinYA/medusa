@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Fulfillment } from './fulfillment';
+import type { Fulfillment } from "./fulfillment"
 
 export type PostOrdersSwapFulfillmentsCancel200 = {
-  fulfillment?: Fulfillment;
-};
+  fulfillment?: Fulfillment
+}

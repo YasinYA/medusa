@@ -8,4 +8,4 @@
 /**
  * The optional additional data needed for the shipping method
  */
-export type PostDraftOrdersBodyShippingMethodsItemData = { [key: string]: any };
+export type PostDraftOrdersBodyShippingMethodsItemData = { [key: string]: any }

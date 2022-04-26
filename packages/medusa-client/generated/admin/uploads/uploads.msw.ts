@@ -4,20 +4,24 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import {
-  rest
-} from 'msw'
-import {
-  faker
-} from '@faker-js/faker'
+import { rest } from "msw"
+import { faker } from "@faker-js/faker"
 
-export const getPostUploadsMock = () => ({uploads: faker.helpers.randomize([[...Array(faker.datatype.number({min: 1, max: 10}))].map(() => (faker.random.word())), undefined])})
+export const getPostUploadsMock = () => ({
+  uploads: faker.helpers.randomize([
+    [...Array(faker.datatype.number({ min: 1, max: 10 }))].map(() =>
+      faker.random.word()
+    ),
+    undefined,
+  ]),
+})
 
 export const getUploadsMSW = () => [
-rest.post('*/admin', (_req, res, ctx) => {
-        return res(
-          ctx.delay(1000),
-          ctx.status(200, 'Mocked status'),
-ctx.json(getPostUploadsMock()),
-        )
-      }),]
+  rest.post("*/admin", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getPostUploadsMock())
+    )
+  }),
+]

@@ -9,7 +9,7 @@ import type {
   GetReturns200,
   PostReturnsReturnReceive200,
   PostReturnsReturnReceiveBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

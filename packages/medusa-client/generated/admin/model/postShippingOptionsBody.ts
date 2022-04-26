@@ -4,32 +4,32 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostShippingOptionsBodyData } from './postShippingOptionsBodyData';
-import type { PostShippingOptionsBodyPriceType } from './postShippingOptionsBodyPriceType';
-import type { PostShippingOptionsBodyRequirementsItem } from './postShippingOptionsBodyRequirementsItem';
-import type { PostShippingOptionsBodyMetadata } from './postShippingOptionsBodyMetadata';
+import type { PostShippingOptionsBodyData } from "./postShippingOptionsBodyData"
+import type { PostShippingOptionsBodyPriceType } from "./postShippingOptionsBodyPriceType"
+import type { PostShippingOptionsBodyRequirementsItem } from "./postShippingOptionsBodyRequirementsItem"
+import type { PostShippingOptionsBodyMetadata } from "./postShippingOptionsBodyMetadata"
 
 export type PostShippingOptionsBody = {
   /** The name of the Shipping Option */
-  name?: string;
+  name?: string
   /** The id of the Region in which the Shipping Option will be available. */
-  region_id?: string;
+  region_id?: string
   /** The id of the Fulfillment Provider that handles the Shipping Option. */
-  provider_id?: string;
+  provider_id?: string
   /** The id of the Shipping Profile to add the Shipping Option to. */
-  profile_id?: number;
+  profile_id?: number
   /** The data needed for the Fulfillment Provider to handle shipping with this Shipping Option. */
-  data?: PostShippingOptionsBodyData;
+  data?: PostShippingOptionsBodyData
   /** The type of the Shipping Option price. */
-  price_type?: PostShippingOptionsBodyPriceType;
+  price_type?: PostShippingOptionsBodyPriceType
   /** The amount to charge for the Shipping Option. */
-  amount?: number;
+  amount?: number
   /** The requirements that must be satisfied for the Shipping Option to be available. */
-  requirements?: PostShippingOptionsBodyRequirementsItem[];
+  requirements?: PostShippingOptionsBodyRequirementsItem[]
   /** Whether the Shipping Option defines a return shipment. */
-  is_return?: boolean;
+  is_return?: boolean
   /** If true, the option can be used for draft orders */
-  admin_only?: boolean;
+  admin_only?: boolean
   /** An optional set of key-value pairs with additional information. */
-  metadata?: PostShippingOptionsBodyMetadata;
-};
+  metadata?: PostShippingOptionsBodyMetadata
+}

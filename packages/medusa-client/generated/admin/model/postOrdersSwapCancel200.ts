@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Swap } from './swap';
+import type { Swap } from "./swap"
 
 export type PostOrdersSwapCancel200 = {
-  order?: Swap;
-};
+  order?: Swap
+}

@@ -8,4 +8,4 @@
 /**
  * Data relevant for the given payment method
  */
-export type PostOrdersBodyPaymentMethodData = { [key: string]: any };
+export type PostOrdersBodyPaymentMethodData = { [key: string]: any }

@@ -7,13 +7,13 @@
 
 export type PostStoreBody = {
   /** The name of the Store */
-  name?: string;
+  name?: string
   /** A template for Swap links - use `{{cart_id}}` to insert the Swap Cart id */
-  swap_link_template?: string;
+  swap_link_template?: string
   /** A template for payment links links - use `{{cart_id}}` to insert the Cart id */
-  payment_link_template?: string;
+  payment_link_template?: string
   /** A template for invite links - use `{{invite_token}}` to insert the invite token */
-  invite_link_template?: string;
+  invite_link_template?: string
   /** The default currency code for the Store. */
-  default_currency_code?: string;
-};
+  default_currency_code?: string
+}

@@ -7,7 +7,7 @@
 
 export type PostProductsProductBodyTagsItem = {
   /** The id of an existing Tag. */
-  id?: string;
+  id?: string
   /** The value of the Tag, these will be upserted. */
-  value?: string;
-};
+  value?: string
+}

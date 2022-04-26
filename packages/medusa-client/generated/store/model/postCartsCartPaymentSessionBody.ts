@@ -7,5 +7,5 @@
 
 export type PostCartsCartPaymentSessionBody = {
   /** The id of the Payment Provider. */
-  provider_id: string;
-};
+  provider_id: string
+}

@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { ProductType } from './productType';
+import type { ProductType } from "./productType"
 
 export type GetProductsTypes200 = {
-  types?: ProductType[];
-};
+  types?: ProductType[]
+}

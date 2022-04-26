@@ -8,4 +8,4 @@
 /**
  * An optional set of key-value pairs with additional information.
  */
-export type PostReturnReasonsBodyMetadata = { [key: string]: any };
+export type PostReturnReasonsBodyMetadata = { [key: string]: any }

@@ -8,4 +8,4 @@
 /**
  * Data relevant to the specific shipping method.
  */
-export type PostOrdersBodyShippingMethodData = { [key: string]: any };
+export type PostOrdersBodyShippingMethodData = { [key: string]: any }

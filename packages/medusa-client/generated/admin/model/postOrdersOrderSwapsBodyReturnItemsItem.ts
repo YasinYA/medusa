@@ -7,7 +7,7 @@
 
 export type PostOrdersOrderSwapsBodyReturnItemsItem = {
   /** The id of the Line Item that will be claimed. */
-  item_id: string;
+  item_id: string
   /** The number of items that will be returned */
-  quantity: number;
-};
+  quantity: number
+}

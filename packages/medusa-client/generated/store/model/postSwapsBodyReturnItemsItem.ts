@@ -7,11 +7,11 @@
 
 export type PostSwapsBodyReturnItemsItem = {
   /** The id of the Line Item from the Order. */
-  item_id: string;
+  item_id: string
   /** The quantity to return. */
-  quantity: number;
+  quantity: number
   /** The id of the reason of this return */
-  reason_id?: string;
+  reason_id?: string
   /** The id of the note */
-  note_id?: string;
-};
+  note_id?: string
+}

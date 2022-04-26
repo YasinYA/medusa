@@ -7,5 +7,5 @@
 
 export type PostShippingProfilesBody = {
   /** The name of the Shipping Profile */
-  name: string;
-};
+  name: string
+}

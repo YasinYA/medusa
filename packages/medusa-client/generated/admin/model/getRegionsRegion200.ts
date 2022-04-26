@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Region } from './region';
+import type { Region } from "./region"
 
 export type GetRegionsRegion200 = {
-  region?: Region;
-};
+  region?: Region
+}

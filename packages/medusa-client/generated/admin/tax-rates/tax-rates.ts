@@ -15,7 +15,7 @@ import type {
   DeleteTaxRatesTaxRate200,
   GetTaxRatesTaxRate200,
   PostTaxRatesTaxRate200,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

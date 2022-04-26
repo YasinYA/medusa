@@ -4,9 +4,9 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostProductsToCollectionBodyProductIdsItem } from './postProductsToCollectionBodyProductIdsItem';
+import type { PostProductsToCollectionBodyProductIdsItem } from "./postProductsToCollectionBodyProductIdsItem"
 
 export type PostProductsToCollectionBody = {
   /** An array of Product IDs to add to the Product Collection. */
-  product_ids?: PostProductsToCollectionBodyProductIdsItem[];
-};
+  product_ids?: PostProductsToCollectionBodyProductIdsItem[]
+}

@@ -5,4 +5,12 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetCollectionsParams = { limit?: string; offset?: string; title?: string; handle?: string; deleted_at?: { [key: string]: any }; created_at?: { [key: string]: any }; updated_at?: { [key: string]: any } };
+export type GetCollectionsParams = {
+  limit?: string
+  offset?: string
+  title?: string
+  handle?: string
+  deleted_at?: { [key: string]: any }
+  created_at?: { [key: string]: any }
+  updated_at?: { [key: string]: any }
+}

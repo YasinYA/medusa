@@ -8,11 +8,10 @@
 /**
  * The type of pricing calculation that is used when creatin Shipping Methods from the Shipping Option. Can be `flat_rate` for fixed prices or `calculated` if the Fulfillment Provider can provide price calulations.
  */
-export type ShippingOptionPriceType = 'flat_rate' | 'calculated';
-
+export type ShippingOptionPriceType = "flat_rate" | "calculated"
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ShippingOptionPriceType = {
-  flat_rate: 'flat_rate' as ShippingOptionPriceType,
-  calculated: 'calculated' as ShippingOptionPriceType,
-};
+  flat_rate: "flat_rate" as ShippingOptionPriceType,
+  calculated: "calculated" as ShippingOptionPriceType,
+}

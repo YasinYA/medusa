@@ -4,45 +4,45 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostProductsProductBodyVariantsItemMetadata } from './postProductsProductBodyVariantsItemMetadata';
-import type { PostProductsProductBodyVariantsItemPricesItem } from './postProductsProductBodyVariantsItemPricesItem';
-import type { PostProductsProductBodyVariantsItemOptionsItem } from './postProductsProductBodyVariantsItemOptionsItem';
+import type { PostProductsProductBodyVariantsItemMetadata } from "./postProductsProductBodyVariantsItemMetadata"
+import type { PostProductsProductBodyVariantsItemPricesItem } from "./postProductsProductBodyVariantsItemPricesItem"
+import type { PostProductsProductBodyVariantsItemOptionsItem } from "./postProductsProductBodyVariantsItemOptionsItem"
 
 export type PostProductsProductBodyVariantsItem = {
   /** The title to identify the Product Variant by. */
-  title?: string;
+  title?: string
   /** The unique SKU for the Product Variant. */
-  sku?: string;
+  sku?: string
   /** The EAN number of the item. */
-  ean?: string;
+  ean?: string
   /** The UPC number of the item. */
-  upc?: string;
+  upc?: string
   /** A generic GTIN field for the Product Variant. */
-  barcode?: string;
+  barcode?: string
   /** The Harmonized System code for the Product Variant. */
-  hs_code?: string;
+  hs_code?: string
   /** The amount of stock kept for the Product Variant. */
-  inventory_quantity?: number;
+  inventory_quantity?: number
   /** Whether the Product Variant can be purchased when out of stock. */
-  allow_backorder?: boolean;
+  allow_backorder?: boolean
   /** Whether Medusa should keep track of the inventory for this Product Variant. */
-  manage_inventory?: boolean;
+  manage_inventory?: boolean
   /** The wieght of the Product Variant. */
-  weight?: string;
+  weight?: string
   /** The length of the Product Variant. */
-  length?: string;
+  length?: string
   /** The height of the Product Variant. */
-  height?: string;
+  height?: string
   /** The width of the Product Variant. */
-  width?: string;
+  width?: string
   /** The country of origin of the Product Variant. */
-  origin_country?: string;
+  origin_country?: string
   /** The Manufacturer Identification code for the Product Variant. */
-  mid_code?: string;
+  mid_code?: string
   /** The material composition of the Product Variant. */
-  material?: string;
+  material?: string
   /** An optional set of key-value pairs with additional information. */
-  metadata?: PostProductsProductBodyVariantsItemMetadata;
-  prices?: PostProductsProductBodyVariantsItemPricesItem[];
-  options?: PostProductsProductBodyVariantsItemOptionsItem[];
-};
+  metadata?: PostProductsProductBodyVariantsItemMetadata
+  prices?: PostProductsProductBodyVariantsItemPricesItem[]
+  options?: PostProductsProductBodyVariantsItemOptionsItem[]
+}

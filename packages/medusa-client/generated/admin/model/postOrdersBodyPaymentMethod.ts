@@ -4,14 +4,14 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostOrdersBodyPaymentMethodData } from './postOrdersBodyPaymentMethodData';
+import type { PostOrdersBodyPaymentMethodData } from "./postOrdersBodyPaymentMethodData"
 
 /**
  * payment method chosen for the order
  */
 export type PostOrdersBodyPaymentMethod = {
   /** id of the payment provider */
-  provider_id: string;
+  provider_id: string
   /** Data relevant for the given payment method */
-  data?: PostOrdersBodyPaymentMethodData;
-};
+  data?: PostOrdersBodyPaymentMethodData
+}

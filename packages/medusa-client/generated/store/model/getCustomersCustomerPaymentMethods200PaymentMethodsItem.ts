@@ -4,11 +4,11 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { GetCustomersCustomerPaymentMethods200PaymentMethodsItemData } from './getCustomersCustomerPaymentMethods200PaymentMethodsItemData';
+import type { GetCustomersCustomerPaymentMethods200PaymentMethodsItemData } from "./getCustomersCustomerPaymentMethods200PaymentMethodsItemData"
 
 export type GetCustomersCustomerPaymentMethods200PaymentMethodsItem = {
   /** The id of the Payment Provider where the payment method is saved. */
-  provider_id?: string;
+  provider_id?: string
   /** The data needed for the Payment Provider to use the saved payment method. */
-  data?: GetCustomersCustomerPaymentMethods200PaymentMethodsItemData;
-};
+  data?: GetCustomersCustomerPaymentMethods200PaymentMethodsItemData
+}

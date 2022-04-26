@@ -8,4 +8,4 @@
 /**
  * Used to hold any data that the shipping method may need to process the fulfillment of the order. Look at the documentation for your installed fulfillment providers to find out what to send.
  */
-export type PostCartsCartShippingMethodBodyData = { [key: string]: any };
+export type PostCartsCartShippingMethodBodyData = { [key: string]: any }

@@ -4,8 +4,8 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { ProductVariant } from './productVariant';
+import type { ProductVariant } from "./productVariant"
 
 export type GetVariantsVariant200 = {
-  variant?: ProductVariant;
-};
+  variant?: ProductVariant
+}

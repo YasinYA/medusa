@@ -5,4 +5,9 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetVariantsParams = { ids?: string; expand?: string; offset?: number; limit?: number };
+export type GetVariantsParams = {
+  ids?: string
+  expand?: string
+  offset?: number
+  limit?: number
+}

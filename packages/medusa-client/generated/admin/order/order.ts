@@ -44,7 +44,7 @@ import type {
   PostOrdersOrderClaimsClaimBody,
   GetTaxRates200,
   GetTaxRatesParams,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

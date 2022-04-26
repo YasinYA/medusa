@@ -7,5 +7,5 @@
 
 export type PostDraftOrdersDraftOrderBodyDiscountsItem = {
   /** The code that a Discount is identifed by. */
-  code?: string;
-};
+  code?: string
+}

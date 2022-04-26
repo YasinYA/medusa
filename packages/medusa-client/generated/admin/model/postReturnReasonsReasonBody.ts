@@ -4,13 +4,13 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostReturnReasonsReasonBodyMetadata } from './postReturnReasonsReasonBodyMetadata';
+import type { PostReturnReasonsReasonBodyMetadata } from "./postReturnReasonsReasonBodyMetadata"
 
 export type PostReturnReasonsReasonBody = {
   /** The label to display to the Customer. */
-  label?: string;
+  label?: string
   /** An optional description to for the Reason. */
-  description?: string;
+  description?: string
   /** An optional set of key-value pairs with additional information. */
-  metadata?: PostReturnReasonsReasonBodyMetadata;
-};
+  metadata?: PostReturnReasonsReasonBodyMetadata
+}

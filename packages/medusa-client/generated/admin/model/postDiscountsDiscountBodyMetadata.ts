@@ -8,4 +8,4 @@
 /**
  * An object containing metadata of the discount
  */
-export type PostDiscountsDiscountBodyMetadata = { [key: string]: any };
+export type PostDiscountsDiscountBodyMetadata = { [key: string]: any }

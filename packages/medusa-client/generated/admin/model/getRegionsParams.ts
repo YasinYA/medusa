@@ -5,4 +5,10 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetRegionsParams = { limit?: number; offset?: number; created_at?: { [key: string]: any }; updated_at?: { [key: string]: any }; deleted_at?: { [key: string]: any } };
+export type GetRegionsParams = {
+  limit?: number
+  offset?: number
+  created_at?: { [key: string]: any }
+  updated_at?: { [key: string]: any }
+  deleted_at?: { [key: string]: any }
+}

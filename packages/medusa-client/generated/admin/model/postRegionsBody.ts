@@ -7,17 +7,17 @@
 
 export type PostRegionsBody = {
   /** The name of the Region */
-  name: string;
+  name: string
   /** The 3 character ISO currency code to use for the Region. */
-  currency_code: string;
+  currency_code: string
   /** An optional tax code the Region. */
-  tax_code?: string;
+  tax_code?: string
   /** The tax rate to use on Orders in the Region. */
-  tax_rate: number;
+  tax_rate: number
   /** A list of Payment Providers that should be enabled for the Region */
-  payment_providers?: string[];
+  payment_providers?: string[]
   /** A list of Fulfillment Providers that should be enabled for the Region */
-  fulfillment_providers?: string[];
+  fulfillment_providers?: string[]
   /** A list of countries that should be included in the Region. */
-  countries?: string[];
-};
+  countries?: string[]
+}

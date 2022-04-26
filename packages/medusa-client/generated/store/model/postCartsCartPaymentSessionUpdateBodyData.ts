@@ -8,4 +8,4 @@
 /**
  * The data to update the payment session with.
  */
-export type PostCartsCartPaymentSessionUpdateBodyData = { [key: string]: any };
+export type PostCartsCartPaymentSessionUpdateBodyData = { [key: string]: any }

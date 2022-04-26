@@ -8,4 +8,4 @@
 /**
  * An optional key-value map with additional information.
  */
-export type ReturnItemMetadata = { [key: string]: any };
+export type ReturnItemMetadata = { [key: string]: any }

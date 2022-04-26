@@ -4,22 +4,22 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostCustomersCustomerBodyGroupsItem } from './postCustomersCustomerBodyGroupsItem';
-import type { PostCustomersCustomerBodyMetadata } from './postCustomersCustomerBodyMetadata';
+import type { PostCustomersCustomerBodyGroupsItem } from "./postCustomersCustomerBodyGroupsItem"
+import type { PostCustomersCustomerBodyMetadata } from "./postCustomersCustomerBodyMetadata"
 
 export type PostCustomersCustomerBody = {
   /** The Customer's email. Only providable if user not registered. */
-  email?: string;
+  email?: string
   /** The Customer's first name. */
-  first_name?: string;
+  first_name?: string
   /** The Customer's last name. */
-  last_name?: string;
+  last_name?: string
   /** The Customer's phone number. */
-  phone?: string;
+  phone?: string
   /** The Customer's password. */
-  password?: string;
+  password?: string
   /** A list of customer groups to which the customer belongs. */
-  groups?: PostCustomersCustomerBodyGroupsItem[];
+  groups?: PostCustomersCustomerBodyGroupsItem[]
   /** Metadata for the customer. */
-  metadata?: PostCustomersCustomerBodyMetadata;
-};
+  metadata?: PostCustomersCustomerBodyMetadata
+}

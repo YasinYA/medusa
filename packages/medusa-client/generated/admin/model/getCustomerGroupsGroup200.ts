@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { CustomerGroup } from './customerGroup';
+import type { CustomerGroup } from "./customerGroup"
 
 export type GetCustomerGroupsGroup200 = {
-  customer_group?: CustomerGroup;
-};
+  customer_group?: CustomerGroup
+}

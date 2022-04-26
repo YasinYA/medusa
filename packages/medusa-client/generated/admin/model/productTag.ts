@@ -4,22 +4,22 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { ProductTagMetadata } from './productTagMetadata';
+import type { ProductTagMetadata } from "./productTagMetadata"
 
 /**
  * Product Tags can be added to Products for easy filtering and grouping.
  */
 export interface ProductTag {
   /** The id of the Product Tag. This value will be prefixed with `ptag_`. */
-  id?: string;
+  id?: string
   /** The value that the Product Tag represents (e.g. "Pants"). */
-  value?: string;
+  value?: string
   /** The date with timezone at which the resource was created. */
-  created_at?: string;
+  created_at?: string
   /** The date with timezone at which the resource was last updated. */
-  updated_at?: string;
+  updated_at?: string
   /** The date with timezone at which the resource was deleted. */
-  deleted_at?: string;
+  deleted_at?: string
   /** An optional key-value map with additional information. */
-  metadata?: ProductTagMetadata;
+  metadata?: ProductTagMetadata
 }

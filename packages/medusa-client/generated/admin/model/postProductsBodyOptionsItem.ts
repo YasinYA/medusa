@@ -7,5 +7,5 @@
 
 export type PostProductsBodyOptionsItem = {
   /** The title to identify the Product Option by. */
-  title?: string;
-};
+  title?: string
+}

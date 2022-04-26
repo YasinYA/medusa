@@ -7,7 +7,7 @@
 
 export type PostAuthBody = {
   /** The Customer's email. */
-  email: string;
+  email: string
   /** The Customer's password. */
-  password: string;
-};
+  password: string
+}

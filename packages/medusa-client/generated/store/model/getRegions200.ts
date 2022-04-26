@@ -4,14 +4,14 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { Region } from './region';
+import type { Region } from "./region"
 
 export type GetRegions200 = {
   /** The total number of regions. */
-  count?: number;
+  count?: number
   /** The offset for pagination. */
-  offset?: number;
+  offset?: number
   /** The maxmimum number of regions to return, */
-  limit?: number;
-  regions?: Region[];
-};
+  limit?: number
+  regions?: Region[]
+}

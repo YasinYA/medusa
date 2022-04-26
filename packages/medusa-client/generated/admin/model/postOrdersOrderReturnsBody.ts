@@ -4,18 +4,18 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostOrdersOrderReturnsBodyItemsItem } from './postOrdersOrderReturnsBodyItemsItem';
-import type { PostOrdersOrderReturnsBodyReturnShipping } from './postOrdersOrderReturnsBodyReturnShipping';
+import type { PostOrdersOrderReturnsBodyItemsItem } from "./postOrdersOrderReturnsBodyItemsItem"
+import type { PostOrdersOrderReturnsBodyReturnShipping } from "./postOrdersOrderReturnsBodyReturnShipping"
 
 export type PostOrdersOrderReturnsBody = {
   /** The Line Items that will be returned. */
-  items: PostOrdersOrderReturnsBodyItemsItem[];
+  items: PostOrdersOrderReturnsBodyItemsItem[]
   /** The Shipping Method to be used to handle the return shipment. */
-  return_shipping?: PostOrdersOrderReturnsBodyReturnShipping;
+  return_shipping?: PostOrdersOrderReturnsBodyReturnShipping
   /** A flag to indicate if the Return should be registerd as received immediately. */
-  receive_now?: boolean;
+  receive_now?: boolean
   /** A flag to indicate if no notifications should be emitted related to the requested Return. */
-  no_notification?: boolean;
+  no_notification?: boolean
   /** The amount to refund. */
-  refund?: number;
-};
+  refund?: number
+}

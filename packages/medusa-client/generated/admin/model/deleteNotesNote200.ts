@@ -7,7 +7,7 @@
 
 export type DeleteNotesNote200 = {
   /** The id of the deleted Note. */
-  id?: string;
+  id?: string
   /** Whether or not the Note was deleted. */
-  deleted?: boolean;
-};
+  deleted?: boolean
+}

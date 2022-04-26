@@ -4,14 +4,14 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Product } from './product';
+import type { Product } from "./product"
 
 export type GetProducts200 = {
   /** The number of Products. */
-  count?: number;
+  count?: number
   /** The offset of the Product query. */
-  offset?: number;
+  offset?: number
   /** The limit of the Product query. */
-  limit?: number;
-  products?: Product[];
-};
+  limit?: number
+  products?: Product[]
+}

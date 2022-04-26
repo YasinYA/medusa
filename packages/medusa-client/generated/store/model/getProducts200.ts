@@ -4,14 +4,14 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { Product } from './product';
+import type { Product } from "./product"
 
 export type GetProducts200 = {
   /** The total number of Products. */
-  count?: number;
+  count?: number
   /** The offset for pagination. */
-  offset?: number;
+  offset?: number
   /** The maxmimum number of Products to return, */
-  limit?: number;
-  products?: Product[];
-};
+  limit?: number
+  products?: Product[]
+}

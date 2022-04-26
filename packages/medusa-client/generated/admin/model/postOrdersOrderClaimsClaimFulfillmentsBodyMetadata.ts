@@ -8,4 +8,6 @@
 /**
  * An optional set of key-value pairs to hold additional information.
  */
-export type PostOrdersOrderClaimsClaimFulfillmentsBodyMetadata = { [key: string]: any };
+export type PostOrdersOrderClaimsClaimFulfillmentsBodyMetadata = {
+  [key: string]: any
+}

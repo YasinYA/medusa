@@ -4,14 +4,14 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { Order } from './order';
+import type { Order } from "./order"
 
 export type GetCustomersCustomerOrders200 = {
   /** The total number of Orders. */
-  count?: number;
+  count?: number
   /** The offset for pagination. */
-  offset?: number;
+  offset?: number
   /** The maxmimum number of Orders to return, */
-  limit?: number;
-  orders?: Order[];
-};
+  limit?: number
+  orders?: Order[]
+}

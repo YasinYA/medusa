@@ -7,5 +7,5 @@
 
 export type PostRegionsRegionCountriesBody = {
   /** The 2 character ISO code for the Country. */
-  country_code: string;
-};
+  country_code: string
+}

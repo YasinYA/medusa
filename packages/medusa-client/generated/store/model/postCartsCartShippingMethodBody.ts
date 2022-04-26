@@ -4,11 +4,11 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostCartsCartShippingMethodBodyData } from './postCartsCartShippingMethodBodyData';
+import type { PostCartsCartShippingMethodBodyData } from "./postCartsCartShippingMethodBodyData"
 
 export type PostCartsCartShippingMethodBody = {
   /** id of the shipping option to create the method from */
-  option_id: string;
+  option_id: string
   /** Used to hold any data that the shipping method may need to process the fulfillment of the order. Look at the documentation for your installed fulfillment providers to find out what to send. */
-  data?: PostCartsCartShippingMethodBodyData;
-};
+  data?: PostCartsCartShippingMethodBodyData
+}

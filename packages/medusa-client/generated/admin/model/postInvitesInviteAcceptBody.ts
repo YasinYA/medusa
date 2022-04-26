@@ -4,11 +4,11 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostInvitesInviteAcceptBodyUser } from './postInvitesInviteAcceptBodyUser';
+import type { PostInvitesInviteAcceptBodyUser } from "./postInvitesInviteAcceptBodyUser"
 
 export type PostInvitesInviteAcceptBody = {
   /** The invite token provided by the admin. */
-  token: string;
+  token: string
   /** The User to create. */
-  user: PostInvitesInviteAcceptBodyUser;
-};
+  user: PostInvitesInviteAcceptBodyUser
+}

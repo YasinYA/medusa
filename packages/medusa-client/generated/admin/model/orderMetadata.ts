@@ -5,4 +5,4 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type OrderMetadata = { [key: string]: any };
+export type OrderMetadata = { [key: string]: any }

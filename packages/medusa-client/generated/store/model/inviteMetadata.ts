@@ -5,4 +5,4 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type InviteMetadata = { [key: string]: any };
+export type InviteMetadata = { [key: string]: any }

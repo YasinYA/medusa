@@ -11,7 +11,7 @@ import type {
   PostCustomerGroupsGroup200,
   PostCustomerGroupsGroupBody,
   GetCustomerGroupsGroup200,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

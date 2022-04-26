@@ -4,8 +4,8 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { Invite } from './invite';
+import type { Invite } from "./invite"
 
 export type GetInvites200 = {
-  invites?: Invite[];
-};
+  invites?: Invite[]
+}

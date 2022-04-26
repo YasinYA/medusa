@@ -12,7 +12,7 @@ import type {
   GetShippingProfilesProfile200,
   PostShippingProfilesProfile200,
   PostShippingProfilesProfileBody,
-} from "../model"
+} from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
 /**

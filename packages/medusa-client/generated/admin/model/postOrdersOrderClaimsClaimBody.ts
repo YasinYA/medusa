@@ -4,17 +4,17 @@
  * Medusa Admin API
  * OpenAPI spec version: 1.0.0
  */
-import type { PostOrdersOrderClaimsClaimBodyClaimItemsItem } from './postOrdersOrderClaimsClaimBodyClaimItemsItem';
-import type { PostOrdersOrderClaimsClaimBodyShippingMethodsItem } from './postOrdersOrderClaimsClaimBodyShippingMethodsItem';
-import type { PostOrdersOrderClaimsClaimBodyMetadata } from './postOrdersOrderClaimsClaimBodyMetadata';
+import type { PostOrdersOrderClaimsClaimBodyClaimItemsItem } from "./postOrdersOrderClaimsClaimBodyClaimItemsItem"
+import type { PostOrdersOrderClaimsClaimBodyShippingMethodsItem } from "./postOrdersOrderClaimsClaimBodyShippingMethodsItem"
+import type { PostOrdersOrderClaimsClaimBodyMetadata } from "./postOrdersOrderClaimsClaimBodyMetadata"
 
 export type PostOrdersOrderClaimsClaimBody = {
   /** The Claim Items that the Claim will consist of. */
-  claim_items?: PostOrdersOrderClaimsClaimBodyClaimItemsItem[];
+  claim_items?: PostOrdersOrderClaimsClaimBodyClaimItemsItem[]
   /** The Shipping Methods to send the additional Line Items with. */
-  shipping_methods?: PostOrdersOrderClaimsClaimBodyShippingMethodsItem[];
+  shipping_methods?: PostOrdersOrderClaimsClaimBodyShippingMethodsItem[]
   /** If set to true no notification will be send related to this Swap. */
-  no_notification?: boolean;
+  no_notification?: boolean
   /** An optional set of key-value pairs to hold additional information. */
-  metadata?: PostOrdersOrderClaimsClaimBodyMetadata;
-};
+  metadata?: PostOrdersOrderClaimsClaimBodyMetadata
+}

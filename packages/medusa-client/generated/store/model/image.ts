@@ -4,22 +4,22 @@
  * Medusa Storefront API
  * OpenAPI spec version: 1.0.0
  */
-import type { ImageMetadata } from './imageMetadata';
+import type { ImageMetadata } from "./imageMetadata"
 
 /**
  * Images holds a reference to a URL at which the image file can be found.
  */
 export interface Image {
   /** The id of the Image. This value will be prefixed by `img_`. */
-  id?: string;
+  id?: string
   /** The URL at which the image file can be found. */
-  url?: string;
+  url?: string
   /** The date with timezone at which the resource was created. */
-  created_at?: string;
+  created_at?: string
   /** The date with timezone at which the resource was last updated. */
-  update_at?: string;
+  update_at?: string
   /** The date with timezone at which the resource was deleted. */
-  deleted_at?: string;
+  deleted_at?: string
   /** An optional key-value map with additional information. */
-  metadata?: ImageMetadata;
+  metadata?: ImageMetadata
 }

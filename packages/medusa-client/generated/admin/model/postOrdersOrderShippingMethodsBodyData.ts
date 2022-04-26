@@ -8,4 +8,4 @@
 /**
  * The data required for the Shipping Option to create a Shipping Method. This will depend on the Fulfillment Provider.
  */
-export type PostOrdersOrderShippingMethodsBodyData = { [key: string]: any };
+export type PostOrdersOrderShippingMethodsBodyData = { [key: string]: any }
