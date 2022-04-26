@@ -5,6 +5,8 @@
  * OpenAPI spec version: 1.0.0
  */
 import type {
+  GetPriceListsPriceListProducts200,
+  GetPriceListsPriceListProductsParams,
   PostProductsProductOptions200,
   PostProductsProductOptionsBody,
   PostProducts200,
@@ -30,6 +32,19 @@ import type {
 } from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
+/**
+ * Retrieves a list of Product that are part of a Price List
+ * @summary List Product in a Price List
+ */
+export const getPriceListsPriceListProducts = (
+  params?: GetPriceListsPriceListProductsParams
+) => {
+  return getClient<GetPriceListsPriceListProducts200>({
+    url: `/admin/price-lists/:id/products`,
+    method: "get",
+    params,
+  })
+}
 /**
  * Adds a Product Option to a Product
  * @summary Add an Option
@@ -219,6 +234,9 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   ? R
   : any
 
+export type GetPriceListsPriceListProductsResult = NonNullable<
+  AsyncReturnType<typeof getPriceListsPriceListProducts>
+>
 export type PostProductsProductOptionsResult = NonNullable<
   AsyncReturnType<typeof postProductsProductOptions>
 >

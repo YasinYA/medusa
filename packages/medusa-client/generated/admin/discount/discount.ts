@@ -7,8 +7,6 @@
 import type {
   PostDiscountsDiscountRegionsRegion200,
   DeleteDiscountsDiscountRegionsRegion200,
-  PostDiscountsDiscountProductsProduct200,
-  DeleteDiscountsDiscountProductsProduct200,
   PostDiscounts200,
   PostDiscountsBody,
   GetDiscounts200,
@@ -17,6 +15,7 @@ import type {
   PostDiscountsDiscountDynamicCodesBody,
   DeleteDiscountsDiscount200,
   GetDiscountsDiscount200,
+  GetDiscountsDiscountParams,
   PostDiscountsDiscount200,
   PostDiscountsDiscountBody,
   DeleteDiscountsDiscountDynamicCodesCode200,
@@ -47,32 +46,6 @@ export const deleteDiscountsDiscountRegionsRegion = (
 ) => {
   return getClient<DeleteDiscountsDiscountRegionsRegion200>({
     url: `/admin/discounts/${id}/regions/${regionId}`,
-    method: "delete",
-  })
-}
-/**
- * Adds a Product to the list of Products that a Discount can be used for.
- * @summary Adds Product availability
- */
-export const postDiscountsDiscountProductsProduct = (
-  id: string,
-  productId: string
-) => {
-  return getClient<PostDiscountsDiscountProductsProduct200>({
-    url: `/admin/discounts/${id}/products/${productId}`,
-    method: "post",
-  })
-}
-/**
- * Removes a Product from the list of Products that a Discount can be used for.
- * @summary Remove Product availability
- */
-export const deleteDiscountsDiscountProductsProduct = (
-  id: string,
-  productId: string
-) => {
-  return getClient<DeleteDiscountsDiscountProductsProduct200>({
-    url: `/admin/discounts/${id}/products/${productId}`,
     method: "delete",
   })
 }
@@ -128,10 +101,14 @@ export const deleteDiscountsDiscount = (id: string) => {
  * Retrieves a Discount
  * @summary Retrieve a Discount
  */
-export const getDiscountsDiscount = (id: string) => {
+export const getDiscountsDiscount = (
+  id: string,
+  params?: GetDiscountsDiscountParams
+) => {
   return getClient<GetDiscountsDiscount200>({
     url: `/admin/discounts/${id}`,
     method: "get",
+    params,
   })
 }
 /**
@@ -185,12 +162,6 @@ export type PostDiscountsDiscountRegionsRegionResult = NonNullable<
 >
 export type DeleteDiscountsDiscountRegionsRegionResult = NonNullable<
   AsyncReturnType<typeof deleteDiscountsDiscountRegionsRegion>
->
-export type PostDiscountsDiscountProductsProductResult = NonNullable<
-  AsyncReturnType<typeof postDiscountsDiscountProductsProduct>
->
-export type DeleteDiscountsDiscountProductsProductResult = NonNullable<
-  AsyncReturnType<typeof deleteDiscountsDiscountProductsProduct>
 >
 export type PostDiscountsResult = NonNullable<
   AsyncReturnType<typeof postDiscounts>

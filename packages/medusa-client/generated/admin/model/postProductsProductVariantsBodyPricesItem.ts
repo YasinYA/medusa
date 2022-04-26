@@ -12,6 +12,8 @@ export type PostProductsProductVariantsBodyPricesItem = {
   currency_code?: string
   /** The amount to charge for the Product Variant. */
   amount?: number
-  /** The sale amount to charge for the Product Variant. */
-  sale_amount?: number
+  /** The minimum quantity for which the price will be used. */
+  min_quantity?: number
+  /** The maximum quantity for which the price will be used. */
+  max_quantity?: number
 }

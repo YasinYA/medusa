@@ -7,8 +7,20 @@
 import { rest } from "msw"
 import { faker } from "@faker-js/faker"
 
+export const getPostCustomerGroupsGroupCustomersBatchMock = () => ({
+  customerGroup: faker.helpers.randomize([{}, undefined]),
+})
+
+export const getDeleteCustomerGroupsGroupCustomerBatchMock = () => ({
+  customerGroup: faker.helpers.randomize([{}, undefined]),
+})
+
 export const getPostCustomerGroupsMock = () => ({
   customer_group: faker.helpers.randomize([{}, undefined]),
+})
+
+export const getGetCustomerGroupsMock = () => ({
+  customerGroup: faker.helpers.randomize([{}, undefined]),
 })
 
 export const getDeleteCustomerGroupsCustomerGroupMock = () => ({
@@ -17,20 +29,44 @@ export const getDeleteCustomerGroupsCustomerGroupMock = () => ({
   deleted: faker.helpers.randomize([faker.datatype.boolean(), undefined]),
 })
 
-export const getPostCustomerGroupsGroupMock = () => ({
-  customer_group: faker.helpers.randomize([{}, undefined]),
-})
-
 export const getGetCustomerGroupsGroupMock = () => ({
   customer_group: faker.helpers.randomize([{}, undefined]),
 })
 
+export const getPostCustomerGroupsGroupMock = () => ({
+  customer_group: faker.helpers.randomize([{}, undefined]),
+})
+
 export const getCustomerGroupMSW = () => [
+  rest.post("*/admin/customer-groups/:id/customers/batch", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getPostCustomerGroupsGroupCustomersBatchMock())
+    )
+  }),
+  rest.delete(
+    "*/admin/customer-groups/:id/customers/batch",
+    (_req, res, ctx) => {
+      return res(
+        ctx.delay(1000),
+        ctx.status(200, "Mocked status"),
+        ctx.json(getDeleteCustomerGroupsGroupCustomerBatchMock())
+      )
+    }
+  ),
   rest.post("*/admin/customer-groups", (_req, res, ctx) => {
     return res(
       ctx.delay(1000),
       ctx.status(200, "Mocked status"),
       ctx.json(getPostCustomerGroupsMock())
+    )
+  }),
+  rest.get("*/admin/customer-groups", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetCustomerGroupsMock())
     )
   }),
   rest.delete("*/admin/customer-groups/:id", (_req, res, ctx) => {
@@ -40,18 +76,18 @@ export const getCustomerGroupMSW = () => [
       ctx.json(getDeleteCustomerGroupsCustomerGroupMock())
     )
   }),
+  rest.get("*/admin/customer-groups/:id", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetCustomerGroupsGroupMock())
+    )
+  }),
   rest.post("*/admin/customer-groups/:id", (_req, res, ctx) => {
     return res(
       ctx.delay(1000),
       ctx.status(200, "Mocked status"),
       ctx.json(getPostCustomerGroupsGroupMock())
-    )
-  }),
-  rest.get("*/admin/customer-group/:id", (_req, res, ctx) => {
-    return res(
-      ctx.delay(1000),
-      ctx.status(200, "Mocked status"),
-      ctx.json(getGetCustomerGroupsGroupMock())
     )
   }),
 ]

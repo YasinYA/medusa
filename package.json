@@ -66,9 +66,9 @@
     "test": "jest",
     "prettier": "prettier",
     "test:integration": "jest --config=integration-tests/jest.config.js",
-    "test:fixtures": "jest --config=docs-util/jest.config.js --runInBand",
-    "generate-types:store": "openapi-typescript ./docs/api/store-spec3.yaml --output ./generated/store.ts",
-    "generate-types:admin": "openapi-typescript ./docs/api/admin-spec3.yaml --output ./generated/admin.ts"
+    "test:integration:api": "jest --config=integration-tests/jest.config.js --projects=integration-tests/api",
+    "test:integration:plugins": "jest --config=integration-tests/jest.config.js --projects=integration-tests/plugins",
+    "test:fixtures": "jest --config=docs-util/jest.config.js --runInBand"
   },
   "dependencies": {
     "global": "^4.4.0",

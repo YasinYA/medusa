@@ -5,6 +5,7 @@
  * OpenAPI spec version: 1.0.0
  */
 import type {
+  GetCustomerGroupsGroupCustomers200,
   PostCustomers200,
   PostCustomersBody,
   GetCustomers200,
@@ -15,6 +16,16 @@ import type {
 } from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
+/**
+ * Retrieves a list of Customers.
+ * @summary List Customers
+ */
+export const getCustomerGroupsGroupCustomers = (id: string) => {
+  return getClient<GetCustomerGroupsGroupCustomers200>({
+    url: `/admin/customer-groups/${id}/customers`,
+    method: "get",
+  })
+}
 /**
  * Creates a Customer.
  * @summary Create a Customer
@@ -69,6 +80,9 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   ? R
   : any
 
+export type GetCustomerGroupsGroupCustomersResult = NonNullable<
+  AsyncReturnType<typeof getCustomerGroupsGroupCustomers>
+>
 export type PostCustomersResult = NonNullable<
   AsyncReturnType<typeof postCustomers>
 >

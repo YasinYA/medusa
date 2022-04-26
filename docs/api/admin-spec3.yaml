@@ -38,57 +38,8 @@ tags:
   - name: OAuth
     x-resourceId: OAuth
 servers:
-  - url: "https://api.medusa-commerce.com/admin"
+  - url: 'https://api.medusa-commerce.com/admin'
 paths:
-  /auth:
-    post:
-      operationId: PostAuth
-      summary: Authenticate a User
-      x-authenticated: false
-      description: Logs a User in and authorizes them to manage Store settings.
-      parameters: []
-      tags:
-        - Auth
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                properties:
-                  user:
-                    $ref: "#/components/schemas/user"
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - email
-                - password
-              properties:
-                email:
-                  type: string
-                  description: The User's email.
-                password:
-                  type: string
-                  description: The User's password.
-    get:
-      operationId: GetAuth
-      summary: Get Session
-      x-authenticated: true
-      description: Gets the currently logged in User.
-      tags:
-        - Auth
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                properties:
-                  user:
-                    $ref: "#/components/schemas/user"
   /apps:
     post:
       operationId: PostApps
@@ -116,14 +67,14 @@ paths:
       tags:
         - Apps
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   apps:
-                    $ref: "#/components/schemas/OAuth"
+                    $ref: '#/components/schemas/OAuth'
     get:
       operationId: GetApps
       summary: List applications
@@ -132,15 +83,64 @@ paths:
       tags:
         - Apps
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   collection:
-                    $ref: "#/components/schemas/OAuth"
-  "/collections/{id}/products/batch":
+                    $ref: '#/components/schemas/OAuth'
+  /auth:
+    post:
+      operationId: PostAuth
+      summary: Authenticate a User
+      x-authenticated: false
+      description: Logs a User in and authorizes them to manage Store settings.
+      parameters: []
+      tags:
+        - Auth
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  user:
+                    $ref: '#/components/schemas/user'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  description: The User's email.
+                password:
+                  type: string
+                  description: The User's password.
+    get:
+      operationId: GetAuth
+      summary: Get Session
+      x-authenticated: true
+      description: Gets the currently logged in User.
+      tags:
+        - Auth
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  user:
+                    $ref: '#/components/schemas/user'
+  '/collections/{id}/products/batch':
     post:
       operationId: PostProductsToCollection
       summary: Updates products associated with a Product Collection
@@ -169,7 +169,7 @@ paths:
       tags:
         - Collection
       responses:
-        "200":
+        '200':
           description: OK
     delete:
       operationId: DeleteProductsFromCollection
@@ -203,7 +203,7 @@ paths:
       tags:
         - Collection
       responses:
-        "200":
+        '200':
           description: OK
   /collections:
     post:
@@ -234,14 +234,14 @@ paths:
       tags:
         - Collection
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   collection:
-                    $ref: "#/components/schemas/product_collection"
+                    $ref: '#/components/schemas/product_collection'
     get:
       operationId: GetCollections
       summary: List Product Collections
@@ -292,15 +292,15 @@ paths:
       tags:
         - Collection
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   collection:
-                    $ref: "#/components/schemas/product_collection"
-  "/collections/{id}":
+                    $ref: '#/components/schemas/product_collection'
+  '/collections/{id}':
     delete:
       operationId: DeleteCollectionsCollection
       summary: Delete a Product Collection
@@ -316,7 +316,7 @@ paths:
       tags:
         - Collection
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -345,14 +345,14 @@ paths:
       tags:
         - Collection
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   collection:
-                    $ref: "#/components/schemas/product_collection"
+                    $ref: '#/components/schemas/product_collection'
     post:
       operationId: PostCollectionsCollection
       summary: Update a Product Collection
@@ -386,14 +386,305 @@ paths:
       tags:
         - Collection
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   collection:
-                    $ref: "#/components/schemas/product_collection"
+                    $ref: '#/components/schemas/product_collection'
+  '/customer-groups/{id}/customers/batch':
+    post:
+      operationId: PostCustomerGroupsGroupCustomersBatch
+      summary: 'Add a list of customers to a customer group '
+      description: 'Adds a list of customers, represented by id''s, to a customer group.'
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the customer group.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                customers:
+                  description: The ids of the customers to add
+                  type: array
+                  items:
+                    required:
+                      - id
+                    properties:
+                      id:
+                        description: Id of the customer
+                        type: string
+      tags:
+        - CustomerGroup
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  customerGroup:
+                    $ref: '#/components/schemas/customer_group'
+    delete:
+      operationId: DeleteCustomerGroupsGroupCustomerBatch
+      summary: 'Remove a list of customers from a customer group '
+      description: 'Removes a list of customers, represented by id''s, from a customer group.'
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the customer group.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                customers:
+                  description: The ids of the customers to remove
+                  type: array
+                  items:
+                    required:
+                      - id
+                    properties:
+                      id:
+                        description: Id of the customer
+                        type: string
+      tags:
+        - CustomerGroup
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  customerGroup:
+                    $ref: '#/components/schemas/customer_group'
+  /customer-groups:
+    post:
+      operationId: PostCustomerGroups
+      summary: Create a CustomerGroup
+      description: Creates a CustomerGroup.
+      x-authenticated: true
+      parameters: []
+      tags:
+        - CustomerGroup
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  customer_group:
+                    $ref: '#/components/schemas/customer_group'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  description: Name of the customer group
+                metadata:
+                  type: object
+                  description: Metadata for the customer.
+    get:
+      operationId: GetCustomerGroups
+      summary: Retrieve a list of customer groups
+      description: Retrieve a list of customer groups.
+      x-authenticated: true
+      parameters:
+        - in: query
+          name: q
+          description: Query used for searching user group names.
+          schema:
+            type: string
+        - in: query
+          name: offset
+          description: How many groups to skip in the result.
+          schema:
+            type: string
+        - in: query
+          name: id
+          description: Ids of the groups to search for.
+          schema:
+            type: string
+        - in: query
+          name: order
+          description: to retrieve customer groups in.
+          schema:
+            type: string
+        - in: query
+          name: created_at
+          description: >-
+            Date comparison for when resulting customer group was created, i.e.
+            less than, greater than etc.
+          schema:
+            type: object
+        - in: query
+          name: updated_at
+          description: >-
+            Date comparison for when resulting ustomer group was updated, i.e.
+            less than, greater than etc.
+          schema:
+            type: object
+        - in: query
+          name: offset
+          description: How many customer groups to skip in the result.
+          schema:
+            type: string
+        - in: query
+          name: limit
+          description: Limit the number of customer groups returned.
+          schema:
+            type: string
+        - in: query
+          name: expand
+          description: >-
+            (Comma separated) Which fields should be expanded in each customer
+            groups of the result.
+          schema:
+            type: string
+      tags:
+        - CustomerGroup
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  customerGroup:
+                    $ref: '#/components/schemas/customer_group'
+  '/customer-groups/{id}':
+    delete:
+      operationId: DeleteCustomerGroupsCustomerGroup
+      summary: Delete a CustomerGroup
+      description: Deletes a CustomerGroup.
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the Customer Group
+          schema:
+            type: string
+      tags:
+        - CustomerGroup
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    description: The id of the deleted customer group.
+                  object:
+                    type: string
+                    description: The type of the object that was deleted.
+                  deleted:
+                    type: boolean
+    get:
+      operationId: GetCustomerGroupsGroup
+      summary: Retrieve a CustomerGroup
+      description: Retrieves a Customer Group.
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the Customer Group.
+          schema:
+            type: string
+      tags:
+        - CustomerGroup
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  customer_group:
+                    $ref: '#/components/schemas/customer_group'
+    post:
+      operationId: PostCustomerGroupsGroup
+      summary: Update a CustomerGroup
+      description: Update a CustomerGroup.
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the customer group.
+          schema:
+            type: string
+      tags:
+        - CustomerGroup
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  customer_group:
+                    $ref: '#/components/schemas/customer_group'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  description: Name of the customer group
+                metadata:
+                  type: object
+                  description: Metadata for the customer.
+  '/customer-groups/{id}/customers':
+    get:
+      operationId: GetCustomerGroupsGroupCustomers
+      summary: List Customers
+      description: Retrieves a list of Customers.
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the customer group.
+          schema:
+            type: string
+      tags:
+        - Customer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  customer:
+                    $ref: '#/components/schemas/customer'
   /customers:
     post:
       operationId: PostCustomers
@@ -404,14 +695,14 @@ paths:
       tags:
         - Customer
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   customer:
-                    $ref: "#/components/schemas/customer"
+                    $ref: '#/components/schemas/customer'
       requestBody:
         content:
           application/json:
@@ -445,15 +736,15 @@ paths:
       tags:
         - Customer
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   customer:
-                    $ref: "#/components/schemas/customer"
-  "/customers/{id}":
+                    $ref: '#/components/schemas/customer'
+  '/customers/{id}':
     get:
       operationId: GetCustomersCustomer
       summary: Retrieve a Customer
@@ -469,14 +760,14 @@ paths:
       tags:
         - Customer
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   customer:
-                    $ref: "#/components/schemas/customer"
+                    $ref: '#/components/schemas/customer'
     post:
       operationId: PostCustomersCustomer
       summary: Update a Customer
@@ -535,137 +826,14 @@ paths:
       tags:
         - Customer
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   customer:
-                    $ref: "#/components/schemas/customer"
-  /customer-groups:
-    post:
-      operationId: PostCustomerGroups
-      summary: Create a CustomerGroup
-      description: Creates a CustomerGroup.
-      x-authenticated: true
-      parameters: []
-      tags:
-        - CustomerGroup
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                properties:
-                  customer_group:
-                    $ref: "#/components/schemas/customer_group"
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - name
-              properties:
-                name:
-                  type: string
-                  description: Name of the customer group
-                metadata:
-                  type: object
-                  description: Metadata for the customer.
-  "/customer-groups/{id}":
-    delete:
-      operationId: DeleteCustomerGroupsCustomerGroup
-      summary: Delete a CustomerGroup
-      description: Deletes a CustomerGroup.
-      x-authenticated: true
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: The id of the Customer Group
-          schema:
-            type: string
-      tags:
-        - CustomerGroup
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                properties:
-                  id:
-                    type: string
-                    description: The id of the deleted customer group.
-                  object:
-                    type: string
-                    description: The type of the object that was deleted.
-                  deleted:
-                    type: boolean
-    post:
-      operationId: PostCustomerGroupsGroup
-      summary: Update a CustomerGroup
-      description: Update a CustomerGroup.
-      x-authenticated: true
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: The id of the customer group.
-          schema:
-            type: string
-      tags:
-        - CustomerGroup
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                properties:
-                  customer_group:
-                    $ref: "#/components/schemas/customer_group"
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - name
-              properties:
-                name:
-                  type: string
-                  description: Name of the customer group
-                metadata:
-                  type: object
-                  description: Metadata for the customer.
-  "/customer-group/{id}":
-    get:
-      operationId: GetCustomerGroupsGroup
-      summary: Retrieve a CustomerGroup
-      description: Retrieves a Customer Group.
-      x-authenticated: true
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: The id of the Customer Group.
-          schema:
-            type: string
-      tags:
-        - CustomerGroup
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                properties:
-                  customer_group:
-                    $ref: "#/components/schemas/customer_group"
+                    $ref: '#/components/schemas/customer'
   /draft-orders:
     post:
       operationId: PostDraftOrders
@@ -691,11 +859,11 @@ paths:
                 billing_address:
                   description: The Address to be used for billing purposes.
                   anyOf:
-                    - $ref: "#/components/schemas/address"
+                    - $ref: '#/components/schemas/address'
                 shipping_address:
                   description: The Address to be used for shipping.
                   anyOf:
-                    - $ref: "#/components/schemas/address"
+                    - $ref: '#/components/schemas/address'
                 items:
                   description: The Line Items that have been received.
                   type: array
@@ -763,14 +931,14 @@ paths:
       tags:
         - Draft Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   draft_order:
-                    $ref: "#/components/schemas/draft-order"
+                    $ref: '#/components/schemas/draft-order'
     get:
       operationId: GetDraftOrders
       summary: List Draft Orders
@@ -779,15 +947,15 @@ paths:
       tags:
         - Draft Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   draft_order:
-                    $ref: "#/components/schemas/draft-order"
-  "/draft-orders/{id}/line-items":
+                    $ref: '#/components/schemas/draft-order'
+  '/draft-orders/{id}/line-items':
     post:
       operationId: PostDraftOrdersDraftOrderLineItems
       summary: Create a Line Item for Draft Order
@@ -829,15 +997,15 @@ paths:
       tags:
         - Draft Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   draft_order:
-                    $ref: "#/components/schemas/draft-order"
-  "/draft-orders/{id}":
+                    $ref: '#/components/schemas/draft-order'
+  '/draft-orders/{id}':
     delete:
       operationId: DeleteDraftOrdersDraftOrder
       summary: Delete a Draft Order
@@ -853,7 +1021,7 @@ paths:
       tags:
         - Draft Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -882,15 +1050,15 @@ paths:
       tags:
         - Draft Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   draft_order:
-                    $ref: "#/components/schemas/draft-order"
-  "/draft-orders/{id}/line-items/{line_id}":
+                    $ref: '#/components/schemas/draft-order'
+  '/draft-orders/{id}/line-items/{line_id}':
     delete:
       operationId: DeleteDraftOrdersDraftOrderLineItemsItem
       summary: Delete a Line Item
@@ -912,14 +1080,14 @@ paths:
       tags:
         - Draft Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   draft_order:
-                    $ref: "#/components/schemas/draft-order"
+                    $ref: '#/components/schemas/draft-order'
     post:
       operationId: PostDraftOrdersDraftOrderLineItemsItem
       summary: Update a Line Item for a Draft Order
@@ -960,15 +1128,15 @@ paths:
       tags:
         - Draft Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   draft_order:
-                    $ref: "#/components/schemas/draft-order"
-  "/draft-orders/{id}/register-payment":
+                    $ref: '#/components/schemas/draft-order'
+  '/draft-orders/{id}/register-payment':
     post:
       summary: Registers a payment for a Draft Order
       operationId: PostDraftOrdersDraftOrderRegisterPayment
@@ -984,15 +1152,15 @@ paths:
       tags:
         - Draft Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   draft_order:
-                    $ref: "#/components/schemas/draft-order"
-  "/admin/draft-orders/{id}":
+                    $ref: '#/components/schemas/draft-order'
+  '/admin/draft-orders/{id}':
     post:
       operationId: PostDraftOrdersDraftOrder
       summary: Update a Draft Order"
@@ -1019,11 +1187,11 @@ paths:
                 billing_address:
                   description: The Address to be used for billing purposes.
                   anyOf:
-                    - $ref: "#/components/schemas/address"
+                    - $ref: '#/components/schemas/address'
                 shipping_address:
                   description: The Address to be used for shipping.
                   anyOf:
-                    - $ref: "#/components/schemas/address"
+                    - $ref: '#/components/schemas/address'
                 discounts:
                   description: An array of Discount codes to add to the Draft Order.
                   type: array
@@ -1043,15 +1211,15 @@ paths:
       tags:
         - Draft Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   draft_order:
-                    $ref: "#/components/schemas/draft-order"
-  "/discounts/{id}/regions/{region_id}":
+                    $ref: '#/components/schemas/draft-order'
+  '/discounts/{id}/regions/{region_id}':
     post:
       operationId: PostDiscountsDiscountRegionsRegion
       summary: Adds Region availability
@@ -1073,14 +1241,14 @@ paths:
       tags:
         - Discount
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   discount:
-                    $ref: "#/components/schemas/discount"
+                    $ref: '#/components/schemas/discount'
     delete:
       operationId: DeleteDiscountsDiscountRegionsRegion
       summary: Remove Region availability
@@ -1104,75 +1272,14 @@ paths:
       tags:
         - Discount
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   discount:
-                    $ref: "#/components/schemas/discount"
-  "/discounts/{id}/products/{product_id}":
-    post:
-      operationId: PostDiscountsDiscountProductsProduct
-      summary: Adds Product availability
-      description: Adds a Product to the list of Products that a Discount can be used for.
-      x-authenticated: true
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: The id of the Discount.
-          schema:
-            type: string
-        - in: path
-          name: product_id
-          required: true
-          description: The id of the Product.
-          schema:
-            type: string
-      tags:
-        - Discount
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                properties:
-                  discount:
-                    $ref: "#/components/schemas/discount"
-    delete:
-      operationId: DeleteDiscountsDiscountProductsProduct
-      summary: Remove Product availability
-      description: >-
-        Removes a Product from the list of Products that a Discount can be used
-        for.
-      x-authenticated: true
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: The id of the Discount.
-          schema:
-            type: string
-        - in: path
-          name: product_id
-          required: true
-          description: The id of the Product.
-          schema:
-            type: string
-      tags:
-        - Discount
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                properties:
-                  discount:
-                    $ref: "#/components/schemas/discount"
+                    $ref: '#/components/schemas/discount'
   /discounts:
     post:
       operationId: PostDiscounts
@@ -1202,7 +1309,7 @@ paths:
                 rule:
                   description: The Discount Rule that defines how Discounts are calculated
                   oneOf:
-                    - $ref: "#/components/schemas/discount_rule"
+                    - $ref: '#/components/schemas/discount_rule'
                 is_disabled:
                   type: boolean
                   description: >-
@@ -1236,14 +1343,14 @@ paths:
       tags:
         - Discount
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   discount:
-                    $ref: "#/components/schemas/discount"
+                    $ref: '#/components/schemas/discount'
     get:
       operationId: GetDiscounts
       summary: List Discounts
@@ -1283,15 +1390,15 @@ paths:
       tags:
         - Discount
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   discount:
-                    $ref: "#/components/schemas/discount"
-  "/discounts/{id}/dynamic-codes":
+                    $ref: '#/components/schemas/discount'
+  '/discounts/{id}/dynamic-codes':
     post:
       operationId: PostDiscountsDiscountDynamicCodes
       summary: Create a dynamic Discount code
@@ -1309,14 +1416,14 @@ paths:
       tags:
         - Discount
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   discount:
-                    $ref: "#/components/schemas/discount"
+                    $ref: '#/components/schemas/discount'
       requestBody:
         content:
           application/json:
@@ -1324,16 +1431,20 @@ paths:
               type: object
               required:
                 - code
+                - usage_limit
               properties:
                 code:
                   type: string
                   description: The unique code that will be used to redeem the Discount.
+                usage_limit:
+                  type: number
+                  description: amount of times the discount can be applied
                 metadata:
                   type: object
                   description: >-
                     An optional set of key-value paris to hold additional
                     information.
-  "/discounts/{id}":
+  '/discounts/{id}':
     delete:
       operationId: DeleteDiscountsDiscount
       summary: Delete a Discount
@@ -1349,7 +1460,7 @@ paths:
       tags:
         - Discount
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1375,17 +1486,27 @@ paths:
           description: The id of the Discount
           schema:
             type: string
+        - in: query
+          name: expand
+          description: Comma separated list of relations to include in the results.
+          schema:
+            type: string
+        - in: query
+          name: fields
+          description: Comma separated list of fields to include in the results.
+          schema:
+            type: string
       tags:
         - Discount
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   discount:
-                    $ref: "#/components/schemas/discount"
+                    $ref: '#/components/schemas/discount'
     post:
       operationId: PostDiscountsDiscount
       summary: Update a Discount
@@ -1418,7 +1539,7 @@ paths:
                 rule:
                   description: The Discount Rule that defines how Discounts are calculated
                   oneOf:
-                    - $ref: "#/components/schemas/discount_rule"
+                    - $ref: '#/components/schemas/discount_rule'
                 is_disabled:
                   type: boolean
                   description: >-
@@ -1447,15 +1568,15 @@ paths:
       tags:
         - Discount
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   discount:
-                    $ref: "#/components/schemas/discount"
-  "/discounts/{id}/dynamic-codes/{code}":
+                    $ref: '#/components/schemas/discount'
+  '/discounts/{id}/dynamic-codes/{code}':
     delete:
       operationId: DeleteDiscountsDiscountDynamicCodesCode
       summary: Delete a dynamic code
@@ -1477,15 +1598,15 @@ paths:
       tags:
         - Discount
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   discount:
-                    $ref: "#/components/schemas/discount"
-  "/discounts/code/{code}":
+                    $ref: '#/components/schemas/discount'
+  '/discounts/code/{code}':
     get:
       operationId: GetDiscountsDiscountCode
       summary: Retrieve a Discount by code
@@ -1501,14 +1622,14 @@ paths:
       tags:
         - Discount
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   discount:
-                    $ref: "#/components/schemas/discount"
+                    $ref: '#/components/schemas/discount'
   /gift-cards:
     post:
       operationId: PostGiftCards
@@ -1551,14 +1672,14 @@ paths:
       tags:
         - Gift Card
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   gift_card:
-                    $ref: "#/components/schemas/gift_card"
+                    $ref: '#/components/schemas/gift_card'
     get:
       operationId: GetGiftCards
       summary: List Gift Cards
@@ -1567,7 +1688,7 @@ paths:
       tags:
         - Gift Card
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1576,8 +1697,8 @@ paths:
                   gift_cards:
                     type: array
                     items:
-                      $ref: "#/components/schemas/gift_card"
-  "/gift-cards/{id}":
+                      $ref: '#/components/schemas/gift_card'
+  '/gift-cards/{id}':
     delete:
       operationId: DeleteGiftCardsGiftCard
       summary: Delete a Gift Card
@@ -1593,7 +1714,7 @@ paths:
       tags:
         - Gift Card
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1622,14 +1743,14 @@ paths:
       tags:
         - Gift Card
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   gift_card:
-                    $ref: "#/components/schemas/gift_card"
+                    $ref: '#/components/schemas/gift_card'
     post:
       operationId: PostGiftCardsGiftCard
       summary: Create a Gift Card
@@ -1678,14 +1799,14 @@ paths:
       tags:
         - Gift Card
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   gift_card:
-                    $ref: "#/components/schemas/gift_card"
+                    $ref: '#/components/schemas/gift_card'
   /invites/accept:
     post:
       operationId: PostInvitesInviteAccept
@@ -1722,7 +1843,7 @@ paths:
       tags:
         - Invites
       responses:
-        "200":
+        '200':
           description: OK
   /invites:
     post:
@@ -1747,7 +1868,7 @@ paths:
       tags:
         - Invites
       responses:
-        "200":
+        '200':
           description: OK
     get:
       operationId: GetInvites
@@ -1757,7 +1878,7 @@ paths:
       tags:
         - Invites
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1766,8 +1887,8 @@ paths:
                   invites:
                     type: array
                     items:
-                      $ref: "#/components/schemas/invite"
-  "/invites/{invite_id}":
+                      $ref: '#/components/schemas/invite'
+  '/invites/{invite_id}':
     delete:
       operationId: DeleteInvitesInvite
       summary: Create an Invite
@@ -1783,9 +1904,9 @@ paths:
       tags:
         - Invites
       responses:
-        "200":
+        '200':
           description: OK
-  "/invites/{invite_id}/resend":
+  '/invites/{invite_id}/resend':
     post:
       operationId: PostInvitesInviteResend
       summary: Resend an Invite
@@ -1801,7 +1922,7 @@ paths:
       tags:
         - Invites
       responses:
-        "200":
+        '200':
           description: OK
   /notes:
     post:
@@ -1826,14 +1947,14 @@ paths:
       tags:
         - Note
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   note:
-                    $ref: "#/components/schemas/note"
+                    $ref: '#/components/schemas/note'
     get:
       operationId: GetNotes
       summary: List Notes
@@ -1846,25 +1967,25 @@ paths:
           description: The number of notes to get
           schema:
             type: number
-            default: ""
+            default: ''
         - in: path
           name: offset
           required: true
           description: The offset at which to get notes
           schema:
             type: number
-            default: ""
+            default: ''
         - in: path
           name: resource_id
           required: true
           description: The id which the notes belongs to
           schema:
             type: string
-            default: ""
+            default: ''
       tags:
         - Note
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1873,8 +1994,8 @@ paths:
                   notes:
                     type: array
                     items:
-                      $ref: "#/components/schemas/note"
-  "/notes/{id}":
+                      $ref: '#/components/schemas/note'
+  '/notes/{id}':
     delete:
       operationId: DeleteNotesNote
       summary: Deletes a Note
@@ -1890,7 +2011,7 @@ paths:
       tags:
         - Note
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1917,14 +2038,14 @@ paths:
       tags:
         - Note
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   note:
-                    $ref: "#/components/schemas/note"
+                    $ref: '#/components/schemas/note'
     post:
       operationId: PostNotesNote
       summary: Updates a Note
@@ -1950,14 +2071,14 @@ paths:
       tags:
         - Note
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   note:
-                    $ref: "#/components/schemas/note"
+                    $ref: '#/components/schemas/note'
   /notifications:
     get:
       operationId: GetNotifications
@@ -2013,7 +2134,7 @@ paths:
       tags:
         - Notification
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2022,8 +2143,8 @@ paths:
                   notifications:
                     type: array
                     items:
-                      $ref: "#/components/schemas/notification"
-  "/notifications/{id}/resend":
+                      $ref: '#/components/schemas/notification'
+  '/notifications/{id}/resend':
     post:
       operationId: PostNotificationsNotificationResend
       summary: Resend Notification
@@ -2051,15 +2172,15 @@ paths:
       tags:
         - Notification
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   notification:
-                    $ref: "#/components/schemas/notification"
-  "/orders/{id}/shipping-methods":
+                    $ref: '#/components/schemas/notification'
+  '/orders/{id}/shipping-methods':
     post:
       operationId: PostOrdersOrderShippingMethods
       summary: Add a Shipping Method
@@ -2078,14 +2199,14 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
+                    $ref: '#/components/schemas/order'
       requestBody:
         content:
           application/json:
@@ -2112,7 +2233,7 @@ paths:
                     The data required for the Shipping Option to create a
                     Shipping Method. This will depend on the Fulfillment
                     Provider.
-  "/orders/{id}/archive":
+  '/orders/{id}/archive':
     post:
       operationId: PostOrdersOrderArchive
       summary: Archive order
@@ -2128,15 +2249,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/claims/{claim_id}/cancel":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/claims/{claim_id}/cancel':
     post:
       operationId: PostOrdersClaimCancel
       summary: Cancels a Claim
@@ -2158,15 +2279,15 @@ paths:
       tags:
         - Claim
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/claim_order"
-  "/orders/{id}/claims/{claim_id}/fulfillments/{fulfillment_id}/cancel":
+                    $ref: '#/components/schemas/claim_order'
+  '/orders/{id}/claims/{claim_id}/fulfillments/{fulfillment_id}/cancel':
     post:
       operationId: PostOrdersClaimFulfillmentsCancel
       summary: Cancels a fulfilmment related to a Claim
@@ -2194,15 +2315,15 @@ paths:
       tags:
         - Fulfillment
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   fulfillment:
-                    $ref: "#/components/schemas/fulfillment"
-  "/orders/{id}/swaps/{swap_id}/fulfillments/{fulfillment_id}/cancel":
+                    $ref: '#/components/schemas/fulfillment'
+  '/orders/{id}/swaps/{swap_id}/fulfillments/{fulfillment_id}/cancel':
     post:
       operationId: PostOrdersSwapFulfillmentsCancel
       summary: Cancels a fulfilmment related to a Swap
@@ -2230,15 +2351,15 @@ paths:
       tags:
         - Fulfillment
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   fulfillment:
-                    $ref: "#/components/schemas/fulfillment"
-  "/orders/{id}/fulfillments/{fulfillment_id}/cancel":
+                    $ref: '#/components/schemas/fulfillment'
+  '/orders/{id}/fulfillments/{fulfillment_id}/cancel':
     post:
       operationId: PostOrdersOrderFulfillmentsCancel
       summary: Cancels a fulfilmment
@@ -2260,15 +2381,15 @@ paths:
       tags:
         - Fulfillment
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   fulfillment:
-                    $ref: "#/components/schemas/fulfillment"
-  "/orders/{id}/cancel":
+                    $ref: '#/components/schemas/fulfillment'
+  '/orders/{id}/cancel':
     post:
       operationId: PostOrdersOrderCancel
       summary: Cancel an Order
@@ -2287,15 +2408,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/swaps/{swap_id}/cancel":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/swaps/{swap_id}/cancel':
     post:
       operationId: PostOrdersSwapCancel
       summary: Cancels a Swap
@@ -2317,15 +2438,15 @@ paths:
       tags:
         - Swap
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/swap"
-  "/orders/{id}/capture":
+                    $ref: '#/components/schemas/swap'
+  '/orders/{id}/capture':
     post:
       operationId: PostOrdersOrderCapture
       summary: Capture an Order
@@ -2341,15 +2462,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/complete":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/complete':
     post:
       operationId: PostOrdersOrderComplete
       summary: Complete an Order
@@ -2365,15 +2486,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/claims/{claim_id}/shipments":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/claims/{claim_id}/shipments':
     post:
       operationId: PostOrdersOrderClaimsClaimShipments
       summary: Create Claim Shipment
@@ -2410,15 +2531,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/order/{id}/claims":
+                    $ref: '#/components/schemas/order'
+  '/order/{id}/claims':
     post:
       operationId: PostOrdersOrderClaims
       summary: Create a Claim
@@ -2550,15 +2671,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/fulfillments":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/fulfillments':
     post:
       operationId: PostOrdersOrderFulfillments
       summary: Create a Fulfillment
@@ -2604,14 +2725,14 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
+                    $ref: '#/components/schemas/order'
   /orders:
     post:
       operationId: PostOrders
@@ -2641,16 +2762,16 @@ paths:
                 billing_address:
                   description: Billing address
                   anyOf:
-                    - $ref: "#/components/schemas/address"
+                    - $ref: '#/components/schemas/address'
                 shipping_address:
                   description: Shipping address
                   anyOf:
-                    - $ref: "#/components/schemas/address"
+                    - $ref: '#/components/schemas/address'
                 items:
                   description: The Line Items for the order
                   type: array
                   items:
-                    $ref: "#/components/schemas/line_item"
+                    $ref: '#/components/schemas/line_item'
                 region:
                   description: Region where the order belongs
                   type: string
@@ -2658,7 +2779,7 @@ paths:
                   description: Discounts applied to the order
                   type: array
                   items:
-                    $ref: "#/components/schemas/line_item"
+                    $ref: '#/components/schemas/line_item'
                 customer_id:
                   description: id of the customer
                   type: string
@@ -2697,7 +2818,7 @@ paths:
                     items:
                       type: array
                       items:
-                        $ref: "#/components/schemas/line_item"
+                        $ref: '#/components/schemas/line_item'
                       description: Items to ship
                 no_notification:
                   description: >-
@@ -2707,14 +2828,14 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
+                    $ref: '#/components/schemas/order'
     get:
       operationId: GetOrders
       summary: List Orders
@@ -2833,7 +2954,7 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -2842,8 +2963,8 @@ paths:
                   orders:
                     type: array
                     items:
-                      $ref: "#/components/schemas/order"
-  "/orders/{id}/shipment":
+                      $ref: '#/components/schemas/order'
+  '/orders/{id}/shipment':
     post:
       operationId: PostOrdersOrderShipment
       summary: Create a Shipment
@@ -2879,15 +3000,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/swaps/{swap_id}/shipments":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/swaps/{swap_id}/shipments':
     post:
       operationId: PostOrdersOrderSwapsSwapShipments
       summary: Create Swap Shipment
@@ -2929,15 +3050,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/order/{id}/swaps":
+                    $ref: '#/components/schemas/order'
+  '/order/{id}/swaps':
     post:
       operationId: PostOrdersOrderSwaps
       summary: Create a Swap
@@ -3023,20 +3144,20 @@ paths:
                     Swap.
                   type: boolean
                 allow_backorder:
-                  description: "If true, swaps can be completed with items out of stock"
+                  description: 'If true, swaps can be completed with items out of stock'
                   type: boolean
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/order/{id}/metadata/{key}":
+                    $ref: '#/components/schemas/order'
+  '/order/{id}/metadata/{key}':
     delete:
       operationId: DeleteOrdersOrderMetadataKey
       summary: Delete Metadata
@@ -3058,15 +3179,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/claims/{claim_id}/fulfillments":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/claims/{claim_id}/fulfillments':
     post:
       operationId: PostOrdersOrderClaimsClaimFulfillments
       summary: Create a Claim Fulfillment
@@ -3103,15 +3224,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/swaps/{swap_id}/fulfillments":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/swaps/{swap_id}/fulfillments':
     post:
       operationId: PostOrdersOrderSwapsSwapFulfillments
       summary: Create a Swap Fulfillment
@@ -3148,15 +3269,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}':
     get:
       operationId: GetOrdersOrder
       summary: Retrieve an Order
@@ -3172,14 +3293,14 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
+                    $ref: '#/components/schemas/order'
     post:
       operationId: PostOrdersOrder
       summary: Update an order
@@ -3203,16 +3324,16 @@ paths:
                 billing_address:
                   description: Billing address
                   anyOf:
-                    - $ref: "#/components/schemas/address"
+                    - $ref: '#/components/schemas/address'
                 shipping_address:
                   description: Shipping address
                   anyOf:
-                    - $ref: "#/components/schemas/address"
+                    - $ref: '#/components/schemas/address'
                 items:
                   description: The Line Items for the order
                   type: array
                   items:
-                    $ref: "#/components/schemas/line_item"
+                    $ref: '#/components/schemas/line_item'
                 region:
                   description: Region where the order belongs
                   type: string
@@ -3220,7 +3341,7 @@ paths:
                   description: Discounts applied to the order
                   type: array
                   items:
-                    $ref: "#/components/schemas/line_item"
+                    $ref: '#/components/schemas/line_item'
                 customer_id:
                   description: id of the customer
                   type: string
@@ -3253,7 +3374,7 @@ paths:
                     items:
                       type: array
                       items:
-                        $ref: "#/components/schemas/line_item"
+                        $ref: '#/components/schemas/line_item'
                       description: Items to ship
                 no_notification:
                   description: >-
@@ -3263,15 +3384,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/swaps/{swap_id}/process-payment":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/swaps/{swap_id}/process-payment':
     post:
       operationId: PostOrdersOrderSwapsSwapProcessPayment
       summary: Process a Swap difference
@@ -3296,15 +3417,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/refunds":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/refunds':
     post:
       operationId: PostOrdersOrderRefunds
       summary: Create a Refund
@@ -3342,15 +3463,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/orders/{id}/returns":
+                    $ref: '#/components/schemas/order'
+  '/orders/{id}/returns':
     post:
       operationId: PostOrdersOrderReturns
       summary: Request a Return
@@ -3419,15 +3540,15 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
-  "/order/{id}/claims/{claim_id}":
+                    $ref: '#/components/schemas/order'
+  '/order/{id}/claims/{claim_id}':
     post:
       operationId: PostOrdersOrderClaimsClaim
       summary: Update a Claim
@@ -3518,14 +3639,504 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   order:
-                    $ref: "#/components/schemas/order"
+                    $ref: '#/components/schemas/order'
+  '/price-lists/{id}/prices/batch':
+    post:
+      operationId: PostPriceListsPriceListPricesBatch
+      summary: Batch update prices for a Price List
+      description: Batch update prices for a Price List
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the Price List to update prices for.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                prices:
+                  description: The prices to update or add.
+                  type: array
+                  items:
+                    properties:
+                      id:
+                        description: The id of the price.
+                        type: string
+                      status:
+                        description: The status of the Price List.
+                        type: string
+                        enum:
+                          - active
+                          - draft
+                      region_id:
+                        description: The id of the Region for which the price is used.
+                        type: string
+                      currency_code:
+                        description: >-
+                          The 3 character ISO currency code for which the price
+                          will be used.
+                        type: string
+                      amount:
+                        description: The amount of the price.
+                        type: number
+                      min_quantity:
+                        description: The minimum quantity for which the price will be used.
+                        type: number
+                      max_quantity:
+                        description: The maximum quantity for which the price will be used.
+                        type: number
+                override:
+                  description: >-
+                    If true the prices will replace all existing prices
+                    associated with the Price List.
+                  type: boolean
+      tags:
+        - Price List
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    description: The id of the deleted Price List.
+                  object:
+                    type: string
+                    description: The type of the object that was deleted.
+                  deleted:
+                    type: boolean
+    delete:
+      operationId: DeletePriceListsPriceListPricesBatch
+      summary: Batch delete prices that belongs to a Price List
+      description: Batch delete prices that belongs to a Price List
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: >-
+            The id of the Price List that the Money Amounts that will be deleted
+            belongs to.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                price_ids:
+                  description: The price id's of the Money Amounts to delete.
+                  type: array
+                  items:
+                    type: string
+      tags:
+        - Price List
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  ids:
+                    type: array
+                    items:
+                      type: string
+                      description: The id of the deleted Money Amount.
+                  object:
+                    type: string
+                    description: The type of the object that was deleted.
+                  deleted:
+                    type: boolean
+  /price_lists:
+    post:
+      operationId: PostPriceListsPriceList
+      summary: Creates a Price List
+      description: Creates a Price List
+      x-authenticated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  description: The name of the Price List
+                  type: string
+                description:
+                  description: A description of the Price List.
+                  type: string
+                type:
+                  description: The type of the Price List.
+                  type: string
+                  enum:
+                    - sale
+                    - override
+                status:
+                  description: The status of the Price List.
+                  type: string
+                  enum:
+                    - active
+                    - draft
+                prices:
+                  description: The prices of the Price List.
+                  type: array
+                  items:
+                    properties:
+                      region_id:
+                        description: The id of the Region for which the price is used.
+                        type: string
+                      currency_code:
+                        description: >-
+                          The 3 character ISO currency code for which the price
+                          will be used.
+                        type: string
+                      amount:
+                        description: The amount to charge for the Product Variant.
+                        type: integer
+                      min_quantity:
+                        description: The minimum quantity for which the price will be used.
+                        type: integer
+                      max_quantity:
+                        description: The maximum quantity for which the price will be used.
+                        type: integer
+                customer_groups:
+                  type: array
+                  description: A list of customer groups that the Price List applies to.
+                  items:
+                    required:
+                      - id
+                    properties:
+                      id:
+                        description: The id of a customer group
+                        type: string
+      tags:
+        - Price List
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  product:
+                    $ref: '#/components/schemas/price_list'
+  '/price-lists/{id}':
+    delete:
+      operationId: DeletePriceListsPriceList
+      summary: Delete a Price List
+      description: Deletes a Price List
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the Price List to delete.
+          schema:
+            type: string
+      tags:
+        - Price List
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    description: The id of the deleted Price List.
+                  object:
+                    type: string
+                    description: The type of the object that was deleted.
+                  deleted:
+                    type: boolean
+    get:
+      operationId: GetPriceListsPriceList
+      summary: Retrieve a Price List
+      description: Retrieves a Price List.
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the Price List.
+          schema:
+            type: string
+      tags:
+        - Price List
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  price_list:
+                    $ref: '#/components/schemas/price_list'
+  '/price-lists/:id/products':
+    get:
+      operationId: GetPriceListsPriceListProducts
+      summary: List Product in a Price List
+      description: Retrieves a list of Product that are part of a Price List
+      x-authenticated: true
+      parameters:
+        - in: query
+          name: q
+          description: Query used for searching products.
+          schema:
+            type: string
+        - in: query
+          name: id
+          description: Id of the product to search for.
+          schema:
+            type: string
+        - in: query
+          name: status
+          description: Status to search for
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: collection_id
+          description: Collection ids to search for
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: tags
+          description: Tags to search for
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: title
+          description: to search for.
+          schema:
+            type: string
+        - in: query
+          name: description
+          description: to search for.
+          schema:
+            type: string
+        - in: query
+          name: handle
+          description: to search for.
+          schema:
+            type: string
+        - in: query
+          name: is_giftcard
+          description: Search for giftcards using is_giftcard=true.
+          schema:
+            type: string
+        - in: query
+          name: type
+          description: to search for.
+          schema:
+            type: string
+        - in: query
+          name: order
+          description: to retrieve products in.
+          schema:
+            type: string
+        - in: query
+          name: deleted_at
+          description: >-
+            Date comparison for when resulting products was deleted, i.e. less
+            than, greater than etc.
+          schema:
+            type: string
+        - in: query
+          name: created_at
+          description: >-
+            Date comparison for when resulting products was created, i.e. less
+            than, greater than etc.
+          schema:
+            type: string
+        - in: query
+          name: updated_at
+          description: >-
+            Date comparison for when resulting products was updated, i.e. less
+            than, greater than etc.
+          schema:
+            type: string
+        - in: query
+          name: offset
+          description: How many products to skip in the result.
+          schema:
+            type: string
+        - in: query
+          name: limit
+          description: Limit the number of products returned.
+          schema:
+            type: string
+        - in: query
+          name: expand
+          description: >-
+            (Comma separated) Which fields should be expanded in each product of
+            the result.
+          schema:
+            type: string
+        - in: query
+          name: fields
+          description: >-
+            (Comma separated) Which fields should be included in each product of
+            the result.
+          schema:
+            type: string
+      tags:
+        - Product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  count:
+                    description: The number of Products.
+                    type: integer
+                  offset:
+                    description: The offset of the Product query.
+                    type: integer
+                  limit:
+                    description: The limit of the Product query.
+                    type: integer
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/product'
+  /price-lists:
+    get:
+      operationId: GetPriceLists
+      summary: List Price Lists
+      description: Retrieves a list of Price Lists.
+      x-authenticated: true
+      tags:
+        - Price List
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  price_lists:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/price_list'
+                  count:
+                    description: The number of Price Lists.
+                    type: integer
+                  offset:
+                    description: The offset of the Price List query.
+                    type: integer
+                  limit:
+                    description: The limit of the Price List query.
+                    type: integer
+  '/price_lists/{id}':
+    post:
+      operationId: PostPriceListsPriceListPriceList
+      summary: Update a Price List
+      description: Updates a Price List
+      x-authenticated: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the Price List.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  description: The name of the Price List
+                  type: string
+                description:
+                  description: A description of the Price List.
+                  type: string
+                type:
+                  description: The type of the Price List.
+                  type: string
+                  enum:
+                    - sale
+                    - override
+                status:
+                  description: The status of the Price List.
+                  type: string
+                  enum:
+                    - active
+                    - draft
+                prices:
+                  description: The prices of the Price List.
+                  type: array
+                  items:
+                    properties:
+                      id:
+                        description: The id of the price.
+                        type: string
+                      region_id:
+                        description: The id of the Region for which the price is used.
+                        type: string
+                      currency_code:
+                        description: >-
+                          The 3 character ISO currency code for which the price
+                          will be used.
+                        type: string
+                      amount:
+                        description: The amount to charge for the Product Variant.
+                        type: integer
+                      min_quantity:
+                        description: The minimum quantity for which the price will be used.
+                        type: integer
+                      max_quantity:
+                        description: The maximum quantity for which the price will be used.
+                        type: integer
+                customer_groups:
+                  type: array
+                  description: A list of customer groups that the Price List applies to.
+                  items:
+                    required:
+                      - id
+                    properties:
+                      id:
+                        description: The id of a customer group
+                        type: string
+      tags:
+        - Price List
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  product:
+                    $ref: '#/components/schemas/price_list'
   /product-tags:
     get:
       operationId: GetProductTags
@@ -3570,14 +4181,14 @@ paths:
       tags:
         - Product Tag
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   tags:
-                    $ref: "#/components/schemas/product_tag"
+                    $ref: '#/components/schemas/product_tag'
   /product-types:
     get:
       operationId: GetProductTypes
@@ -3622,15 +4233,15 @@ paths:
       tags:
         - Product Tag
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   types:
-                    $ref: "#/components/schemas/product_tag"
-  "/products/{id}/options":
+                    $ref: '#/components/schemas/product_tag'
+  '/products/{id}/options':
     post:
       operationId: PostProductsProductOptions
       summary: Add an Option
@@ -3658,14 +4269,14 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   product:
-                    $ref: "#/components/schemas/product"
+                    $ref: '#/components/schemas/product'
   /products:
     post:
       operationId: PostProducts
@@ -3731,7 +4342,7 @@ paths:
                         description: The id of an existing Tag.
                         type: string
                       value:
-                        description: "The value of the Tag, these will be upserted."
+                        description: 'The value of the Tag, these will be upserted.'
                         type: string
                 options:
                   description: >-
@@ -3867,14 +4478,14 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   product:
-                    $ref: "#/components/schemas/product"
+                    $ref: '#/components/schemas/product'
     get:
       operationId: GetProducts
       summary: List Product
@@ -3996,7 +4607,7 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -4014,8 +4625,8 @@ paths:
                   products:
                     type: array
                     items:
-                      $ref: "#/components/schemas/product"
-  "/products/{id}/variants":
+                      $ref: '#/components/schemas/product'
+  '/products/{id}/variants':
     post:
       operationId: PostProductsProductVariants
       summary: Create a Product Variant
@@ -4113,8 +4724,11 @@ paths:
                       amount:
                         description: The amount to charge for the Product Variant.
                         type: integer
-                      sale_amount:
-                        description: The sale amount to charge for the Product Variant.
+                      min_quantity:
+                        description: The minimum quantity for which the price will be used.
+                        type: integer
+                      max_quantity:
+                        description: The maximum quantity for which the price will be used.
                         type: integer
                 options:
                   type: array
@@ -4129,14 +4743,14 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   product:
-                    $ref: "#/components/schemas/product"
+                    $ref: '#/components/schemas/product'
     get:
       operationId: GetProductsProductVariants
       summary: List a Product's Product Variants
@@ -4152,7 +4766,7 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -4161,8 +4775,8 @@ paths:
                   variants:
                     type: array
                     items:
-                      $ref: "#/components/schemas/product_variant"
-  "/products/{id}/options/{option_id}":
+                      $ref: '#/components/schemas/product_variant'
+  '/products/{id}/options/{option_id}':
     delete:
       operationId: DeleteProductsProductOptionsOption
       summary: Delete a Product Option
@@ -4188,7 +4802,7 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -4203,7 +4817,7 @@ paths:
                   deleted:
                     type: boolean
                   product:
-                    $ref: "#/components/schemas/product"
+                    $ref: '#/components/schemas/product'
     post:
       operationId: PostProductsProductOptionsOption
       summary: Update a Product Option.
@@ -4235,15 +4849,15 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   product:
-                    $ref: "#/components/schemas/product"
-  "/products/{id}":
+                    $ref: '#/components/schemas/product'
+  '/products/{id}':
     delete:
       operationId: DeleteProductsProduct
       summary: Delete a Product
@@ -4259,7 +4873,7 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -4288,14 +4902,14 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   product:
-                    $ref: "#/components/schemas/product"
+                    $ref: '#/components/schemas/product'
     post:
       operationId: PostProductsProduct
       summary: Update a Product
@@ -4363,7 +4977,7 @@ paths:
                         description: The id of an existing Tag.
                         type: string
                       value:
-                        description: "The value of the Tag, these will be upserted."
+                        description: 'The value of the Tag, these will be upserted.'
                         type: string
                 options:
                   description: >-
@@ -4499,15 +5113,15 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   product:
-                    $ref: "#/components/schemas/product"
-  "/products/{id}/variants/{variant_id}":
+                    $ref: '#/components/schemas/product'
+  '/products/{id}/variants/{variant_id}':
     delete:
       operationId: DeleteProductsProductVariantsVariant
       summary: Delete a Product Variant
@@ -4529,7 +5143,7 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -4629,6 +5243,9 @@ paths:
                   type: array
                   items:
                     properties:
+                      id:
+                        description: The id of the price.
+                        type: string
                       region_id:
                         description: The id of the Region for which the price is used.
                         type: string
@@ -4640,8 +5257,11 @@ paths:
                       amount:
                         description: The amount to charge for the Product Variant.
                         type: integer
-                      sale_amount:
-                        description: The sale amount to charge for the Product Variant.
+                      min_quantity:
+                        description: The minimum quantity for which the price will be used.
+                        type: integer
+                      max_quantity:
+                        description: The maximum quantity for which the price will be used.
                         type: integer
                 options:
                   type: array
@@ -4656,14 +5276,14 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   product:
-                    $ref: "#/components/schemas/product"
+                    $ref: '#/components/schemas/product'
   /products/types:
     get:
       operationId: GetProductsTypes
@@ -4673,7 +5293,7 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -4682,8 +5302,8 @@ paths:
                   types:
                     type: array
                     items:
-                      $ref: "#/components/schemas/product_type"
-  "/products/{id}/metadata":
+                      $ref: '#/components/schemas/product_type'
+  '/products/{id}/metadata':
     post:
       operationId: PostProductsProductMetadata
       summary: Set Product metadata
@@ -4713,15 +5333,15 @@ paths:
       tags:
         - Product
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   product:
-                    $ref: "#/components/schemas/product"
-  "/regions/{id}/countries":
+                    $ref: '#/components/schemas/product'
+  '/regions/{id}/countries':
     post:
       operationId: PostRegionsRegionCountries
       summary: Add Country
@@ -4747,15 +5367,15 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
-  "/regions/{id}/fulfillment-providers":
+                    $ref: '#/components/schemas/region'
+  '/regions/{id}/fulfillment-providers':
     post:
       operationId: PostRegionsRegionFulfillmentProviders
       summary: Add Fulfillment Provider
@@ -4781,15 +5401,15 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
-  "/regions/{id}/payment-providers":
+                    $ref: '#/components/schemas/region'
+  '/regions/{id}/payment-providers':
     post:
       operationId: PostRegionsRegionPaymentProviders
       summary: Add Payment Provider
@@ -4815,14 +5435,14 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
+                    $ref: '#/components/schemas/region'
   /regions:
     post:
       operationId: PostRegions
@@ -4872,14 +5492,14 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
+                    $ref: '#/components/schemas/region'
     get:
       operationId: GetRegions
       summary: List Regions
@@ -4925,7 +5545,7 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -4934,8 +5554,8 @@ paths:
                   regions:
                     type: array
                     items:
-                      $ref: "#/components/schemas/region"
-  "/regions/{id}/metadata/{key}":
+                      $ref: '#/components/schemas/region'
+  '/regions/{id}/metadata/{key}':
     delete:
       operationId: DeleteRegionsRegionMetadataKey
       summary: Delete Metadata
@@ -4957,15 +5577,15 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
-  "/regions/{id}":
+                    $ref: '#/components/schemas/region'
+  '/regions/{id}':
     delete:
       operationId: DeleteRegionsRegion
       summary: Delete a Region
@@ -4981,7 +5601,7 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -5010,14 +5630,14 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
+                    $ref: '#/components/schemas/region'
     post:
       operationId: PostRegionsRegion
       summary: Update a Region
@@ -5085,15 +5705,15 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
-  "/regions/{id}/fulfillment-options":
+                    $ref: '#/components/schemas/region'
+  '/regions/{id}/fulfillment-options':
     get:
       operationId: GetRegionsRegionFulfillmentOptions
       summary: List Fulfillment Options available in the Region
@@ -5109,7 +5729,7 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -5125,7 +5745,7 @@ paths:
                         options:
                           type: object
                           description: fulfillment provider options
-  "/regions/{id}/countries/{country_code}":
+  '/regions/{id}/countries/{country_code}':
     delete:
       operationId: PostRegionsRegionCountriesCountry
       summary: Remove Country
@@ -5147,15 +5767,15 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
-  "/regions/{id}/fulfillment-providers/{provider_id}":
+                    $ref: '#/components/schemas/region'
+  '/regions/{id}/fulfillment-providers/{provider_id}':
     delete:
       operationId: PostRegionsRegionFulfillmentProvidersProvider
       summary: Remove Fulfillment Provider
@@ -5177,15 +5797,15 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
-  "/regions/{id}/payment-providers/{provider_id}":
+                    $ref: '#/components/schemas/region'
+  '/regions/{id}/payment-providers/{provider_id}':
     delete:
       operationId: PostRegionsRegionPaymentProvidersProvider
       summary: Remove Payment Provider
@@ -5207,15 +5827,15 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
-  "/regions/{id}/metadata":
+                    $ref: '#/components/schemas/region'
+  '/regions/{id}/metadata':
     post:
       operationId: PostRegionsRegionMetadata
       summary: Set the metadata of a Region
@@ -5231,14 +5851,14 @@ paths:
       tags:
         - Region
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   region:
-                    $ref: "#/components/schemas/region"
+                    $ref: '#/components/schemas/region'
       requestBody:
         content:
           application/json:
@@ -5290,14 +5910,14 @@ paths:
       tags:
         - Return Reason
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   return_reason:
-                    $ref: "#/components/schemas/return_reason"
+                    $ref: '#/components/schemas/return_reason'
     get:
       operationId: GetReturnReasons
       summary: List Return Reasons
@@ -5306,7 +5926,7 @@ paths:
       tags:
         - Return Reason
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -5315,8 +5935,8 @@ paths:
                   return_reasons:
                     type: array
                     items:
-                      $ref: "#/components/schemas/return_reason"
-  "/return-reasons/{id}":
+                      $ref: '#/components/schemas/return_reason'
+  '/return-reasons/{id}':
     delete:
       operationId: DeleteReturnReason
       summary: Delete a return reason
@@ -5332,7 +5952,7 @@ paths:
       tags:
         - Return Reason
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -5361,14 +5981,14 @@ paths:
       tags:
         - Return Reason
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   return_reason:
-                    $ref: "#/components/schemas/return_reason"
+                    $ref: '#/components/schemas/return_reason'
     post:
       operationId: PostReturnReasonsReason
       summary: Update a Return Reason
@@ -5400,15 +6020,15 @@ paths:
       tags:
         - Return Reason
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   return_reason:
-                    $ref: "#/components/schemas/return_reason"
-  "/returns/{id}/cancel":
+                    $ref: '#/components/schemas/return_reason'
+  '/returns/{id}/cancel':
     post:
       operationId: PostReturnsReturnCancel
       summary: Cancel a Return
@@ -5423,14 +6043,14 @@ paths:
       tags:
         - Return
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   return:
-                    $ref: "#/components/schemas/order"
+                    $ref: '#/components/schemas/order'
   /returns:
     get:
       operationId: GetReturns
@@ -5452,7 +6072,7 @@ paths:
       tags:
         - Return
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -5461,8 +6081,8 @@ paths:
                   returns:
                     type: array
                     items:
-                      $ref: "#/components/schemas/return"
-  "/returns/{id}/receive":
+                      $ref: '#/components/schemas/return'
+  '/returns/{id}/receive':
     post:
       operationId: PostReturnsReturnReceive
       summary: Receive a Return
@@ -5500,14 +6120,14 @@ paths:
       tags:
         - Return
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   return:
-                    $ref: "#/components/schemas/return"
+                    $ref: '#/components/schemas/return'
   /shipping-options:
     post:
       operationId: PostShippingOptions
@@ -5571,7 +6191,7 @@ paths:
                   description: Whether the Shipping Option defines a return shipment.
                   type: boolean
                 admin_only:
-                  description: "If true, the option can be used for draft orders"
+                  description: 'If true, the option can be used for draft orders'
                   type: boolean
                 metadata:
                   description: >-
@@ -5581,14 +6201,14 @@ paths:
       tags:
         - Shipping Option
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   shipping_option:
-                    $ref: "#/components/schemas/shipping_option"
+                    $ref: '#/components/schemas/shipping_option'
     get:
       operationId: GetShippingOptions
       summary: List Shipping Options
@@ -5613,7 +6233,7 @@ paths:
       tags:
         - Shipping Option
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -5622,8 +6242,8 @@ paths:
                   shipping_options:
                     type: array
                     items:
-                      $ref: "#/components/schemas/shipping_option"
-  "/shipping-options/{id}":
+                      $ref: '#/components/schemas/shipping_option'
+  '/shipping-options/{id}':
     delete:
       operationId: DeleteShippingOptionsOption
       summary: Delete a Shipping Option
@@ -5639,7 +6259,7 @@ paths:
       tags:
         - Shipping Option
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -5668,14 +6288,14 @@ paths:
       tags:
         - Shipping Option
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   shipping_option:
-                    $ref: "#/components/schemas/shipping_option"
+                    $ref: '#/components/schemas/shipping_option'
     post:
       operationId: PostShippingOptionsOption
       summary: Update Shipping Option
@@ -5700,7 +6320,7 @@ paths:
                   description: The amount to charge for the Shipping Option.
                   type: integer
                 admin_only:
-                  description: "If true, the option can be used for draft orders"
+                  description: 'If true, the option can be used for draft orders'
                   type: boolean
                 metadata:
                   description: >-
@@ -5726,14 +6346,14 @@ paths:
       tags:
         - Shipping Option
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   shipping_option:
-                    $ref: "#/components/schemas/shipping_option"
+                    $ref: '#/components/schemas/shipping_option'
   /shipping-profiles:
     post:
       operationId: PostShippingProfiles
@@ -5753,14 +6373,14 @@ paths:
       tags:
         - Shipping Profile
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   shipping_profile:
-                    $ref: "#/components/schemas/shipping_profile"
+                    $ref: '#/components/schemas/shipping_profile'
     get:
       operationId: GetShippingProfiles
       summary: List Shipping Profiles
@@ -5769,7 +6389,7 @@ paths:
       tags:
         - Shipping Profile
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -5778,8 +6398,8 @@ paths:
                   shipping_profiles:
                     type: array
                     items:
-                      $ref: "#/components/schemas/shipping_profile"
-  "/shipping-profiles/{id}":
+                      $ref: '#/components/schemas/shipping_profile'
+  '/shipping-profiles/{id}':
     delete:
       operationId: DeleteShippingProfilesProfile
       summary: Delete a Shipping Profile
@@ -5795,7 +6415,7 @@ paths:
       tags:
         - Shipping Profile
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -5824,14 +6444,14 @@ paths:
       tags:
         - Shipping Profile
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   shipping_profile:
-                    $ref: "#/components/schemas/shipping_profile"
+                    $ref: '#/components/schemas/shipping_profile'
     post:
       operationId: PostShippingProfilesProfile
       summary: Update a Shipping Profiles
@@ -5854,15 +6474,15 @@ paths:
       tags:
         - Shipping Profile
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   shipping_profiles:
-                    $ref: "#/components/schemas/shipping_profile"
-  "/store/currencies/{code}":
+                    $ref: '#/components/schemas/shipping_profile'
+  '/store/currencies/{code}':
     post:
       operationId: PostStoreCurrenciesCode
       summary: Add a Currency Code
@@ -5878,14 +6498,14 @@ paths:
       tags:
         - Store
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   store:
-                    $ref: "#/components/schemas/store"
+                    $ref: '#/components/schemas/store'
     delete:
       operationId: DeleteStoreCurrenciesCode
       summary: Remove a Currency Code
@@ -5901,14 +6521,14 @@ paths:
       tags:
         - Store
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   store:
-                    $ref: "#/components/schemas/store"
+                    $ref: '#/components/schemas/store'
   /store:
     get:
       operationId: GetStore
@@ -5918,14 +6538,14 @@ paths:
       tags:
         - Store
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   store:
-                    $ref: "#/components/schemas/store"
+                    $ref: '#/components/schemas/store'
     post:
       operationId: PostStore
       summary: Update Store details.
@@ -5960,14 +6580,14 @@ paths:
       tags:
         - Store
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   store:
-                    $ref: "#/components/schemas/store"
+                    $ref: '#/components/schemas/store'
   /store/payment-providers:
     get:
       operationId: GetStorePaymentProviders
@@ -5977,7 +6597,7 @@ paths:
       tags:
         - Store
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -5986,7 +6606,7 @@ paths:
                   payment_providers:
                     type: array
                     items:
-                      $ref: "#/components/schemas/store"
+                      $ref: '#/components/schemas/store'
   /store/tax-providers:
     get:
       operationId: GetStoreTaxProviders
@@ -5996,7 +6616,7 @@ paths:
       tags:
         - Store
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6005,8 +6625,8 @@ paths:
                   tax_providers:
                     type: array
                     items:
-                      $ref: "#/components/schemas/store"
-  "/swaps/{id}":
+                      $ref: '#/components/schemas/store'
+  '/swaps/{id}':
     get:
       operationId: GetSwapsSwap
       summary: Retrieve a Swap
@@ -6022,14 +6642,14 @@ paths:
       tags:
         - Swap
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   swap:
-                    $ref: "#/components/schemas/swap"
+                    $ref: '#/components/schemas/swap'
   /swaps:
     get:
       operationId: GetSwaps
@@ -6039,7 +6659,7 @@ paths:
       tags:
         - Swap
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6048,8 +6668,8 @@ paths:
                   swaps:
                     type: array
                     items:
-                      $ref: "#/components/schemas/swap"
-  "/tax-rates/:id/product-types/batch":
+                      $ref: '#/components/schemas/swap'
+  '/tax-rates/:id/product-types/batch':
     post:
       operationId: PostTaxRatesTaxRateProductTypes
       summary: Add Tax Rate to Product Types
@@ -6058,7 +6678,7 @@ paths:
       tags:
         - Tax Rates
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6067,7 +6687,7 @@ paths:
                   tax_rate:
                     type: array
                     items:
-                      $ref: "#/components/schemas/tax_rate"
+                      $ref: '#/components/schemas/tax_rate'
     delete:
       operationId: DeleteTaxRatesTaxRateProductTypes
       summary: Remove Tax Rate from Product Types
@@ -6076,7 +6696,7 @@ paths:
       tags:
         - Tax Rates
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6085,8 +6705,8 @@ paths:
                   tax_rate:
                     type: array
                     items:
-                      $ref: "#/components/schemas/tax_rate"
-  "/tax-rates/:id/products/batch":
+                      $ref: '#/components/schemas/tax_rate'
+  '/tax-rates/:id/products/batch':
     post:
       operationId: PostTaxRatesTaxRateProducts
       summary: Add Tax Rate to Products
@@ -6095,7 +6715,7 @@ paths:
       tags:
         - Tax Rates
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6104,7 +6724,7 @@ paths:
                   tax_rate:
                     type: array
                     items:
-                      $ref: "#/components/schemas/tax_rate"
+                      $ref: '#/components/schemas/tax_rate'
     delete:
       operationId: DeleteTaxRatesTaxRateProducts
       summary: Removes Tax Rate from Products
@@ -6113,7 +6733,7 @@ paths:
       tags:
         - Tax Rates
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6122,8 +6742,8 @@ paths:
                   tax_rate:
                     type: array
                     items:
-                      $ref: "#/components/schemas/tax_rate"
-  "/tax-rates/:id/shipping-options/batch":
+                      $ref: '#/components/schemas/tax_rate'
+  '/tax-rates/:id/shipping-options/batch':
     post:
       operationId: PostTaxRatesTaxRateShippingOptions
       summary: Add Tax Rate to Product Types
@@ -6132,7 +6752,7 @@ paths:
       tags:
         - Tax Rates
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6141,7 +6761,7 @@ paths:
                   tax_rate:
                     type: array
                     items:
-                      $ref: "#/components/schemas/tax_rate"
+                      $ref: '#/components/schemas/tax_rate'
     delete:
       operationId: DeleteTaxRatesTaxRateShippingOptions
       summary: Removes a Tax Rate from Product Types
@@ -6150,7 +6770,7 @@ paths:
       tags:
         - Tax Rates
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6159,7 +6779,7 @@ paths:
                   tax_rate:
                     type: array
                     items:
-                      $ref: "#/components/schemas/tax_rate"
+                      $ref: '#/components/schemas/tax_rate'
   /tax-rates:
     post:
       operationId: PostTaxRates
@@ -6169,7 +6789,7 @@ paths:
       tags:
         - Tax Rates
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6178,7 +6798,7 @@ paths:
                   tax_rate:
                     type: array
                     items:
-                      $ref: "#/components/schemas/tax_rate"
+                      $ref: '#/components/schemas/tax_rate'
     get:
       operationId: GetTaxRates
       summary: List Tax Rates
@@ -6244,7 +6864,7 @@ paths:
       tags:
         - Order
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6253,8 +6873,8 @@ paths:
                   orders:
                     type: array
                     items:
-                      $ref: "#/components/schemas/order"
-  "/tax-rates/{id}":
+                      $ref: '#/components/schemas/order'
+  '/tax-rates/{id}':
     delete:
       operationId: DeleteTaxRatesTaxRate
       summary: Delete a Tax Rate
@@ -6270,7 +6890,7 @@ paths:
       tags:
         - Tax Rates
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6284,7 +6904,7 @@ paths:
                     description: The type of the object that was deleted.
                   deleted:
                     type: boolean
-  "/tax-rates/:id":
+  '/tax-rates/:id':
     get:
       operationId: GetTaxRatesTaxRate
       summary: Get Tax Rate
@@ -6293,7 +6913,7 @@ paths:
       tags:
         - Tax Rates
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6302,7 +6922,7 @@ paths:
                   tax_rate:
                     type: array
                     items:
-                      $ref: "#/components/schemas/tax_rate"
+                      $ref: '#/components/schemas/tax_rate'
     post:
       operationId: PostTaxRatesTaxRate
       summary: Update a Tax Rate
@@ -6311,7 +6931,7 @@ paths:
       tags:
         - Tax Rates
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6320,7 +6940,7 @@ paths:
                   tax_rate:
                     type: array
                     items:
-                      $ref: "#/components/schemas/tax_rate"
+                      $ref: '#/components/schemas/tax_rate'
   /:
     post:
       operationId: PostUploads
@@ -6343,7 +6963,7 @@ paths:
                     type: string
                     format: binary
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6385,14 +7005,14 @@ paths:
       tags:
         - Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   user:
-                    $ref: "#/components/schemas/user"
+                    $ref: '#/components/schemas/user'
     get:
       operationId: GetUsers
       summary: Retrieve all users
@@ -6401,7 +7021,7 @@ paths:
       tags:
         - Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6410,8 +7030,8 @@ paths:
                   users:
                     type: array
                     items:
-                      $ref: "#/components/schemas/user"
-  "/users/{user_id}":
+                      $ref: '#/components/schemas/user'
+  '/users/{user_id}':
     delete:
       operationId: DeleteUsersUser
       summary: Delete a User
@@ -6427,7 +7047,7 @@ paths:
       tags:
         - Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6456,14 +7076,14 @@ paths:
       tags:
         - Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   user:
-                    $ref: "#/components/schemas/user"
+                    $ref: '#/components/schemas/user'
       requestBody:
         content:
           application/json:
@@ -6483,11 +7103,11 @@ paths:
                   description: The name of the User.
                 role:
                   type: string
-                  description: "The role of the User(admin, member, developer)."
+                  description: 'The role of the User(admin, member, developer).'
                 api_token:
                   type: string
                   description: The api_token of the User.
-  "/users/{id}":
+  '/users/{id}':
     get:
       operationId: GetUsersUser
       summary: Retrieve a User
@@ -6503,14 +7123,14 @@ paths:
       tags:
         - Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   user:
-                    $ref: "#/components/schemas/user"
+                    $ref: '#/components/schemas/user'
   /users/password-token:
     post:
       operationId: PostUsersUserPassword
@@ -6538,14 +7158,14 @@ paths:
       tags:
         - Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 properties:
                   user:
-                    $ref: "#/components/schemas/user"
+                    $ref: '#/components/schemas/user'
   /variants:
     get:
       operationId: GetVariants
@@ -6571,7 +7191,7 @@ paths:
       tags:
         - Product Variant
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -6580,7 +7200,7 @@ paths:
                   variants:
                     type: array
                     items:
-                      $ref: "#/components/schemas/product_variant"
+                      $ref: '#/components/schemas/product_variant'
 components:
   schemas:
     address:
@@ -6607,7 +7227,52 @@ components:
         country_code:
           type: string
         country:
-          $ref: "#/components/schemas/country"
+          $ref: '#/components/schemas/country'
+    batch_job:
+      title: Batch Job
+      description: A Batch Job.
+      x-resourceId: batch_job
+      properties:
+        id:
+          description: The unique identifier for the batch job.
+          type: string
+        type:
+          description: The type of batch job.
+          type: string
+          enum:
+            - product_import
+            - product_export
+        status:
+          description: The status of the batch job.
+          type: string
+          enum:
+            - created
+            - processing
+            - awaiting_confirmation
+            - completed
+        created_by:
+          description: The unique identifier of the user that created the batch job.
+          type: string
+        context:
+          description: >-
+            The context of the batch job, the type of the batch job determines
+            what the context should contain.
+          type: object
+        result:
+          description: The result of the batch job.
+          type: object
+        created_at:
+          description: The date with timezone at which the resource was created.
+          type: string
+          format: date-time
+        updated_at:
+          description: The date with timezone at which the resource was last updated.
+          type: string
+          format: date-time
+        deleted_at:
+          description: The date with timezone at which the resource was deleted.
+          type: string
+          format: date-time
     cart:
       title: Cart
       description: Represents a user cart
@@ -6620,43 +7285,43 @@ components:
         billing_address_id:
           type: string
         billing_address:
-          $ref: "#/components/schemas/address"
+          $ref: '#/components/schemas/address'
         shipping_address_id:
           type: string
         shipping_address:
-          $ref: "#/components/schemas/address"
+          $ref: '#/components/schemas/address'
         items:
           type: array
           items:
-            $ref: "#/components/schemas/line_item"
+            $ref: '#/components/schemas/line_item'
         region_id:
           type: string
         region:
-          $ref: "#/components/schemas/region"
+          $ref: '#/components/schemas/region'
         discounts:
           type: array
           items:
-            $ref: "#/components/schemas/region"
+            $ref: '#/components/schemas/region'
         gift_cards:
           type: array
           items:
-            $ref: "#/components/schemas/gift_card"
+            $ref: '#/components/schemas/gift_card'
         customer_id:
           type: string
         customer:
-          $ref: "#/components/schemas/customer"
+          $ref: '#/components/schemas/customer'
         payment_session:
-          $ref: "#/components/schemas/payment_session"
+          $ref: '#/components/schemas/payment_session'
         payment_sessions:
           type: array
           items:
-            $ref: "#/components/schemas/payment_session"
+            $ref: '#/components/schemas/payment_session'
         payment:
-          $ref: "#/components/schemas/payment"
+          $ref: '#/components/schemas/payment'
         shipping_methods:
           type: array
           items:
-            $ref: "#/components/schemas/shipping_method"
+            $ref: '#/components/schemas/shipping_method'
         type:
           type: string
           enum:
@@ -6723,19 +7388,19 @@ components:
         images:
           type: array
           items:
-            $ref: "#/components/schemas/claim_image"
+            $ref: '#/components/schemas/claim_image'
         claim_order_id:
           type: string
         item_id:
           type: string
         item:
           description: The Line Item that the claim refers to
-          $ref: "#/components/schemas/line_item"
+          $ref: '#/components/schemas/line_item'
         variant_id:
           type: string
         variant:
           description: The Product Variant that is claimed.
-          $ref: "#/components/schemas/product_variant"
+          $ref: '#/components/schemas/product_variant'
         reason:
           description: The reason for the claim
           type: string
@@ -6745,7 +7410,7 @@ components:
             - production_failure
             - other
         note:
-          description: "An optional note about the claim, for additional information"
+          description: 'An optional note about the claim, for additional information'
           type: string
         quantity:
           description: >-
@@ -6756,7 +7421,7 @@ components:
           description: User defined tags for easy filtering and grouping.
           type: array
           items:
-            $ref: "#/components/schemas/claim_tag"
+            $ref: '#/components/schemas/claim_tag'
         created_at:
           type: string
           format: date-time
@@ -6805,36 +7470,36 @@ components:
           description: The items that have been claimed
           type: array
           items:
-            $ref: "#/components/schemas/claim_item"
+            $ref: '#/components/schemas/claim_item'
         additional_items:
           description: >-
             Refers to the new items to be shipped when the claim order has the
             type `replace`
           type: array
           items:
-            $ref: "#/components/schemas/line_item"
+            $ref: '#/components/schemas/line_item'
         order_id:
           description: The id of the order that the claim comes from.
           type: string
         return_order:
           description: Holds information about the return if the claim is to be returned
-          $ref: "#/components/schemas/return"
+          $ref: '#/components/schemas/return'
         shipping_address_id:
           description: The id of the address that the new items should be shipped to
           type: string
         shipping_address:
           description: The address that the new items should be shipped to
-          $ref: "#/components/schemas/address"
+          $ref: '#/components/schemas/address'
         shipping_methods:
           description: The shipping methods that the claim order will be shipped with.
           type: array
           items:
-            $ref: "#/components/schemas/shipping_method"
+            $ref: '#/components/schemas/shipping_method'
         fulfillments:
           description: The fulfillments of the new items to be shipped
           type: array
           items:
-            $ref: "#/components/schemas/fulfillment"
+            $ref: '#/components/schemas/fulfillment'
         refund_amount:
           description: The amount that will be refunded in conjunction with the claim
           type: integer
@@ -6949,11 +7614,11 @@ components:
             The id of the Shipping Option that the custom shipping option
             overrides
           anyOf:
-            - $ref: "#/components/schemas/shipping_option"
+            - $ref: '#/components/schemas/shipping_option'
         cart_id:
           description: The id of the Cart that the custom shipping option is attached to
           anyOf:
-            - $ref: "#/components/schemas/cart"
+            - $ref: '#/components/schemas/cart'
         created_at:
           description: The date with timezone at which the resource was created.
           type: string
@@ -6981,7 +7646,7 @@ components:
         customers:
           type: array
           items:
-            $ref: "#/components/schemas/customer"
+            $ref: '#/components/schemas/customer'
         created_at:
           type: string
           format: date-time
@@ -7007,11 +7672,11 @@ components:
         billing_address:
           description: The Customer's billing address.
           anyOf:
-            - $ref: "#/components/schemas/address"
+            - $ref: '#/components/schemas/address'
         shipping_addresses:
           type: array
           items:
-            $ref: "#/components/schemas/address"
+            $ref: '#/components/schemas/address'
         first_name:
           type: string
         last_name:
@@ -7030,6 +7695,168 @@ components:
           type: string
           format: date-time
         metadata:
+          type: object
+    discount_condition_customer_group:
+      title: Product Tag Discount Condition
+      description: Associates a discount condition with a customer group
+      x-resourceId: discount_condition_customer_group
+      properties:
+        customer_group_id:
+          description: The id of the Product Tag
+          type: string
+        condition_id:
+          description: The id of the Discount Condition
+          type: string
+        created_at:
+          description: The date with timezone at which the resource was created.
+          type: string
+          format: date-time
+        updated_at:
+          description: The date with timezone at which the resource was last updated.
+          type: string
+          format: date-time
+        deleted_at:
+          description: The date with timezone at which the resource was deleted.
+          type: string
+          format: date-time
+        metadata:
+          description: An optional key-value map with additional information.
+          type: object
+    discount_condition_product_collection:
+      title: Product Collection Discount Condition
+      description: Associates a discount condition with a product collection
+      x-resourceId: discount_condition_product_collection
+      properties:
+        product_collection_id:
+          description: The id of the Product Collection
+          type: string
+        condition_id:
+          description: The id of the Discount Condition
+          type: string
+        created_at:
+          description: The date with timezone at which the resource was created.
+          type: string
+          format: date-time
+        updated_at:
+          description: The date with timezone at which the resource was last updated.
+          type: string
+          format: date-time
+        deleted_at:
+          description: The date with timezone at which the resource was deleted.
+          type: string
+          format: date-time
+        metadata:
+          description: An optional key-value map with additional information.
+          type: object
+    discount_condition_product_tag:
+      title: Product Tag Discount Condition
+      description: Associates a discount condition with a product tag
+      x-resourceId: discount_condition_product_tag
+      properties:
+        product_tag_id:
+          description: The id of the Product Tag
+          type: string
+        condition_id:
+          description: The id of the Discount Condition
+          type: string
+        created_at:
+          description: The date with timezone at which the resource was created.
+          type: string
+          format: date-time
+        updated_at:
+          description: The date with timezone at which the resource was last updated.
+          type: string
+          format: date-time
+        deleted_at:
+          description: The date with timezone at which the resource was deleted.
+          type: string
+          format: date-time
+        metadata:
+          description: An optional key-value map with additional information.
+          type: object
+    discount_condition_product_type:
+      title: Product Type Discount Condition
+      description: Associates a discount condition with a product type
+      x-resourceId: discount_condition_product
+      properties:
+        product_type_id:
+          description: The id of the Product Type
+          type: string
+        condition_id:
+          description: The id of the Discount Condition
+          type: string
+        created_at:
+          description: The date with timezone at which the resource was created.
+          type: string
+          format: date-time
+        updated_at:
+          description: The date with timezone at which the resource was last updated.
+          type: string
+          format: date-time
+        deleted_at:
+          description: The date with timezone at which the resource was deleted.
+          type: string
+          format: date-time
+        metadata:
+          description: An optional key-value map with additional information.
+          type: object
+    discount_condition_product:
+      title: Product Discount Condition
+      description: Associates a discount condition with a product
+      x-resourceId: discount_condition_product
+      properties:
+        product_id:
+          description: The id of the Product
+          type: string
+        condition_id:
+          description: The id of the Discount Condition
+          type: string
+        created_at:
+          description: The date with timezone at which the resource was created.
+          type: string
+          format: date-time
+        updated_at:
+          description: The date with timezone at which the resource was last updated.
+          type: string
+          format: date-time
+        deleted_at:
+          description: The date with timezone at which the resource was deleted.
+          type: string
+          format: date-time
+        metadata:
+          description: An optional key-value map with additional information.
+          type: object
+    discount_condition:
+      title: Discount Condition
+      description: Holds rule conditions for when a discount is applicable
+      x-resourceId: discount_condition
+      properties:
+        id:
+          description: The id of the Discount Condition. Will be prefixed by `discon_`.
+          type: string
+        type:
+          description: The type of the Condition
+          type: string
+          enum:
+            - products
+            - product_types
+            - product_collections
+            - product_tags
+            - customer_groups
+        created_at:
+          description: The date with timezone at which the resource was created.
+          type: string
+          format: date-time
+        update_at:
+          description: The date with timezone at which the resource was last updated.
+          type: string
+          format: date-time
+        deleted_at:
+          description: The date with timezone at which the resource was deleted.
+          type: string
+          format: date-time
+        metadata:
+          description: An optional key-value map with additional information.
           type: object
     discount_rule:
       title: Discount Rule
@@ -7065,11 +7892,13 @@ components:
           enum:
             - total
             - item
-        valid_for:
-          description: A set of Products that the discount can be used for.
+        conditions:
+          description: >-
+            A set of conditions that can be used to limit when  the discount can
+            be used
           type: array
           items:
-            $ref: "#/components/schemas/product"
+            $ref: '#/components/schemas/discount_condition'
         created_at:
           description: The date with timezone at which the resource was created.
           type: string
@@ -7108,7 +7937,7 @@ components:
         rule:
           description: The Discount Rule that governs the behaviour of the Discount
           anyOf:
-            - $ref: "#/components/schemas/discount_rule"
+            - $ref: '#/components/schemas/discount_rule'
         is_disabled:
           description: >-
             Whether the Discount has been disabled. Disabled discounts cannot be
@@ -7131,7 +7960,7 @@ components:
           description: The Regions in which the Discount can be used
           type: array
           items:
-            $ref: "#/components/schemas/region"
+            $ref: '#/components/schemas/region'
         usage_limit:
           description: The maximum number of times that a discount can be used.
           type: integer
@@ -7171,12 +8000,12 @@ components:
           type: string
         cart:
           anyOf:
-            - $ref: "#/components/schemas/cart"
+            - $ref: '#/components/schemas/cart'
         order_id:
           type: string
         order:
           anyOf:
-            - $ref: "#/components/schemas/order"
+            - $ref: '#/components/schemas/order'
         canceled_at:
           type: string
           format: date-time
@@ -7214,7 +8043,7 @@ components:
         item:
           description: The Line Item that the Fulfillment Item references.
           anyOf:
-            - $ref: "#/components/schemas/line_item"
+            - $ref: '#/components/schemas/line_item'
         quantity:
           description: The quantity of the Line Item that is included in the Fulfillment.
           type: integer
@@ -7269,7 +8098,7 @@ components:
             about how many of each Line Item has been fulfilled.
           type: array
           items:
-            $ref: "#/components/schemas/fulfillment_item"
+            $ref: '#/components/schemas/fulfillment_item'
         tracking_links:
           description: >-
             The Tracking Links that can be used to track the status of the
@@ -7277,7 +8106,7 @@ components:
             Provider.
           type: array
           items:
-            $ref: "#/components/schemas/tracking_link"
+            $ref: '#/components/schemas/tracking_link'
         tracking_numbers:
           deprecated: true
           description: >-
@@ -7328,7 +8157,7 @@ components:
         gift_card:
           description: The Gift Card that was used in the transaction.
           anyOf:
-            - $ref: "#/components/schemas/gift_card"
+            - $ref: '#/components/schemas/gift_card'
         order_id:
           description: The id of the Order that the Gift Card was used to pay for.
           type: string
@@ -7366,7 +8195,7 @@ components:
         region:
           description: The Region in which the Gift Card is available.
           anyOf:
-            - $ref: "#/components/schemas/region"
+            - $ref: '#/components/schemas/region'
         order_id:
           description: The id of the Order that the Gift Card was purchased in.
           type: string
@@ -7514,7 +8343,7 @@ components:
         variant:
           description: The Product Variant contained in the Line Item.
           anyOf:
-            - $ref: "#/components/schemas/product_variant"
+            - $ref: '#/components/schemas/product_variant'
         quantity:
           description: The quantity of the content in the Line Item.
           type: integer
@@ -7565,10 +8394,15 @@ components:
             The amount in the smallest currecny unit (e.g. cents 100 cents to
             charge $1) that the Product Variant will cost.
           type: integer
-        sale_amount:
+        min_quantity:
           description: >-
-            An optional sale amount that the Product Variant will be available
-            for when defined.
+            The minimum quantity that the Money Amount applies to. If this value
+            is not set, the Money Amount applies to all quantities.
+          type: integer
+        max_quantity:
+          description: >-
+            The maximum quantity that the Money Amount applies to. If this value
+            is not set, the Money Amount applies to all quantities.
           type: integer
         variant_id:
           description: The id of the Product Variant that the Money Amount belongs to.
@@ -7579,7 +8413,7 @@ components:
         region:
           description: The Region that the Money Amount is defined for.
           anyOf:
-            - $ref: "#/components/schemas/region"
+            - $ref: '#/components/schemas/region'
         created_at:
           description: The date with timezone at which the resource was created.
           type: string
@@ -7615,7 +8449,7 @@ components:
         author:
           description: The author of the note.
           anyOf:
-            - $ref: "#/components/schemas/user"
+            - $ref: '#/components/schemas/user'
         created_at:
           description: The date with timezone at which the resource was created.
           type: string
@@ -7674,7 +8508,7 @@ components:
         customer:
           description: The Customer that the Notification was sent to.
           anyOf:
-            - $ref: "#/components/schemas/customer"
+            - $ref: '#/components/schemas/customer'
         to:
           description: >-
             The address that the Notification was sent to. This will usually be
@@ -7695,7 +8529,7 @@ components:
             Notification.
           type: array
           items:
-            $ref: "#/components/schemas/notification_resend"
+            $ref: '#/components/schemas/notification_resend'
         provider_id:
           description: The id of the Notification Provider that handles the Notification.
           type: string
@@ -7814,76 +8648,76 @@ components:
         discounts:
           type: array
           items:
-            $ref: "#/components/schemas/discount"
+            $ref: '#/components/schemas/discount'
         email:
           type: string
         billing_address_id:
           type: string
         billing_address:
           anyOf:
-            - $ref: "#/components/schemas/address"
+            - $ref: '#/components/schemas/address'
         shipping_address_id:
           type: string
         shipping_address:
           anyOf:
-            - $ref: "#/components/schemas/address"
+            - $ref: '#/components/schemas/address'
         items:
           type: array
           items:
-            $ref: "#/components/schemas/line_item"
+            $ref: '#/components/schemas/line_item'
         region_id:
           type: string
         region:
           anyOf:
-            - $ref: "#/components/schemas/region"
+            - $ref: '#/components/schemas/region'
         gift_cards:
           type: array
           items:
-            $ref: "#/components/schemas/gift_card"
+            $ref: '#/components/schemas/gift_card'
         customer_id:
           type: string
         customer:
           anyOf:
-            - $ref: "#/components/schemas/customer"
+            - $ref: '#/components/schemas/customer'
         payment_session:
           anyOf:
-            - $ref: "#/components/schemas/payment_session"
+            - $ref: '#/components/schemas/payment_session'
         payment_sessions:
           type: array
           items:
-            $ref: "#/components/schemas/payment_session"
+            $ref: '#/components/schemas/payment_session'
         payments:
           type: array
           items:
-            $ref: "#/components/schemas/payment"
+            $ref: '#/components/schemas/payment'
         shipping_methods:
           type: array
           items:
-            $ref: "#/components/schemas/shipping_method"
+            $ref: '#/components/schemas/shipping_method'
         fulfillments:
           type: array
           items:
-            $ref: "#/components/schemas/fulfillment"
+            $ref: '#/components/schemas/fulfillment'
         returns:
           type: array
           items:
-            $ref: "#/components/schemas/return"
+            $ref: '#/components/schemas/return'
         claims:
           type: array
           items:
-            $ref: "#/components/schemas/claim_order"
+            $ref: '#/components/schemas/claim_order'
         refunds:
           type: array
           items:
-            $ref: "#/components/schemas/refund"
+            $ref: '#/components/schemas/refund'
         swaps:
           type: array
           items:
-            $ref: "#/components/schemas/refund"
+            $ref: '#/components/schemas/refund'
         gift_card_transactions:
           type: array
           items:
-            $ref: "#/components/schemas/gift_card_transaction"
+            $ref: '#/components/schemas/gift_card_transaction'
         canceled_at:
           type: string
           format: date-time
@@ -8047,6 +8881,49 @@ components:
         metadata:
           description: An optional key-value map with additional information.
           type: object
+    price_list:
+      title: Price List
+      description: >-
+        Price Lists represents a set of prices that overrides the default price
+        for one or more product variants.
+      x-resourceId: price_list
+      properties:
+        id:
+          description: The id of the Price List. This value will be prefixed by `pl_`.
+          type: string
+        type:
+          description: >-
+            The type of Price List. This can be one of either `sale` or
+            `override`.
+          type: string
+          enum:
+            - sale
+            - override
+        starts_at:
+          description: The date with timezone that the Price List starts being valid.
+          type: string
+          format: date-time
+        ends_at:
+          description: The date with timezone that the Price List stops being valid.
+          type: string
+          format: date-time
+        customer_groups:
+          description: The Customer Groups that the Price List applies to.
+          type: array
+          items:
+            $ref: '#/components/schemas/customer_group'
+        created_at:
+          description: The date with timezone at which the resource was created.
+          type: string
+          format: date-time
+        updated_at:
+          description: The date with timezone at which the resource was last updated.
+          type: string
+          format: date-time
+        deleted_at:
+          description: The date with timezone at which the resource was deleted.
+          type: string
+          format: date-time
     product_collection:
       title: Product Collection
       description: Product Collections represents a group of Products that are related.
@@ -8069,7 +8946,7 @@ components:
           description: The Products contained in the Product Collection.
           type: array
           items:
-            $ref: "#/components/schemas/product"
+            $ref: '#/components/schemas/product'
         created_at:
           description: The date with timezone at which the resource was created.
           type: string
@@ -8149,7 +9026,7 @@ components:
           description: The Product Option Values that are defined for the Product Option.
           type: array
           items:
-            $ref: "#/components/schemas/product_option_value"
+            $ref: '#/components/schemas/product_option_value'
         product_id:
           description: The id of the Product that the Product Option is defined for.
           type: string
@@ -8309,7 +9186,7 @@ components:
             Region.
           type: array
           items:
-            $ref: "#/components/schemas/money_amount"
+            $ref: '#/components/schemas/money_amount'
         sku:
           description: >-
             The unique stock keeping unit used to identify the Product Variant.
@@ -8390,7 +9267,7 @@ components:
           description: The Product Option Values specified for the Product Variant.
           type: array
           items:
-            $ref: "#/components/schemas/product_option_value"
+            $ref: '#/components/schemas/product_option_value'
         created_at:
           description: The date with timezone at which the resource was created.
           type: string
@@ -8448,7 +9325,7 @@ components:
           description: Images of the Product
           type: array
           items:
-            $ref: "#/components/schemas/image"
+            $ref: '#/components/schemas/image'
         thumbnail:
           description: A URL to an image file that can be used to identify the Product.
           type: string
@@ -8459,14 +9336,14 @@ components:
             Option Values.
           type: array
           items:
-            $ref: "#/components/schemas/product_option"
+            $ref: '#/components/schemas/product_option'
         variants:
           description: >-
             The Product Variants that belong to the Product. Each will have a
             unique combination of Product Option Values.
           type: array
           items:
-            $ref: "#/components/schemas/product_variant"
+            $ref: '#/components/schemas/product_variant'
         profile_id:
           description: >-
             The id of the Shipping Profile that the Product belongs to. Shipping
@@ -8520,16 +9397,16 @@ components:
         type:
           description: The Product Type of the Product (e.g. "Clothing")
           anyOf:
-            - $ref: "#/components/schemas/product_type"
+            - $ref: '#/components/schemas/product_type'
         collection:
           description: The Product Collection that the Product belongs to (e.g. "SS20")
           anyOf:
-            - $ref: "#/components/schemas/product_collection"
+            - $ref: '#/components/schemas/product_collection'
         tags:
           description: The Product Tags assigned to the Product.
           type: array
           items:
-            $ref: "#/components/schemas/product_tag"
+            $ref: '#/components/schemas/product_tag'
         created_at:
           description: The date with timezone at which the resource was created.
           type: string
@@ -8621,21 +9498,21 @@ components:
           description: The countries that are included in the Region.
           type: array
           items:
-            $ref: "#/components/schemas/country"
+            $ref: '#/components/schemas/country'
         payment_providers:
           description: >-
             The Payment Providers that can be used to process Payments in the
             Region.
           type: array
           items:
-            $ref: "#/components/schemas/payment_provider"
+            $ref: '#/components/schemas/payment_provider'
         fulfillment_providers:
           description: >-
             The Fulfillment Providers that can be used to fulfill orders in the
             Region.
           type: array
           items:
-            $ref: "#/components/schemas/fulfillment_provider"
+            $ref: '#/components/schemas/fulfillment_provider'
         created_at:
           description: The date with timezone at which the resource was created.
           type: string
@@ -8667,7 +9544,7 @@ components:
         item:
           description: The Line Item that the Return Item references.
           anyOf:
-            - $ref: "#/components/schemas/line_item"
+            - $ref: '#/components/schemas/line_item'
         quantity:
           description: The quantity of the Line Item that is included in the Return.
           type: integer
@@ -8685,7 +9562,7 @@ components:
         reason:
           description: The reason for returning the item.
           anyOf:
-            - $ref: "#/components/schemas/return_reason"
+            - $ref: '#/components/schemas/return_reason'
         note:
           description: An optional note with additional details about the Return.
           type: string
@@ -8747,7 +9624,7 @@ components:
         items:
           description: >-
             The Return Items that will be shipped back to the warehouse. type:
-            array items: $ref:
+            array items: $ref: 
         swap_id:
           description: The id of the Swap that the Return is a part of.
           type: string
@@ -8762,7 +9639,7 @@ components:
             The Shipping Method that will be used to send the Return back. Can
             be null if the Customer facilitates the return shipment themselves.
           anyOf:
-            - $ref: "#/components/schemas/shipping_method"
+            - $ref: '#/components/schemas/shipping_method'
         shipping_data:
           description: >-
             Data about the return shipment as provided by the Fulfilment
@@ -8813,7 +9690,7 @@ components:
         shipping_option:
           description: The Shipping Option that the Shipping Method is built from.
           anyOf:
-            - $ref: "#/components/schemas/shipping_option"
+            - $ref: '#/components/schemas/shipping_option'
         order_id:
           description: The id of the Order that the Shipping Method is used on.
           type: string
@@ -8899,7 +9776,7 @@ components:
         region:
           description: The id of the Region that the Shipping Option belongs to.
           anyOf:
-            - $ref: "#/components/schemas/region"
+            - $ref: '#/components/schemas/region'
         profile_id:
           description: >-
             The id of the Shipping Profile that the Shipping Option belongs to.
@@ -8937,7 +9814,7 @@ components:
             be available for a Cart.
           type: array
           items:
-            $ref: "#/components/schemas/shipping_option_requirement"
+            $ref: '#/components/schemas/shipping_option_requirement'
         data:
           description: >-
             The data needed for the Fulfillment Provider to identify the
@@ -8988,7 +9865,7 @@ components:
           description: The Products that the Shipping Profile defines Shipping Options for.
           type: array
           items:
-            $ref: "#/components/schemas/product"
+            $ref: '#/components/schemas/product'
         shipping_options:
           description: >-
             The Shipping Options that can be used to fulfill the Products in the
@@ -8996,7 +9873,7 @@ components:
           type: array
           items:
             anyOf:
-              - $ref: "#/components/schemas/shipping_option"
+              - $ref: '#/components/schemas/shipping_option'
         created_at:
           description: The date with timezone at which the resource was created.
           type: string
@@ -9042,7 +9919,7 @@ components:
           type: object
     store:
       title: Store
-      description: "Holds settings for the Store, such as name, currencies, etc."
+      description: 'Holds settings for the Store, such as name, currencies, etc.'
       x-resourceId: store
       properties:
         id:
@@ -9060,7 +9937,7 @@ components:
           description: The currencies that are enabled for the Store.
           type: array
           items:
-            $ref: "#/components/schemas/currency"
+            $ref: '#/components/schemas/currency'
         swap_link_template:
           description: >-
             A template to generate Swap links from use {{cart_id}} to include
@@ -9126,22 +10003,22 @@ components:
           description: The new Line Items to ship to the Customer.
           type: array
           items:
-            $ref: "#/components/schemas/line_item"
+            $ref: '#/components/schemas/line_item'
         return_order:
           description: The Return that is issued for the return part of the Swap.
           anyOf:
-            - $ref: "#/components/schemas/return"
+            - $ref: '#/components/schemas/return'
         fulfillments:
           description: The Fulfillments used to send the new Line Items.
           type: array
           items:
-            $ref: "#/components/schemas/fulfillment"
+            $ref: '#/components/schemas/fulfillment'
         payment:
           description: >-
             The Payment authorized when the Swap requires an additional amount
             to be charged from the Customer.
           anyOf:
-            - $ref: "#/components/schemas/payment"
+            - $ref: '#/components/schemas/payment'
         difference_due:
           description: >-
             The difference that is paid or refunded as a result of the Swap. May
@@ -9153,17 +10030,17 @@ components:
             The Address to send the new Line Items to - in most cases this will
             be the same as the shipping address on the Order.
           anyOf:
-            - $ref: "#/components/schemas/address"
+            - $ref: '#/components/schemas/address'
         shipping_methods:
           description: The Shipping Methods used to fulfill the addtional items purchased.
           type: array
           items:
-            $ref: "#/components/schemas/shipping_method"
+            $ref: '#/components/schemas/shipping_method'
         cart_id:
           description: The id of the Cart that the Customer will use to confirm the Swap.
           type: string
         allow_backorder:
-          description: "If true, swaps can be completed with items out of stock"
+          description: 'If true, swaps can be completed with items out of stock'
           type: boolean
         confirmed_at:
           description: >-
@@ -9184,7 +10061,7 @@ components:
           type: string
           format: date-time
         no_notification:
-          description: "If set to true, no notification will be sent related to this swap"
+          description: 'If set to true, no notification will be sent related to this swap'
           type: boolean
         metadata:
           description: An optional key-value map with additional information.
@@ -9322,7 +10199,7 @@ components:
         last_name:
           description: The Customer's billing address.
           anyOf:
-            - $ref: "#/components/schemas/address"
+            - $ref: '#/components/schemas/address'
         created_at:
           type: string
           format: date-time

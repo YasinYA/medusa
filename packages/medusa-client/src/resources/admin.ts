@@ -25,6 +25,7 @@ import * as Swap from "../../generated/admin/swap/swap"
 import * as TaxRate from "../../generated/admin/tax-rates/tax-rates"
 import * as Upload from "../../generated/admin/uploads/uploads"
 import * as User from "../../generated/admin/users/users"
+import * as PriceList from "../../generated/admin/price-list/price-list"
 
 class MedusaAdmin {
   public apps: typeof Apps
@@ -54,6 +55,7 @@ class MedusaAdmin {
   public taxRates: typeof TaxRate
   public uploads: typeof Upload
   public users: typeof User
+  public priceLists: typeof PriceList
 
   constructor() {
     this.apps = Apps
@@ -83,6 +85,7 @@ class MedusaAdmin {
     this.taxRates = TaxRate
     this.uploads = Upload
     this.users = User
+    this.priceLists = PriceList
   }
 }
 

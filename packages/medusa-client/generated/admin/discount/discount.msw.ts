@@ -15,14 +15,6 @@ export const getDeleteDiscountsDiscountRegionsRegionMock = () => ({
   discount: faker.helpers.randomize([{}, undefined]),
 })
 
-export const getPostDiscountsDiscountProductsProductMock = () => ({
-  discount: faker.helpers.randomize([{}, undefined]),
-})
-
-export const getDeleteDiscountsDiscountProductsProductMock = () => ({
-  discount: faker.helpers.randomize([{}, undefined]),
-})
-
 export const getPostDiscountsMock = () => ({
   discount: faker.helpers.randomize([{}, undefined]),
 })
@@ -70,20 +62,6 @@ export const getDiscountMSW = () => [
       ctx.delay(1000),
       ctx.status(200, "Mocked status"),
       ctx.json(getDeleteDiscountsDiscountRegionsRegionMock())
-    )
-  }),
-  rest.post("*/admin/discounts/:id/products/:productid", (_req, res, ctx) => {
-    return res(
-      ctx.delay(1000),
-      ctx.status(200, "Mocked status"),
-      ctx.json(getPostDiscountsDiscountProductsProductMock())
-    )
-  }),
-  rest.delete("*/admin/discounts/:id/products/:productid", (_req, res, ctx) => {
-    return res(
-      ctx.delay(1000),
-      ctx.status(200, "Mocked status"),
-      ctx.json(getDeleteDiscountsDiscountProductsProductMock())
     )
   }),
   rest.post("*/admin/discounts", (_req, res, ctx) => {

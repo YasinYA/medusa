@@ -6,7 +6,7 @@
  */
 import type { DiscountRuleType } from "./discountRuleType"
 import type { DiscountRuleAllocation } from "./discountRuleAllocation"
-import type { Product } from "./product"
+import type { DiscountCondition } from "./discountCondition"
 import type { DiscountRuleMetadata } from "./discountRuleMetadata"
 
 /**
@@ -23,8 +23,8 @@ export interface DiscountRule {
   value?: number
   /** The scope that the discount should apply to. */
   allocation?: DiscountRuleAllocation
-  /** A set of Products that the discount can be used for. */
-  valid_for?: Product[]
+  /** A set of conditions that can be used to limit when  the discount can be used */
+  conditions?: DiscountCondition[]
   /** The date with timezone at which the resource was created. */
   created_at?: string
   /** The date with timezone at which the resource was last updated. */

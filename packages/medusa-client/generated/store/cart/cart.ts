@@ -25,8 +25,8 @@ import type {
   PostCartsCartPaymentSessionsSession200,
   PostCartsCartPaymentSession200,
   PostCartsCartPaymentSessionBody,
-  PostCartsCartPaymentMethodUpdate200,
-  PostCartsCartPaymentMethodUpdateBody,
+  PostCartsCart200,
+  PostCartsCartBody,
 } from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
@@ -206,15 +206,15 @@ export const postCartsCartPaymentSession = (
  * Updates a Cart.
  * @summary Update a Cart"
  */
-export const postCartsCartPaymentMethodUpdate = (
+export const postCartsCart = (
   id: string,
-  postCartsCartPaymentMethodUpdateBody: PostCartsCartPaymentMethodUpdateBody
+  postCartsCartBody: PostCartsCartBody
 ) => {
-  return getClient<PostCartsCartPaymentMethodUpdate200>({
+  return getClient<PostCartsCart200>({
     url: `/store/carts/${id}`,
     method: "post",
     headers: { "Content-Type": "application/json" },
-    data: postCartsCartPaymentMethodUpdateBody,
+    data: postCartsCartBody,
   })
 }
 
@@ -265,6 +265,6 @@ export type PostCartsCartPaymentSessionsSessionResult = NonNullable<
 export type PostCartsCartPaymentSessionResult = NonNullable<
   AsyncReturnType<typeof postCartsCartPaymentSession>
 >
-export type PostCartsCartPaymentMethodUpdateResult = NonNullable<
-  AsyncReturnType<typeof postCartsCartPaymentMethodUpdate>
+export type PostCartsCartResult = NonNullable<
+  AsyncReturnType<typeof postCartsCart>
 >

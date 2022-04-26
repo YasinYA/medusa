@@ -6,6 +6,8 @@ const { setPort, useApi } = require("../../../helpers/use-api")
 
 const adminSeeder = require("../../helpers/admin-seeder")
 
+jest.setTimeout(30000)
+
 const {
   simpleOrderFactory,
   simpleStoreFactory,
@@ -105,6 +107,7 @@ describe("medusa-plugin-sendgrid", () => {
       },
       items: [
         {
+          adjustments: [],
           created_at: expect.any(Date),
           updated_at: expect.any(Date),
           order_id: expect.any(String),
@@ -225,6 +228,7 @@ describe("medusa-plugin-sendgrid", () => {
         },
         items: [
           {
+            adjustments: [],
             created_at: expect.any(Date),
             updated_at: expect.any(Date),
             order_id: expect.any(String),
@@ -283,6 +287,7 @@ describe("medusa-plugin-sendgrid", () => {
       },
       items: [
         {
+          adjustments: [],
           created_at: expect.any(Date),
           updated_at: expect.any(Date),
           order_id: expect.any(String),

@@ -65,7 +65,7 @@ export const getPostCartsCartPaymentSessionMock = () => ({
   cart: faker.helpers.randomize([{}, undefined]),
 })
 
-export const getPostCartsCartPaymentMethodUpdateMock = () => ({
+export const getPostCartsCartMock = () => ({
   cart: faker.helpers.randomize([{}, undefined]),
 })
 
@@ -175,7 +175,7 @@ export const getCartMSW = () => [
     return res(
       ctx.delay(1000),
       ctx.status(200, "Mocked status"),
-      ctx.json(getPostCartsCartPaymentMethodUpdateMock())
+      ctx.json(getPostCartsCartMock())
     )
   }),
 ]

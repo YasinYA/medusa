@@ -5,15 +5,51 @@
  * OpenAPI spec version: 1.0.0
  */
 import type {
+  PostCustomerGroupsGroupCustomersBatch200,
+  PostCustomerGroupsGroupCustomersBatchBody,
+  DeleteCustomerGroupsGroupCustomerBatch200,
+  DeleteCustomerGroupsGroupCustomerBatchBody,
   PostCustomerGroups200,
   PostCustomerGroupsBody,
+  GetCustomerGroups200,
+  GetCustomerGroupsParams,
   DeleteCustomerGroupsCustomerGroup200,
+  GetCustomerGroupsGroup200,
   PostCustomerGroupsGroup200,
   PostCustomerGroupsGroupBody,
-  GetCustomerGroupsGroup200,
 } from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
+/**
+ * Adds a list of customers, represented by id's, to a customer group.
+ * @summary Add a list of customers to a customer group
+ */
+export const postCustomerGroupsGroupCustomersBatch = (
+  id: string,
+  postCustomerGroupsGroupCustomersBatchBody: PostCustomerGroupsGroupCustomersBatchBody
+) => {
+  return getClient<PostCustomerGroupsGroupCustomersBatch200>({
+    url: `/admin/customer-groups/${id}/customers/batch`,
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    data: postCustomerGroupsGroupCustomersBatchBody,
+  })
+}
+/**
+ * Removes a list of customers, represented by id's, from a customer group.
+ * @summary Remove a list of customers from a customer group
+ */
+export const deleteCustomerGroupsGroupCustomerBatch = (
+  id: string,
+  deleteCustomerGroupsGroupCustomerBatchBody: DeleteCustomerGroupsGroupCustomerBatchBody
+) => {
+  return getClient<DeleteCustomerGroupsGroupCustomerBatch200>({
+    url: `/admin/customer-groups/${id}/customers/batch`,
+    method: "delete",
+    headers: { "Content-Type": "application/json" },
+    data: deleteCustomerGroupsGroupCustomerBatchBody,
+  })
+}
 /**
  * Creates a CustomerGroup.
  * @summary Create a CustomerGroup
@@ -29,6 +65,17 @@ export const postCustomerGroups = (
   })
 }
 /**
+ * Retrieve a list of customer groups.
+ * @summary Retrieve a list of customer groups
+ */
+export const getCustomerGroups = (params?: GetCustomerGroupsParams) => {
+  return getClient<GetCustomerGroups200>({
+    url: `/admin/customer-groups`,
+    method: "get",
+    params,
+  })
+}
+/**
  * Deletes a CustomerGroup.
  * @summary Delete a CustomerGroup
  */
@@ -36,6 +83,16 @@ export const deleteCustomerGroupsCustomerGroup = (id: string) => {
   return getClient<DeleteCustomerGroupsCustomerGroup200>({
     url: `/admin/customer-groups/${id}`,
     method: "delete",
+  })
+}
+/**
+ * Retrieves a Customer Group.
+ * @summary Retrieve a CustomerGroup
+ */
+export const getCustomerGroupsGroup = (id: string) => {
+  return getClient<GetCustomerGroupsGroup200>({
+    url: `/admin/customer-groups/${id}`,
+    method: "get",
   })
 }
 /**
@@ -53,16 +110,6 @@ export const postCustomerGroupsGroup = (
     data: postCustomerGroupsGroupBody,
   })
 }
-/**
- * Retrieves a Customer Group.
- * @summary Retrieve a CustomerGroup
- */
-export const getCustomerGroupsGroup = (id: string) => {
-  return getClient<GetCustomerGroupsGroup200>({
-    url: `/admin/customer-group/${id}`,
-    method: "get",
-  })
-}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
@@ -71,15 +118,24 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   ? R
   : any
 
+export type PostCustomerGroupsGroupCustomersBatchResult = NonNullable<
+  AsyncReturnType<typeof postCustomerGroupsGroupCustomersBatch>
+>
+export type DeleteCustomerGroupsGroupCustomerBatchResult = NonNullable<
+  AsyncReturnType<typeof deleteCustomerGroupsGroupCustomerBatch>
+>
 export type PostCustomerGroupsResult = NonNullable<
   AsyncReturnType<typeof postCustomerGroups>
+>
+export type GetCustomerGroupsResult = NonNullable<
+  AsyncReturnType<typeof getCustomerGroups>
 >
 export type DeleteCustomerGroupsCustomerGroupResult = NonNullable<
   AsyncReturnType<typeof deleteCustomerGroupsCustomerGroup>
 >
-export type PostCustomerGroupsGroupResult = NonNullable<
-  AsyncReturnType<typeof postCustomerGroupsGroup>
->
 export type GetCustomerGroupsGroupResult = NonNullable<
   AsyncReturnType<typeof getCustomerGroupsGroup>
+>
+export type PostCustomerGroupsGroupResult = NonNullable<
+  AsyncReturnType<typeof postCustomerGroupsGroup>
 >

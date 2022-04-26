@@ -9,6 +9,8 @@ import type { PostDiscountsDiscountDynamicCodesBodyMetadata } from "./postDiscou
 export type PostDiscountsDiscountDynamicCodesBody = {
   /** The unique code that will be used to redeem the Discount. */
   code: string
+  /** amount of times the discount can be applied */
+  usage_limit: number
   /** An optional set of key-value paris to hold additional information. */
   metadata?: PostDiscountsDiscountDynamicCodesBodyMetadata
 }

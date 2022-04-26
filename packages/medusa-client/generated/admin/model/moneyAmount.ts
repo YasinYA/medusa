@@ -16,8 +16,10 @@ export interface MoneyAmount {
   currency_code?: string
   /** The amount in the smallest currecny unit (e.g. cents 100 cents to charge $1) that the Product Variant will cost. */
   amount?: number
-  /** An optional sale amount that the Product Variant will be available for when defined. */
-  sale_amount?: number
+  /** The minimum quantity that the Money Amount applies to. If this value is not set, the Money Amount applies to all quantities. */
+  min_quantity?: number
+  /** The maximum quantity that the Money Amount applies to. If this value is not set, the Money Amount applies to all quantities. */
+  max_quantity?: number
   /** The id of the Product Variant that the Money Amount belongs to. */
   variant_id?: string
   /** The id of the Region that the Money Amount is defined for. */
