@@ -7,16 +7,6 @@
 import { rest } from "msw"
 import { faker } from "@faker-js/faker"
 
-export const getGetPriceListsPriceListProductsMock = () => ({
-  count: faker.helpers.randomize([faker.datatype.number(), undefined]),
-  offset: faker.helpers.randomize([faker.datatype.number(), undefined]),
-  limit: faker.helpers.randomize([faker.datatype.number(), undefined]),
-  products: faker.helpers.randomize([
-    [...Array(faker.datatype.number({ min: 1, max: 10 }))].map(() => ({})),
-    undefined,
-  ]),
-})
-
 export const getPostProductsProductOptionsMock = () => ({
   product: faker.helpers.randomize([{}, undefined]),
 })
@@ -92,14 +82,17 @@ export const getPostProductsProductMetadataMock = () => ({
   product: faker.helpers.randomize([{}, undefined]),
 })
 
+export const getGetPriceListsPriceListProductsMock = () => ({
+  count: faker.helpers.randomize([faker.datatype.number(), undefined]),
+  offset: faker.helpers.randomize([faker.datatype.number(), undefined]),
+  limit: faker.helpers.randomize([faker.datatype.number(), undefined]),
+  products: faker.helpers.randomize([
+    [...Array(faker.datatype.number({ min: 1, max: 10 }))].map(() => ({})),
+    undefined,
+  ]),
+})
+
 export const getProductMSW = () => [
-  rest.get("*/admin/price-lists/:id/products", (_req, res, ctx) => {
-    return res(
-      ctx.delay(1000),
-      ctx.status(200, "Mocked status"),
-      ctx.json(getGetPriceListsPriceListProductsMock())
-    )
-  }),
   rest.post("*/admin/products/:id/options", (_req, res, ctx) => {
     return res(
       ctx.delay(1000),
@@ -196,6 +189,13 @@ export const getProductMSW = () => [
       ctx.delay(1000),
       ctx.status(200, "Mocked status"),
       ctx.json(getPostProductsProductMetadataMock())
+    )
+  }),
+  rest.get("*/admin/price-lists/:id/products", (_req, res, ctx) => {
+    return res(
+      ctx.delay(1000),
+      ctx.status(200, "Mocked status"),
+      ctx.json(getGetPriceListsPriceListProductsMock())
     )
   }),
 ]

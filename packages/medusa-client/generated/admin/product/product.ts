@@ -5,8 +5,6 @@
  * OpenAPI spec version: 1.0.0
  */
 import type {
-  GetPriceListsPriceListProducts200,
-  GetPriceListsPriceListProductsParams,
   PostProductsProductOptions200,
   PostProductsProductOptionsBody,
   PostProducts200,
@@ -29,22 +27,11 @@ import type {
   GetProductsTypes200,
   PostProductsProductMetadata200,
   PostProductsProductMetadataBody,
+  GetPriceListsPriceListProducts200,
+  GetPriceListsPriceListProductsParams,
 } from ".././model"
 import { getClient } from "../../../src/custom-instance"
 
-/**
- * Retrieves a list of Product that are part of a Price List
- * @summary List Product in a Price List
- */
-export const getPriceListsPriceListProducts = (
-  params?: GetPriceListsPriceListProductsParams
-) => {
-  return getClient<GetPriceListsPriceListProducts200>({
-    url: `/admin/price-lists/:id/products`,
-    method: "get",
-    params,
-  })
-}
 /**
  * Adds a Product Option to a Product
  * @summary Add an Option
@@ -226,6 +213,19 @@ export const postProductsProductMetadata = (
     data: postProductsProductMetadataBody,
   })
 }
+/**
+ * Retrieves a list of Product that are part of a Price List
+ * @summary List Product in a Price List
+ */
+export const getPriceListsPriceListProducts = (
+  params?: GetPriceListsPriceListProductsParams
+) => {
+  return getClient<GetPriceListsPriceListProducts200>({
+    url: `/admin/price-lists/:id/products`,
+    method: "get",
+    params,
+  })
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
@@ -234,9 +234,6 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   ? R
   : any
 
-export type GetPriceListsPriceListProductsResult = NonNullable<
-  AsyncReturnType<typeof getPriceListsPriceListProducts>
->
 export type PostProductsProductOptionsResult = NonNullable<
   AsyncReturnType<typeof postProductsProductOptions>
 >
@@ -276,4 +273,7 @@ export type GetProductsTypesResult = NonNullable<
 >
 export type PostProductsProductMetadataResult = NonNullable<
   AsyncReturnType<typeof postProductsProductMetadata>
+>
+export type GetPriceListsPriceListProductsResult = NonNullable<
+  AsyncReturnType<typeof getPriceListsPriceListProducts>
 >
